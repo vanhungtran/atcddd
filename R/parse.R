@@ -28,31 +28,44 @@ parse_ddd_table <- function(html) {
 
   target <- NULL
   for (tb in tables) {
-    df <- rvest::html_table(tb, header = TRUE, fill = TRUE, trim = TRUE)
-    nms <- tolower(names(df))
+    df_try <- rvest::html_table(tb, header = TRUE, fill = TRUE, trim = TRUE)
+    nms <- tolower(names(df_try))
     if (any(stringr::str_detect(nms, "atc.*code")) && any(stringr::str_detect(nms, "name"))) {
-      target <- df; break
+      target <- df_try; break
     }
   }
   if (is.null(target)) target <- rvest::html_table(tables[[1]], header = TRUE, fill = TRUE, trim = TRUE)
+
   df <- tibble::as_tibble(target)
   names(df) <- tolower(stringr::str_trim(names(df)))
 
   col_map <- c(
     "atc code" = "atc_code", "atc_code" = "atc_code", "code" = "atc_code",
-    "name" = "atc_name", "ddd" = "ddd",
-    "u" = "uom", "unit" = "uom",
+    "name" = "atc_name",
+    "ddd" = "ddd",
+    "u"   = "uom", "unit" = "uom",
     "adm.r" = "adm_r", "adm r" = "adm_r", "route" = "adm_r",
     "note" = "note", "notes" = "note"
   )
   names(df) <- purrr::map_chr(names(df), ~ col_map[[.x]] %||% .x)
+
   keep <- intersect(c("atc_code","atc_name","ddd","uom","adm_r","note"), names(df))
   df <- dplyr::select(df, dplyr::all_of(keep))
 
-  df |>
+  df <- df |>
     dplyr::mutate(dplyr::across(dplyr::everything(),
-                                ~ dplyr::na_if(stringr::str_squish(as.character(.)), ""))) |>
-    tidyr::fill(.data$atc_code, .data$atc_name, .direction = "down") |>
-    dplyr::filter(!is.na(.data$atc_code))
-}
+                                ~ dplyr::na_if(stringr::str_squish(as.character(.)), "")))
 
+  # FILL: use tidyselect with all_of() (no .data pronoun here)
+  fill_cols <- intersect(c("atc_code","atc_name"), names(df))
+  if (length(fill_cols)) {
+    df <- tidyr::fill(df, dplyr::all_of(fill_cols), .direction = "down")
+  }
+
+  # FILTER: .data is OK in dplyr verbs; guard for existence
+  if ("atc_code" %in% names(df)) {
+    df <- dplyr::filter(df, !is.na(.data$atc_code))
+  }
+
+  df
+}

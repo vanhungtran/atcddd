@@ -16,3 +16,24 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+
+
+
+
+
+
+
+
+```{r}
+library(atcddd)
+out_dir <- getwd()
+res <- atc_crawl(rate = 0.5, progress = TRUE)
+#paths <- atc_write_csv(res, dir = out_dir, stamp = TRUE)
+#atc_write_manifest(paths)
+```
+
+```{r}
+res$codes %>% DT::datatable()
+```
+
