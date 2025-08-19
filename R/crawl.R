@@ -1,19 +1,23 @@
 #' @keywords internal
+
 atc_fetch_code <- function(code, rate = 0.5) {
   stopifnot(is_valid_atc_code(code))
   url <- paste0(atc_base_url(), code, "&showdescription=no")
   cli::cli_alert_info("Fetching {url}")
-  html <- http_get_html_cached(url, min_delay = rate)
+  html <- fetch_html(url, rate = rate)  # <-- changed here
 
   if (is_leaf_page(html)) {
     ddd <- parse_ddd_table(html)
-    codes <- if (!is.null(ddd) && nrow(ddd)) dplyr::distinct(ddd, atc_code, atc_name) else tibble::tibble(atc_code = code, atc_name = NA_character_)
+    codes <- if (!is.null(ddd) && nrow(ddd)) dplyr::distinct(ddd, atc_code, atc_name)
+    else tibble::tibble(atc_code = code, atc_name = NA_character_)
     list(type = "leaf", code = code, children = tibble::tibble(), ddd = ddd %||% tibble::tibble(), codes = codes)
   } else {
     kids <- parse_children(html, code)
     list(type = "parent", code = code, children = kids, ddd = tibble::tibble(), codes = kids)
   }
 }
+
+
 
 #' Crawl WHO ATC/DDD from one or more root codes
 #'
