@@ -1,0 +1,13 @@
+^\.github$
+^docs$
+^_pkgdown\.yml$
+^vignettes/.*\.html$
+^README-assets$
+^\.Rproj\.user$
+^pkgdown$
+^codecov\.yml$
+^\.devcontainer$
+
+^.*\.Rproj$
+^doc$
+^Meta$

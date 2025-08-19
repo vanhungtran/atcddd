@@ -1,0 +1,15 @@
+.Rhistory
+.Rproj.user
+.Rprofile
+.DS_Store
+.httr2
+docs
+inst/doc
+vignettes/*.html
+vignettes/*.R
+
+/doc/
+/Meta/
+.Rdata
+.httr-oauth
+.quarto
