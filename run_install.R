@@ -16,3 +16,37 @@ devtools::check()
 
 
 usethis::use_github_release()
+
+
+usethis::use_git_remote("origin", "https://github.com/vanhungtran/atcddd.git", overwrite = TRUE)
+gert::git_push(remote = "origin", set_upstream = TRUE)
+
+
+if (!("git2r" %in% installed.packages()[,"Package"])) {
+  install.packages("git2r")
+}
+
+
+
+
+# Load the library
+library(git2r)
+
+# Set the path to your repository (change this to your repo path)
+repo_path <- here::here()
+repo <- repository(repo_path)
+
+# Stage files (add all changes)
+add(repo, "*")
+
+# Commit changes with a message
+commit(repo, "Your commit message here")
+
+
+
+
+
+
+
+usethis::use_git_remote("origin", "https://github.com/vanhungtran/atcddd.git", overwrite = TRUE)
+gert::git_push(remote = "origin", set_upstream = TRUE)
