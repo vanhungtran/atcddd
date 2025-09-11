@@ -42,7 +42,7 @@ repo <- repository(repo_path)
 add(repo, "*")
 
 # Commit changes with a message
-commit(repo, "Your commit message here")
+commit(repo,paste0( "New update - ", date()))
 
 
 

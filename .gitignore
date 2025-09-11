@@ -3,6 +3,8 @@
 .Rprofile
 .DS_Store
 .httr2
+run_install.R
+README.Rmd
 docs
 inst/doc
 vignettes/*.html
