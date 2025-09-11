@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Tutorial for R package atcddd
+# Tutorial for R package ‘atcddd’
 
 ## Lucas TRAN
 
@@ -24,7 +24,7 @@ version \>= 4.2.3 is required.
 
 ## Example
 
-    #The DNAm betas matrix
+    res <- atc_crawl(rate = 0.5, progress = TRUE)
 
     #>res
     #>$codes
