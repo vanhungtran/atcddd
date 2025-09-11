@@ -11,3 +11,4 @@
 ^.*\.Rproj$
 ^doc$
 ^Meta$
+^LICENSE\.md$

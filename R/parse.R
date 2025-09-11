@@ -40,12 +40,18 @@ parse_ddd_table <- function(html) {
   names(df) <- tolower(stringr::str_trim(names(df)))
 
   col_map <- c(
-    "atc code" = "atc_code", "atc_code" = "atc_code", "code" = "atc_code",
+    "atc code" = "atc_code",
+    "atc_code" = "atc_code",
+    "code" = "atc_code",
     "name" = "atc_name",
     "ddd" = "ddd",
-    "u"   = "uom", "unit" = "uom",
-    "adm.r" = "adm_r", "adm r" = "adm_r", "route" = "adm_r",
-    "note" = "note", "notes" = "note"
+    "u"   = "uom",
+    "unit" = "uom",
+    "adm.r" = "adm_r",
+    "adm r" = "adm_r",
+    "route" = "adm_r",
+    "note" = "note",
+    "notes" = "note"
   )
   names(df) <- purrr::map_chr(names(df), ~ col_map[[.x]] %||% .x)
 

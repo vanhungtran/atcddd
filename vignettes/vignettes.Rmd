@@ -17,6 +17,12 @@ knitr::opts_chunk$set(
 ```
 
 
+## ATC Classification:
+The ATC system assigns codes to drugs, with each level representing a different level of detail. For example: 
+
++ Level 1: Main anatomical group (e.g., nervous system) 
++ Level 2: Therapeutic or pharmacological subgroup (e.g., psycholeptics) 
++ Level 3-5: Further subdivisions into chemical, pharmacological, or therapeutic subgroups and chemical substances 
 
 
 
@@ -24,8 +30,7 @@ knitr::opts_chunk$set(
 
 
 
-
-```{r}
+```{r, results = "hide", message=FALSE, warning=FALSE}
 library(tidyverse)
 library(atcddd)
 out_dir <- getwd()
@@ -33,8 +38,17 @@ res <- atc_crawl(rate = 0.5, progress = TRUE)
 #paths <- atc_write_csv(res, dir = out_dir, stamp = TRUE)
 #atc_write_manifest(paths)
 ```
-
+## ATC
 ```{r}
 res$codes %>% DT::datatable()
 ```
+
+
+## DDD
+```{r}
+res$ddd %>% DT::datatable()
+```
+
+
+
 
