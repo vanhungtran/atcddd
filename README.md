@@ -20,12 +20,9 @@
   Groups](#bar_chart-example-visualize-top-anatomical-groups)
 - [🤝 Contributing](#handshake-contributing)
 - [📜 License](#scroll-license)
-- [🙏 Acknowledgements](#pray-acknowledgements)
 - [❓ Need Help?](#question-need-help)
-- [🖌️ Customize Further](#paintbrush-customize-further)
-- [🎁 Bonus: Generate a Hex Sticker in
-  R](#gift-bonus-generate-a-hex-sticker-in-r)
 - [Reference](#reference)
+- [🙏 Acknowledgements](#pray-acknowledgements)
 
 <!-- README.md is auto-generated from README.Rmd -->
 
@@ -269,14 +266,6 @@ See [LICENSE.md](LICENSE.md) for full text.
 
 ------------------------------------------------------------------------
 
-## 🙏 Acknowledgements
-
-- WHO Collaborating Centre for Drug Statistics Methodology — for
-  maintaining the ATC/DDD Index
-- Inspired by packages: `stringdist`, `dplyr`, `fuzzyjoin`, `rvest`
-- Hex sticker design: Use `hexSticker` package or
-  [hexb.in](https://hexb.in)
-
 ------------------------------------------------------------------------
 
 ## ❓ Need Help?
@@ -295,34 +284,45 @@ community.</em> <br><br>
 
 ------------------------------------------------------------------------
 
-4.  Commit both `README.Rmd` and `README.md` to GitHub.
+<div align="center">
 
-> 💡 Tip: Add `README.md` to `.Rbuildignore` if you don’t want it in the
-> built package (optional).
+<img src="man/figures/logo.png" width="220">
 
+</div>
+
+## Reference
+
+## 🙏 Acknowledgements
+
+- WHO Collaborating Centre for Drug Statistics Methodology — for
+  maintaining the ATC/DDD Index
+- Inspired by packages: `stringdist`, `dplyr`, `fuzzyjoin`, `rvest`
+- Hex sticker design: Use `hexSticker` package or
+  [hexb.in](https://hexb.in)
+
+<!---
+&#10;
+4. Commit both `README.Rmd` and `README.md` to GitHub.
+&#10;> 💡 Tip: Add `README.md` to `.Rbuildignore` if you don’t want it in the built package (optional).
+&#10;
 ## 🖌️ Customize Further
-
 - Replace `yourusername` with your GitHub username
 - Replace `[Your Name or Organization]` and email
-- Add your hex sticker image under `man/figures/logo.png` and uncomment
-  the image line if desired
+- Add your hex sticker image under `man/figures/logo.png` and uncomment the image line if desired
 - Update example code to match your actual function names and outputs
-
-## 🎁 Bonus: Generate a Hex Sticker in R
-
-If you want to create a hex sticker, install `hexSticker` and run:
-
-``` r
+&#10;
+&#10;
+&#10;🎁 Bonus: Generate a Hex Sticker in R
+&#10;If you want to create a hex sticker, install `hexSticker` and run:
+&#10;
 library(ggplot2)
 library(hexSticker)
-
-# Just a centered "A" for ATC
+&#10;# Just a centered "A" for ATC
 p <- ggplot() + 
   annotate("text", x = 1, y = 1, label = "A", size = 20, fontface = "bold") +
   xlim(0.5, 1.5) + ylim(0.5, 1.5) +
   theme_void()
-
-sticker(
+&#10;sticker(
   subplot = p,
   package = "atcddd",
   p_size = 20,
@@ -332,14 +332,7 @@ sticker(
   filename = "man/figures/logo.png",
   h_fill = "#2a9d8f",
   h_color = "#264653",
+&#10;)
+ &#10;-->
 
-)
-```
-
-<div align="center">
-
-<img src="man/figures/logo.png" width="220">
-
-</div>
-
-## Reference
+\`\`\`
