@@ -23,18 +23,12 @@
 - [🙏 Acknowledgements](#pray-acknowledgements)
 
 <!-- README.md is auto-generated from README.Rmd -->
+<!-- Please edit README.Rmd, not README.md directly -->
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+# Tutorial for R Package 'atcddd'
 
-<!-- README.md is auto-generated from README.Rmd -->
-
-# Tutorial for R package ‘atcddd’
-
-Lucas TRAN 10/09/2025
-
-## Introduction
-
-*atcddd*
+**Lucas VHH TRAN**  
+*Last Updated: November 9, 2025*
 
 <div align="center">
 
@@ -60,128 +54,170 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 
 ## 📖 Overview
 
-**`atcddd`** is an R package that simplifies working with **ATC codes**
-— the World Health Organization’s global classification system for
-medicinal products. Whether you’re analyzing prescription databases,
-mapping drug classes, validating inputs, or linking drug names to codes,
-`atcddd` provides intuitive, fast, and reliable tools.
+**`atcddd`** is a comprehensive R package for working with the **World Health Organization's 
+Anatomical Therapeutic Chemical (ATC) Classification System** and **Defined Daily Dose (DDD)** 
+values. This package provides robust tools for:
+
+- 🌐 **Web Crawling**: Automated retrieval from the WHO ATC/DDD index
+- 💾 **Data Management**: Efficient caching and rate-limited requests
+- 📊 **Data Processing**: Parse and organize ATC hierarchies and DDD specifications
+- ✅ **Reproducibility**: Generate SHA256 checksums for data verification
+- 📦 **Export**: Save results in tidy CSV format with optional date stamping
 
 ### ✅ Key Features
 
-- ✔ Validate ATC code structure (L1 to L5)
-- ✔ Get official WHO descriptions for any code
-- ✔ Extract anatomical, therapeutic, or chemical groups
-- ✔ Navigate between ATC hierarchy levels
-- ✔ Fuzzy-search drug names → ATC codes
-- ✔ Access built-in reference tables (updated to latest WHO version)
+- ✔ **Crawl the entire ATC/DDD index** or specific anatomical groups
+- ✔ **Hierarchical navigation** through the 5-level ATC classification
+- ✔ **Robust error handling** for malformed HTML and missing data
+- ✔ **Filesystem caching** to minimize redundant HTTP requests
+- ✔ **Rate limiting** to respect WHO server resources
+- ✔ **Checksum manifests** for reproducible research workflows
+- ✔ **Tidy data output** compatible with tidyverse tools
 
-Perfect for **pharmacoepidemiology**, **health services research**,
-**drug utilization studies**, and **clinical data science**.
+**Perfect for:**
+- 💊 Pharmacoepidemiology research
+- 🏥 Health services and outcomes research
+- 📈 Drug utilization studies
+- 🔬 Clinical data science and pharmacovigilance
+- 📚 Pharmaceutical classification and regulatory analysis
 
 ------------------------------------------------------------------------
 
 ## 🚀 Installation
 
-The code of *atcddd* is freely available at
+### From GitHub (Development Version)
+
+The source code for **`atcddd`** is freely available at 
 <https://github.com/vanhungtran/atcddd>.
 
-The following commands can be used to install this R package, and an R
-version \>= 4.2.3 is required.
+**Requirements:** R version ≥ 4.2.3
 
-    library(devtools)
-    install_github("vanhungtran/atcddd")
+```r
+# Install from GitHub using devtools
+install.packages("devtools")
+devtools::install_github("vanhungtran/atcddd")
 
-Load the package:
+# Or using remotes
+install.packages("remotes")
+remotes::install_github("vanhungtran/atcddd")
+```
 
-``` r
+### Load the Package
+
+```r
 library(atcddd)
 ```
 
-## 🧪 Quick Examples
+### System Dependencies
 
-    res <- atc_crawl(rate = 0.5, progress = TRUE)
+The package requires an internet connection for crawling WHO data. All other
+dependencies are automatically installed:
 
-    #>res
-    #>$codes
-    #># A tibble: 500 × 2
-    #>   atc_code atc_name                          
-    #>   <chr>    <chr>                             
-    #> 1 D01      ANTIFUNGALS FOR DERMATOLOGICAL USE
-    #> 2 D01A     ANTIFUNGALS FOR TOPICAL USE       
-    #> 3 D01AA    Antibiotics                       
-    #> 4 D01AA01  nystatin                          
-    #> 5 D01AA02  natamycin                         
-    #> 6 D01AA03  hachimycin                        
-    #> 7 D01AA04  pecilocin                         
-    #> 8 D01AA06  mepartricin                       
-    #> 9 D01AA07  pyrrolnitrin                      
-    #>10 D01AA08  griseofulvin                      
-    #># ℹ 490 more rows
-    #># ℹ Use `print(n = ...)` to see more rows
+- `httr2` - Modern HTTP client
+- `rvest` - Web scraping
+- `dplyr`, `tidyr` - Data manipulation
+- `cli` - User-friendly messages
+- `memoise` - Caching
+- `digest` - Checksums
 
-    #>$ddd
-    #># A tibble: 392 × 7
-    #>   source_code atc_code atc_name                                        ddd   uom   adm_r note 
-    #>   <chr>       <chr>    <chr>                                           <chr> <chr> <chr> <chr>
-    #> 1 D01AA       D01AA01  nystatin                                        NA    NA    NA    NA   
-    #> 2 D01AA       D01AA02  natamycin                                       NA    NA    NA    NA   
-    #> 3 D01AA       D01AA03  hachimycin                                      NA    NA    NA    NA   
-    #> 4 D01AA       D01AA04  pecilocin                                       NA    NA    NA    NA   
-    #> 5 D01AA       D01AA06  mepartricin                                     NA    NA    NA    NA   
-    #> 6 D01AA       D01AA07  pyrrolnitrin                                    NA    NA    NA    NA   
-    #> 7 D01AA       D01AA08  griseofulvin                                    NA    NA    NA    NA   
-    #> 8 D01AA       D01AA20  antibiotics in combination with corticosteroids NA    NA    NA    NA   
-    #> 9 D01AC       D01AC01  clotrimazole                                    NA    NA    NA    NA   
-    #>10 D01AC       D01AC02  miconazole                                      NA    NA    NA    NA   
-    #># ℹ 382 more rows
-    #># ℹ Use `print(n = ...)` to see more rows
+------------------------------------------------------------------------
 
-### Validate an ATC code
+## 🧪 Quick Start
 
-``` r
-is_valid_atc("N02BE01")  # Paracetamol combo
-#> [1] TRUE
+### Basic Crawling
 
-is_valid_atc("X99ZZ99")  # Invalid
-#> [1] FALSE
+Crawl a specific anatomical group (e.g., Dermatologicals):
+
+```r
+# Crawl dermatological drugs (ATC code D)
+res <- atc_crawl(roots = "D", rate = 0.5, progress = TRUE, max_codes = 100)
+
+# View structure
+str(res)
+#> List of 2
+#>  $ codes:tibble [100 × 2] (S3: tbl_df/tbl/data.frame)
+#>   ..$ atc_code: chr [1:100] "D" "D01" "D01A" "D01AA" ...
+#>   ..$ atc_name: chr [1:100] "DERMATOLOGICALS" "ANTIFUNGALS FOR DERMATOLOGICAL USE" ...
+#>  $ ddd  :tibble [50 × 7] (S3: tbl_df/tbl/data.frame)
+#>   ..$ source_code: chr [1:50] "D01AA" "D01AA" ...
+#>   ..$ atc_code   : chr [1:50] "D01AA01" "D01AA02" ...
+#>   ..$ atc_name   : chr [1:50] "nystatin" "natamycin" ...
+#>   ..$ ddd        : chr [1:50] NA NA ...
+#>   ..$ uom        : chr [1:50] NA NA ...
+#>   ..$ adm_r      : chr [1:50] NA NA ...
+#>   ..$ note       : chr [1:50] NA NA ...
+
+# Examine codes
+head(res$codes, 10)
+#> # A tibble: 10 × 2
+#>    atc_code atc_name                          
+#>    <chr>    <chr>                             
+#>  1 D01      ANTIFUNGALS FOR DERMATOLOGICAL USE
+#>  2 D01A     ANTIFUNGALS FOR TOPICAL USE       
+#>  3 D01AA    Antibiotics                       
+#>  4 D01AA01  nystatin                          
+#>  5 D01AA02  natamycin                         
+#> ...
+
+# Examine DDD data
+head(res$ddd, 5)
+#> # A tibble: 5 × 7
+#>   source_code atc_code atc_name  ddd   uom   adm_r note 
+#>   <chr>       <chr>    <chr>     <chr> <chr> <chr> <chr>
+#> 1 D01AA       D01AA01  nystatin  NA    NA    NA    NA   
+#> 2 D01AA       D01AA02  natamycin NA    NA    NA    NA   
+#> ...
 ```
 
-### Get description
+### Export to CSV
 
-``` r
-atc_description("N02BE01")
-#> [1] "Paracetamol, combinations excl. psycholeptics"
+```r
+# Write results to CSV files with date stamp
+paths <- atc_write_csv(res, dir = "output", stamp = TRUE)
+#> ℹ Writing WHO_ATC_codes_2025-11-09.csv (100 rows)
+#> ℹ Writing WHO_ATC_DDD_2025-11-09.csv (50 rows)
+#> ✔ Successfully wrote 2 files to output/
+
+# View file paths
+paths
+#> [1] "output/WHO_ATC_codes_2025-11-09.csv"
+#> [2] "output/WHO_ATC_DDD_2025-11-09.csv"
 ```
 
-### Extract anatomical group (Level 1)
+### Generate Checksums
 
-``` r
-atc_level("N02BE01", level = 1)
-#> [1] "N: Nervous system"
+```r
+# Create manifest for reproducibility
+atc_write_manifest(paths)
+#> ℹ Computing checksums for 2 files...
+#> ✔ Wrote manifest: output/MANIFEST.csv
 ```
 
-### Fuzzy match drug name → ATC code
-
-``` r
-find_atc_code("Tylenol")
-#> [1] "N02BE01"
-
-find_atc_code("Metformin")
-#> [1] "A10BA02"
-```
+------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
 ## 📚 Core Functions
 
-| Function            | Description                                      |
-|---------------------|--------------------------------------------------|
-| `is_valid_atc()`    | Validate ATC code format and structure           |
-| `atc_description()` | Retrieve official WHO description                |
-| `atc_level()`       | Extract code at specified level (1-5)            |
-| `find_atc_code()`   | Fuzzy match drug name to best ATC code           |
-| `atc_table()`       | Get full reference table of ATC codes & metadata |
-| `atc_search()`      | Search codes/descriptions by keyword             |
+| Function                 | Description                                                      |
+|--------------------------|------------------------------------------------------------------|
+| `atc_crawl()`            | Main crawling function - retrieves ATC codes and DDD data        |
+| `atc_roots_default()`    | Returns the 14 main anatomical groups (A-V)                      |
+| `atc_write_csv()`        | Export crawl results to dated CSV files                          |
+| `atc_manifest()`         | Generate SHA256 checksums for file verification                  |
+| `atc_write_manifest()`   | Save checksum manifest to CSV                                    |
+
+### Detailed Function Information
+
+Run `?function_name` in R for comprehensive documentation:
+
+```r
+?atc_crawl          # Full crawling documentation
+?atc_write_csv      # CSV export options
+?atc_manifest       # Checksum generation
+```
+
+------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
@@ -224,13 +260,35 @@ atc_table() %>%
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our
-[CONTRIBUTING.md](CONTRIBUTING.md) guide for how to:
+We welcome contributions from the R and healthcare data science community!
 
-- Report bugs
-- Suggest features
-- Submit pull requests
-- Improve documentation
+### How to Contribute
+
+1. **Report Bugs**: Open an issue on [GitHub Issues](https://github.com/vanhungtran/atcddd/issues)
+   - Include a reproducible example
+   - Describe expected vs. actual behavior
+   - Note your R version and operating system
+
+2. **Suggest Features**: Propose enhancements via GitHub Issues
+   - Explain the use case and benefits
+   - Provide example workflows if possible
+
+3. **Submit Pull Requests**:
+   - Fork the repository
+   - Create a feature branch (`git checkout -b feature/amazing-feature`)
+   - Make your changes with tests
+   - Update documentation as needed
+   - Submit a PR with a clear description
+
+4. **Improve Documentation**:
+   - Fix typos or clarify examples
+   - Add vignettes for advanced use cases
+   - Translate documentation
+
+### Code of Conduct
+
+Please note that this project follows a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). 
+By participating, you agree to abide by its terms.
 
 ------------------------------------------------------------------------
 
