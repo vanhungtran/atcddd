@@ -126,9 +126,51 @@ dependencies are automatically installed:
 
 ## 🧪 Quick Start
 
-### Basic Crawling
+### Option 1: High-Level API (Recommended)
 
-Crawl a specific anatomical group (e.g., Dermatologicals):
+Use the clean API functions for most tasks:
+
+```r
+library(atcddd)
+
+# Get data for a specific drug (aspirin)
+aspirin <- get_atc_data("N02BA01")
+aspirin
+#> # A tibble: 1 × 7
+#>   atc_code atc_name level ddd   uom   adm_r note
+#>   <chr>    <chr>    <int> <chr> <chr> <chr> <chr>
+#> 1 N02BA01  aspirin      5 3 g   g     O     ...
+
+# Get all analgesics with their sub-classifications
+analgesics <- get_atc_data("N02", include_children = TRUE)
+head(analgesics, 5)
+#> # A tibble: 5 × 7
+#>   atc_code atc_name                     level ddd   uom   adm_r note
+#>   <chr>    <chr>                        <int> <chr> <chr> <chr> <chr>
+#> 1 N02      ANALGESICS                       2 NA    NA    NA    NA
+#> 2 N02A     OPIOIDS                          3 NA    NA    NA    NA
+#> 3 N02AA    Natural opium alkaloids          4 NA    NA    NA    NA
+#> 4 N02AA01  morphine                         5 0.1 g g     O     ...
+#> 5 N02AA02  opium                            5 NA    NA    NA    NA
+
+# Get hierarchical tree with parent-child relationships
+tree <- get_atc_hierarchy("N02", max_levels = 4)
+tree
+#> # A tibble: 25 × 9
+#>   atc_code atc_name       level parent_code has_children ddd   uom   adm_r note
+#>   <chr>    <chr>          <int> <chr>       <lgl>        <chr> <chr> <chr> <chr>
+#> 1 N02      ANALGESICS         2 N           TRUE         NA    NA    NA    NA
+#> 2 N02A     OPIOIDS            3 N02         TRUE         NA    NA    NA    NA
+#> 3 N02AA    Natural opium...   4 N02A        TRUE         NA    NA    NA    NA
+
+# Validate ATC codes
+is_valid_atc("N02BE01")  # TRUE
+is_valid_atc("invalid")  # FALSE
+```
+
+### Option 2: Low-Level Crawling (Advanced)
+
+For more control over the crawling process:
 
 ```r
 # Crawl dermatological drugs (ATC code D)
@@ -242,6 +284,21 @@ cat("Dermatologicals with DDD:",
 
 ## 📚 Core Functions
 
+### High-Level API Functions
+
+**Recommended for most users** - Clean, user-friendly interface:
+
+| Function                 | Description                                                      |
+|--------------------------|------------------------------------------------------------------|
+| `get_atc_data()`         | Get ATC classification data from WHO database (API-style)        |
+| `get_atc_hierarchy()`    | Retrieve complete hierarchical tree structure                    |
+| `is_valid_atc_code()`    | Validate ATC code format                                         |
+| `is_valid_atc()`         | Alias for `is_valid_atc_code()`                                  |
+
+### Low-Level Functions
+
+**For advanced users** - More control over crawling behavior:
+
 | Function                 | Description                                                      |
 |--------------------------|------------------------------------------------------------------|
 | `atc_crawl()`            | Main crawling function - retrieves ATC codes and DDD data        |
@@ -255,6 +312,12 @@ cat("Dermatologicals with DDD:",
 Run `?function_name` in R for comprehensive documentation:
 
 ```r
+# High-level API
+?get_atc_data       # API-style data retrieval
+?get_atc_hierarchy  # Hierarchical tree structure
+?is_valid_atc_code  # Code validation
+
+# Low-level functions
 ?atc_crawl          # Full crawling documentation
 ?atc_write_csv      # CSV export options
 ?atc_manifest       # Checksum generation

@@ -1,0 +1,23 @@
+atc_code,atc_name
+D,DERMATOLOGICALS
+D01,ANTIFUNGALS FOR DERMATOLOGICAL USE
+D01A,ANTIFUNGALS FOR TOPICAL USE
+D01AA,Antibiotics
+D01AA01,nystatin
+D01AA02,natamycin
+D01AA03,hachimycin
+D01AA04,pecilocin
+D01AA05,mepartricin
+D01AA06,pyrrolnitrin
+D01AA07,griseofulvin
+D01AC,Imidazole and triazole derivatives
+D01AC01,clotrimazole
+D01AC02,miconazole
+D01AE,Other antifungals for topical use
+D01AE01,ciclopirox
+D01AE02,terbinafine
+D02,EMOLLIENTS AND PROTECTIVES
+D02A,EMOLLIENTS AND PROTECTIVES
+D02AA,Softeners and protectives
+D02AA01,white soft paraffin
+D02AA02,liquid paraffin

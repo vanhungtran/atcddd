@@ -1,0 +1,1599 @@
+atc_code,atc_name
+C01,CARDIAC THERAPY
+C01A,CARDIAC GLYCOSIDES
+C01AA,Digitalis glycosides
+C01AA01,acetyldigitoxin
+C01AA02,acetyldigoxin
+C01AA03,digitalis leaves
+C01AA04,digitoxin
+C01AA05,digoxin
+C01AA06,lanatoside C
+C01AA07,deslanoside
+C01AA08,metildigoxin
+C01AA09,gitoformate
+C01AA52,"acetyldigoxin, combinations"
+C01AB,Scilla glycosides
+C01AB01,proscillaridin
+C01AB51,"proscillaridin, combinations"
+C01AC,Strophanthus glycosides
+C01AC01,g-strophanthin
+C01AC03,cymarin
+C01AX,Other cardiac glycosides
+C01AX02,peruvoside
+C01B,"ANTIARRHYTHMICS, CLASS I AND III"
+C01BA,"Antiarrhythmics, class Ia"
+C01BA01,quinidine
+C01BA02,procainamide
+C01BA03,disopyramide
+C01BA04,sparteine
+C01BA05,ajmaline
+C01BA08,prajmaline
+C01BA12,lorajmine
+C01BA13,hydroquinidine
+C01BA51,"quinidine, combinations excl. psycholeptics"
+C01BA71,"quinidine, combinations with psycholeptics"
+C01BB,"Antiarrhythmics, class Ib"
+C01BB01,lidocaine
+C01BB02,mexiletine
+C01BB03,tocainide
+C01BB04,aprindine
+C01BC,"Antiarrhythmics, class Ic"
+C01BC03,propafenone
+C01BC04,flecainide
+C01BC07,lorcainide
+C01BC08,encainide
+C01BC09,ethacizine
+C01BD,"Antiarrhythmics, class III"
+C01BD01,amiodarone
+C01BD02,bretylium tosilate
+C01BD03,bunaftine
+C01BD04,dofetilide
+C01BD05,ibutilide
+C01BD06,tedisamil
+C01BD07,dronedarone
+C01BG,"Other antiarrhythmics, class I and III"
+C01BG01,moracizine
+C01BG07,cibenzoline
+C01BG11,vernakalant
+C01C,CARDIAC STIMULANTS EXCL. CARDIAC GLYCOSIDES
+C01CA,Adrenergic and dopaminergic agents
+C01CA01,etilefrine
+C01CA02,isoprenaline
+C01CA03,norepinephrine
+C01CA04,dopamine
+C01CA05,norfenefrine
+C01CA06,phenylephrine
+C01CA07,dobutamine
+C01CA08,oxedrine
+C01CA09,metaraminol
+C01CA10,methoxamine
+C01CA11,mephentermine
+C01CA12,dimetofrine
+C01CA13,prenalterol
+C01CA14,dopexamine
+C01CA15,gepefrine
+C01CA16,ibopamine
+C01CA17,midodrine
+C01CA18,octopamine
+C01CA19,fenoldopam
+C01CA21,cafedrine
+C01CA22,arbutamine
+C01CA23,theodrenaline
+C01CA24,epinephrine
+C01CA25,amezinium metilsulfate
+C01CA26,ephedrine
+C01CA27,droxidopa
+C01CA28,centhaquine
+C01CA30,combinations
+C01CA51,"etilefrine, combinations"
+C01CE,Phosphodiesterase inhibitors
+C01CE01,amrinone
+C01CE02,milrinone
+C01CE03,enoximone
+C01CE04,bucladesine
+C01CX,Other cardiac stimulants
+C01CX06,angiotensinamide
+C01CX07,xamoterol
+C01CX08,levosimendan
+C01CX09,angiotensin II
+C01CX10,omecamtiv mecarbil
+C01D,VASODILATORS USED IN CARDIAC DISEASES
+C01DA,Organic nitrates
+C01DA02,glyceryl trinitrate
+C01DA04,methylpropylpropanediol dinitrate
+C01DA05,pentaerithrityl tetranitrate
+C01DA07,propatylnitrate
+C01DA08,isosorbide dinitrate
+C01DA09,trolnitrate
+C01DA13,eritrityl tetranitrate
+C01DA14,isosorbide mononitrate
+C01DA20,organic nitrates in combination
+C01DA38,tenitramine
+C01DA52,"glyceryl trinitrate, combinations"
+C01DA54,"methylpropylpropanediol dinitrate, combinations"
+C01DA55,"pentaerithrityl tetranitrate, combinations"
+C01DA57,"propatylnitrate, combinations"
+C01DA58,"isosorbide dinitrate, combinations"
+C01DA59,"trolnitrate, combinations"
+C01DA63,"eritrityl tetranitrate, combinations"
+C01DA70,organic nitrates in combination with psycholeptics
+C01DB,Quinolone vasodilators
+C01DB01,flosequinan
+C01DX,Other vasodilators used in cardiac diseases
+C01DX01,itramin tosilate
+C01DX02,prenylamine
+C01DX03,oxyfedrine
+C01DX04,benziodarone
+C01DX05,carbocromen
+C01DX06,hexobendine
+C01DX07,etafenone
+C01DX08,heptaminol
+C01DX09,imolamine
+C01DX10,dilazep
+C01DX11,trapidil
+C01DX12,molsidomine
+C01DX13,efloxate
+C01DX14,cinepazet
+C01DX15,cloridarol
+C01DX16,nicorandil
+C01DX18,linsidomine
+C01DX19,nesiritide
+C01DX21,serelaxin
+C01DX22,vericiguat
+C01DX51,"itramin tosilate, combinations"
+C01DX52,"prenylamine, combinations"
+C01DX53,"oxyfedrine, combinations"
+C01DX54,"benziodarone, combinations"
+C01E,OTHER CARDIAC PREPARATIONS
+C01EA,Prostaglandins
+C01EA01,alprostadil
+C01EB,Other cardiac preparations
+C01EB02,camphora
+C01EB03,indometacin
+C01EB04,crataegus glycosides
+C01EB05,creatinolfosfate
+C01EB06,fosfocreatine
+C01EB07,"fructose 1,6-diphosphate"
+C01EB09,ubidecarenone
+C01EB10,adenosine
+C01EB11,tiracizine
+C01EB13,acadesine
+C01EB15,trimetazidine
+C01EB16,ibuprofen
+C01EB17,ivabradine
+C01EB18,ranolazine
+C01EB21,regadenoson
+C01EB22,meldonium
+C01EB23,tiazotic acid
+C01EB24,mavacamten
+C01EB25,acoramidis
+C01EX,Other cardiac combination products
+C02,ANTIHYPERTENSIVES
+C02A,"ANTIADRENERGIC AGENTS, CENTRALLY ACTING"
+C02AA,Rauwolfia alkaloids
+C02AA01,rescinnamine
+C02AA02,reserpine
+C02AA03,combinations of rauwolfia alkaloids
+C02AA04,"rauwolfia alkaloids, whole root"
+C02AA05,deserpidine
+C02AA06,methoserpidine
+C02AA07,bietaserpine
+C02AA52,"reserpine, combinations"
+C02AA53,"combinations of rauwolfia alkoloids, combinations"
+C02AA57,"bietaserpine, combinations"
+C02AB,Methyldopa
+C02AB01,methyldopa (levorotatory)
+C02AB02,methyldopa (racemic)
+C02AC,Imidazoline receptor agonists
+C02AC01,clonidine
+C02AC02,guanfacine
+C02AC04,tolonidine
+C02AC05,moxonidine
+C02AC06,rilmenidine
+C02B,"ANTIADRENERGIC AGENTS, GANGLION-BLOCKING"
+C02BA,Sulfonium derivatives
+C02BA01,trimetaphan
+C02BB,Secondary and tertiary amines
+C02BB01,mecamylamine
+C02BC,Bisquaternary ammonium compounds
+C02C,"ANTIADRENERGIC AGENTS, PERIPHERALLY ACTING"
+C02CA,Alpha-adrenoreceptor antagonists
+C02CA01,prazosin
+C02CA02,indoramin
+C02CA03,trimazosin
+C02CA04,doxazosin
+C02CA06,urapidil
+C02CC,Guanidine derivatives
+C02CC01,betanidine
+C02CC02,guanethidine
+C02CC03,guanoxan
+C02CC04,debrisoquine
+C02CC05,guanoclor
+C02CC06,guanazodine
+C02CC07,guanoxabenz
+C02D,"ARTERIOLAR SMOOTH MUSCLE, AGENTS ACTING ON"
+C02DA,Thiazide derivatives
+C02DA01,diazoxide
+C02DB,Hydrazinophthalazine derivatives
+C02DB01,dihydralazine
+C02DB02,hydralazine
+C02DB03,endralazine
+C02DB04,cadralazine
+C02DC,Pyrimidine derivatives
+C02DC01,minoxidil
+C02DD,Nitroferricyanide derivatives
+C02DD01,nitroprusside
+C02DG,Guanidine derivatives
+C02DG01,pinacidil
+C02K,OTHER ANTIHYPERTENSIVES
+C02KA,"Alkaloids, excl. rauwolfia"
+C02KA01,veratrum
+C02KB,Tyrosine hydroxylase inhibitors
+C02KB01,metirosine
+C02KC,MAO inhibitors
+C02KC01,pargyline
+C02KD,Serotonin antagonists
+C02KD01,ketanserin
+C02KN,Other antihypertensives
+C02KN01,aprocitentan
+C02KX,Antihypertensives for pulmonary arterial hypertension
+C02KX01,bosentan
+C02KX02,ambrisentan
+C02KX03,sitaxentan
+C02KX04,macitentan
+C02KX05,riociguat
+C02KX06,sotatercept
+C02KX52,ambrisentan and tadalafil
+C02KX54,macitentan and tadalafil
+C02L,ANTIHYPERTENSIVES AND DIURETICS IN COMBINATION
+C02LA,Rauwolfia alkaloids and diuretics in combination
+C02LA01,reserpine and diuretics
+C02LA02,rescinnamine and diuretics
+C02LA03,deserpidine and diuretics
+C02LA04,methoserpidine and diuretics
+C02LA07,bietaserpine and diuretics
+C02LA08,"rauwolfia alkaloids, whole root and diuretics"
+C02LA09,syrosingopine and diuretics
+C02LA50,combination of rauwolfia alkaloids and diuretics incl. other combinations
+C02LA51,"reserpine and diuretics, combinations with other drugs"
+C02LA52,"rescinnamine and diuretics, combinations with other drugs"
+C02LA71,"reserpine and diuretics, combinations with psycholeptics"
+C02LB,Methyldopa and diuretics in combination
+C02LB01,methyldopa (levorotatory) and diuretics
+C02LC,Imidazoline receptor agonists in combination with diuretics
+C02LC01,clonidine and diuretics
+C02LC05,moxonidine and diuretics
+C02LC51,"clonidine and diuretics, combinations with other drugs"
+C02LE,Alpha-adrenoreceptor antagonists and diuretics
+C02LE01,prazosin and diuretics
+C02LF,Guanidine derivatives and diuretics
+C02LF01,guanethidine and diuretics
+C02LG,Hydrazinophthalazine derivatives and diuretics
+C02LG01,dihydralazine and diuretics
+C02LG02,hydralazine and diuretics
+C02LG03,picodralazine and diuretics
+C02LG51,"dihydralazine and diuretics, combinations with other drugs"
+C02LG73,"picodralazine and diuretics, combinations with psycholeptics"
+C02LK,"Alkaloids, excl. rauwolfia, in combination with diuretics"
+C02LK01,veratrum and diuretics
+C02LL,MAO inhibitors and diuretics
+C02LL01,pargyline and diuretics
+C02LN,Serotonin antagonists and diuretics
+C02LX,Other antihypertensives and diuretics
+C02LX01,pinacidil and diuretics
+C02N,COMBINATIONS OF ANTIHYPERTENSIVES IN ATC-GR. C02
+C03,DIURETICS
+C03A,"LOW-CEILING DIURETICS, THIAZIDES"
+C03AA,"Thiazides, plain"
+C03AA01,bendroflumethiazide
+C03AA02,hydroflumethiazide
+C03AA03,hydrochlorothiazide
+C03AA04,chlorothiazide
+C03AA05,polythiazide
+C03AA06,trichlormethiazide
+C03AA07,cyclopenthiazide
+C03AA08,methyclothiazide
+C03AA09,cyclothiazide
+C03AA13,mebutizide
+C03AB,Thiazides and potassium in combination
+C03AB01,bendroflumethiazide and potassium
+C03AB02,hydroflumethiazide and potassium
+C03AB03,hydrochlorothiazide and potassium
+C03AB04,chlorothiazide and potassium
+C03AB05,polythiazide and potassium
+C03AB06,trichlormethiazide and potassium
+C03AB07,cyclopenthiazide and potassium
+C03AB08,methyclothiazide and potassium
+C03AB09,cyclothiazide and potassium
+C03AH,"Thiazides, combinations with psycholeptics and/or analgesics"
+C03AH01,"chlorothiazide, combinations"
+C03AH02,"hydroflumethiazide, combinations"
+C03AX,"Thiazides, combinations with other drugs"
+C03AX01,"hydrochlorothiazide, combinations"
+C03B,"LOW-CEILING DIURETICS, EXCL. THIAZIDES"
+C03BA,"Sulfonamides, plain"
+C03BA02,quinethazone
+C03BA03,clopamide
+C03BA04,chlortalidone
+C03BA05,mefruside
+C03BA07,clofenamide
+C03BA08,metolazone
+C03BA09,meticrane
+C03BA10,xipamide
+C03BA11,indapamide
+C03BA12,clorexolone
+C03BA13,fenquizone
+C03BA82,"clorexolone, combinations with psycholeptics"
+C03BB,Sulfonamides and potassium in combination
+C03BB02,quinethazone and potassium
+C03BB03,clopamide and potassium
+C03BB04,chlortalidone and potassium
+C03BB05,mefruside and potassium
+C03BB07,clofenamide and potassium
+C03BC,Mercurial diuretics
+C03BC01,mersalyl
+C03BD,Xanthine derivatives
+C03BD01,theobromine
+C03BK,"Sulfonamides, combinations with other drugs"
+C03BX,Other low-ceiling diuretics
+C03BX03,cicletanine
+C03C,HIGH-CEILING DIURETICS
+C03CA,"Sulfonamides, plain"
+C03CA01,furosemide
+C03CA02,bumetanide
+C03CA03,piretanide
+C03CA04,torasemide
+C03CB,Sulfonamides and potassium in combination
+C03CB01,furosemide and potassium
+C03CB02,bumetanide and potassium
+C03CC,Aryloxyacetic acid derivatives
+C03CC01,etacrynic acid
+C03CC02,tienilic acid
+C03CD,Pyrazolone derivatives
+C03CD01,muzolimine
+C03CX,Other high-ceiling diuretics
+C03CX01,etozolin
+C03D,ALDOSTERONE ANTAGONISTS AND OTHER POTASSIUM-SPARING AGENTS
+C03DA,Aldosterone antagonists
+C03DA01,spironolactone
+C03DA02,potassium canrenoate
+C03DA03,canrenone
+C03DA04,eplerenone
+C03DA05,finerenone
+C03DB,Other potassium-sparing agents
+C03DB01,amiloride
+C03DB02,triamterene
+C03E,DIURETICS AND POTASSIUM-SPARING AGENTS IN COMBINATION
+C03EA,Low-ceiling diuretics and potassium-sparing agents
+C03EA01,hydrochlorothiazide and potassium-sparing agents
+C03EA02,trichlormethiazide and potassium-sparing agents
+C03EA03,epitizide and potassium-sparing agents
+C03EA04,altizide and potassium-sparing agents
+C03EA05,mebutizide and potassium-sparing agents
+C03EA06,chlortalidone and potassium-sparing agents
+C03EA07,cyclopenthiazide and potassium-sparing agents
+C03EA12,metolazone and potassium-sparing agents
+C03EA13,bendroflumethiazide and potassium-sparing agents
+C03EA14,butizide and potassium-sparing agents
+C03EB,High-ceiling diuretics and potassium-sparing agents
+C03EB01,furosemide and potassium-sparing agents
+C03EB02,bumetanide and potassium-sparing agents
+C03X,OTHER DIURETICS
+C03XA,Vasopressin antagonists
+C03XA01,tolvaptan
+C03XA02,conivaptan
+C04,PERIPHERAL VASODILATORS
+C04A,PERIPHERAL VASODILATORS
+C04AA,2-amino-1-phenylethanol derivatives
+C04AA01,isoxsuprine
+C04AA02,buphenine
+C04AA31,bamethan
+C04AB,Imidazoline derivatives
+C04AB01,phentolamine
+C04AB02,tolazoline
+C04AC,Nicotinic acid and derivatives
+C04AC01,nicotinic acid
+C04AC02,nicotinyl alcohol (pyridylcarbinol)
+C04AC03,inositol nicotinate
+C04AC07,ciclonicate
+C04AD,Purine derivatives
+C04AD01,pentifylline
+C04AD02,xantinol nicotinate
+C04AD03,pentoxifylline
+C04AD04,etofylline nicotinate
+C04AE,Ergot alkaloids
+C04AE01,ergoloid mesylates
+C04AE02,nicergoline
+C04AE04,dihydroergocristine
+C04AE51,"ergoloid mesylates, combinations"
+C04AE54,"dihydroergocristine, combinations"
+C04AF,Enzymes
+C04AF01,kallidinogenase
+C04AX,Other peripheral vasodilators
+C04AX01,cyclandelate
+C04AX02,phenoxybenzamine
+C04AX07,vincamine
+C04AX10,moxisylyte
+C04AX11,bencyclane
+C04AX17,vinburnine
+C04AX19,suloctidil
+C04AX20,buflomedil
+C04AX21,naftidrofuryl
+C04AX23,butalamine
+C04AX24,visnadine
+C04AX26,cetiedil
+C04AX27,cinepazide
+C04AX28,ifenprodil
+C04AX30,azapetine
+C04AX32,fasudil
+C04AX33,clazosentan
+C05,VASOPROTECTIVES
+C05A,AGENTS FOR TREATMENT OF HEMORRHOIDS AND ANAL FISSURES FOR TOPICAL USE
+C05AA,Corticosteroids
+C05AA01,hydrocortisone
+C05AA04,prednisolone
+C05AA05,betamethasone
+C05AA06,fluorometholone
+C05AA08,fluocortolone
+C05AA09,dexamethasone
+C05AA10,fluocinolone acetonide
+C05AA11,fluocinonide
+C05AA12,triamcinolone
+C05AB,Antibiotics
+C05AD,Local anesthetics
+C05AD01,lidocaine
+C05AD02,tetracaine
+C05AD03,benzocaine
+C05AD04,cinchocaine
+C05AD05,procaine
+C05AD06,oxetacaine
+C05AD07,pramocaine
+C05AE,Muscle relaxants
+C05AE01,glyceryl trinitrate
+C05AE02,isosorbide dinitrate
+C05AE03,diltiazem
+C05AX,Other agents for treatment of hemorrhoids and anal fissures for topical use
+C05AX01,aluminium preparations
+C05AX02,"bismuth preparations, combinations"
+C05AX03,"other preparations, combinations"
+C05AX04,zinc preparations
+C05AX05,tribenoside
+C05AX06,phenylephrine
+C05B,ANTIVARICOSE THERAPY
+C05BA,Heparins or heparinoids for topical use
+C05BA01,organo-heparinoid
+C05BA02,sodium apolate
+C05BA03,heparin
+C05BA04,pentosan polysulfate sodium
+C05BA51,"heparinoid, combinations"
+C05BA53,"heparin, combinations"
+C05BB,Sclerosing agents for local injection
+C05BB01,monoethanolamine oleate
+C05BB02,polidocanol
+C05BB03,invert sugar
+C05BB04,sodium tetradecyl sulfate
+C05BB05,phenol
+C05BB56,"glucose, combinations"
+C05BX,Other sclerosing agents
+C05BX01,calcium dobesilate
+C05BX51,"calcium dobesilate, combinations"
+C05C,CAPILLARY STABILIZING AGENTS
+C05CA,Bioflavonoids
+C05CA01,rutoside
+C05CA02,monoxerutin
+C05CA03,diosmin
+C05CA04,troxerutin
+C05CA05,hidrosmin
+C05CA51,"rutoside, combinations"
+C05CA53,"diosmin, combinations"
+C05CA54,"troxerutin, combinations"
+C05CX,Other capillary stabilizing agents
+C05CX01,tribenoside
+C05CX02,naftazone
+C05CX03,Hippocastani semen
+C05X,OTHER VASOPROTECTIVES
+C05XX,Other vasoprotectives
+C05XX01,beperminogene perplasmid
+C07,BETA BLOCKING AGENTS
+C07A,BETA BLOCKING AGENTS
+C07AA,"Beta blocking agents, non-selective"
+C07AA01,alprenolol
+C07AA02,oxprenolol
+C07AA03,pindolol
+C07AA05,propranolol
+C07AA06,timolol
+C07AA07,sotalol
+C07AA12,nadolol
+C07AA14,mepindolol
+C07AA15,carteolol
+C07AA16,tertatolol
+C07AA17,bopindolol
+C07AA19,bupranolol
+C07AA23,penbutolol
+C07AA27,cloranolol
+C07AB,"Beta blocking agents, selective"
+C07AB01,practolol
+C07AB02,metoprolol
+C07AB03,atenolol
+C07AB04,acebutolol
+C07AB05,betaxolol
+C07AB06,bevantolol
+C07AB07,bisoprolol
+C07AB08,celiprolol
+C07AB09,esmolol
+C07AB10,epanolol
+C07AB11,s-atenolol
+C07AB12,nebivolol
+C07AB13,talinolol
+C07AB14,landiolol
+C07AG,Alpha and beta blocking agents
+C07AG01,labetalol
+C07AG02,carvedilol
+C07B,BETA BLOCKING AGENTS AND THIAZIDES
+C07BA,"Beta blocking agents, non-selective, and thiazides"
+C07BA02,oxprenolol and thiazides
+C07BA05,propranolol and thiazides
+C07BA06,timolol and thiazides
+C07BA07,sotalol and thiazides
+C07BA12,nadolol and thiazides
+C07BA68,"metipranolol and thiazides, combinations"
+C07BB,"Beta blocking agents, selective, and thiazides"
+C07BB02,metoprolol and thiazides
+C07BB03,atenolol and thiazides
+C07BB04,acebutolol and thiazides
+C07BB06,bevantolol and thiazides
+C07BB07,bisoprolol and thiazides
+C07BB12,nebivolol and thiazides
+C07BB52,"metoprolol and thiazides, combinations"
+C07BG,Alpha and beta blocking agents and thiazides
+C07BG01,labetalol and thiazides
+C07C,BETA BLOCKING AGENTS AND OTHER DIURETICS
+C07CA,"Beta blocking agents, non-selective, and other diuretics"
+C07CA02,oxprenolol and other diuretics
+C07CA03,pindolol and other diuretics
+C07CA17,bopindolol and other diuretics
+C07CA23,penbutolol and other diuretics
+C07CB,"Beta blocking agents, selective, and other diuretics"
+C07CB02,metoprolol and other diuretics
+C07CB03,atenolol and other diuretics
+C07CB53,"atenolol and other diuretics, combinations"
+C07CG,Alpha and beta blocking agents and other diuretics
+C07CG01,labetalol and other diuretics
+C07D,"BETA BLOCKING AGENTS, THIAZIDES AND OTHER DIURETICS"
+C07DA,"Beta blocking agents, non-selective, thiazides and other diuretics"
+C07DA06,"timolol, thiazides and other diuretics"
+C07DB,"Beta blocking agents, selective, thiazides and other diuretics"
+C07DB01,"atenolol, thiazides and other diuretics"
+C07E,BETA BLOCKING AGENTS AND VASODILATORS
+C07EA,"Beta blocking agents, non-selective, and vasodilators"
+C07EB,"Beta blocking agents, selective, and vasodilators"
+C07F,"BETA BLOCKING AGENTS, OTHER COMBINATIONS"
+C07FB,Beta blocking agents and calcium channel blockers
+C07FB02,metoprolol and felodipine
+C07FB03,atenolol and nifedipine
+C07FB07,bisoprolol and amlodipine
+C07FB12,nebivolol and amlodipine
+C07FB13,metoprolol and amlodipine
+C07FX,"Beta blocking agents, other combinations"
+C07FX01,propranolol and other combinations
+C07FX02,sotalol and acetylsalicylic acid
+C07FX03,metoprolol and acetylsalicylic acid
+C07FX04,bisoprolol and acetylsalicylic acid
+C07FX05,metoprolol and ivabradine
+C07FX06,carvedilol and ivabradine
+C08,CALCIUM CHANNEL BLOCKERS
+C08C,SELECTIVE CALCIUM CHANNEL BLOCKERS WITH MAINLY VASCULAR EFFECTS
+C08CA,Dihydropyridine derivatives
+C08CA01,amlodipine
+C08CA02,felodipine
+C08CA03,isradipine
+C08CA04,nicardipine
+C08CA05,nifedipine
+C08CA06,nimodipine
+C08CA07,nisoldipine
+C08CA08,nitrendipine
+C08CA09,lacidipine
+C08CA10,nilvadipine
+C08CA11,manidipine
+C08CA12,barnidipine
+C08CA13,lercanidipine
+C08CA14,cilnidipine
+C08CA15,benidipine
+C08CA16,clevidipine
+C08CA17,levamlodipine
+C08CA51,amlodipine and celecoxib
+C08CA55,"nifedipine, combinations"
+C08CX,Other selective calcium channel blockers with mainly vascular effects
+C08CX01,mibefradil
+C08D,SELECTIVE CALCIUM CHANNEL BLOCKERS WITH DIRECT CARDIAC EFFECTS
+C08DA,Phenylalkylamine derivatives
+C08DA01,verapamil
+C08DA02,gallopamil
+C08DA03,etripamil
+C08DA51,"verapamil, combinations"
+C08DB,Benzothiazepine derivatives
+C08DB01,diltiazem
+C08E,NON-SELECTIVE CALCIUM CHANNEL BLOCKERS
+C08EA,Phenylalkylamine derivatives
+C08EA01,fendiline
+C08EA02,bepridil
+C08EX,Other non-selective calcium channel blockers
+C08EX01,lidoflazine
+C08EX02,perhexiline
+C08G,CALCIUM CHANNEL BLOCKERS AND DIURETICS
+C08GA,Calcium channel blockers and diuretics
+C08GA01,nifedipine and diuretics
+C08GA02,amlodipine and diuretics
+C09,AGENTS ACTING ON THE RENIN-ANGIOTENSIN SYSTEM
+C09A,"ACE INHIBITORS, PLAIN"
+C09AA,"ACE inhibitors, plain"
+C09AA01,captopril
+C09AA02,enalapril
+C09AA03,lisinopril
+C09AA04,perindopril
+C09AA05,ramipril
+C09AA06,quinapril
+C09AA07,benazepril
+C09AA08,cilazapril
+C09AA09,fosinopril
+C09AA10,trandolapril
+C09AA11,spirapril
+C09AA12,delapril
+C09AA13,moexipril
+C09AA14,temocapril
+C09AA15,zofenopril
+C09AA16,imidapril
+C09B,"ACE INHIBITORS, COMBINATIONS"
+C09BA,ACE inhibitors and diuretics
+C09BA01,captopril and diuretics
+C09BA02,enalapril and diuretics
+C09BA03,lisinopril and diuretics
+C09BA04,perindopril and diuretics
+C09BA05,ramipril and diuretics
+C09BA06,quinapril and diuretics
+C09BA07,benazepril and diuretics
+C09BA08,cilazapril and diuretics
+C09BA09,fosinopril and diuretics
+C09BA12,delapril and diuretics
+C09BA13,moexipril and diuretics
+C09BA15,zofenopril and diuretics
+C09BB,ACE inhibitors and calcium channel blockers
+C09BB02,enalapril and lercanidipine
+C09BB03,lisinopril and amlodipine
+C09BB04,perindopril and amlodipine
+C09BB05,ramipril and felodipine
+C09BB06,enalapril and nitrendipine
+C09BB07,ramipril and amlodipine
+C09BB10,trandolapril and verapamil
+C09BB12,delapril and manidipine
+C09BB13,benazepril and amlodipine
+C09BX,"ACE inhibitors, other combinations"
+C09BX01,"perindopril, amlodipine and indapamide"
+C09BX02,perindopril and bisoprolol
+C09BX03,"ramipril, amlodipine and hydrochlorothiazide"
+C09BX04,"perindopril, bisoprolol and amlodipine"
+C09BX05,ramipril and bisoprolol
+C09BX06,"perindopril, bisoprolol, amlodipine and indapamide"
+C09BX07,zofenopril and nebivolol
+C09C,"ANGIOTENSIN II RECEPTOR BLOCKERS (ARBs), PLAIN"
+C09CA,"Angiotensin II receptor blockers (ARBs), plain"
+C09CA01,losartan
+C09CA02,eprosartan
+C09CA03,valsartan
+C09CA04,irbesartan
+C09CA05,tasosartan
+C09CA06,candesartan
+C09CA07,telmisartan
+C09CA08,olmesartan medoxomil
+C09CA09,azilsartan medoxomil
+C09CA10,fimasartan
+C09D,"ANGIOTENSIN II RECEPTOR BLOCKERS (ARBs), COMBINATIONS"
+C09DA,Angiotensin II receptor blockers (ARBs) and diuretics
+C09DA01,losartan and diuretics
+C09DA02,eprosartan and diuretics
+C09DA03,valsartan and diuretics
+C09DA04,irbesartan and diuretics
+C09DA06,candesartan and diuretics
+C09DA07,telmisartan and diuretics
+C09DA08,olmesartan medoxomil and diuretics
+C09DA09,azilsartan medoxomil and diuretics
+C09DA10,fimasartan and diuretics
+C09DB,Angiotensin II receptor blockers (ARBs) and calcium channel blockers
+C09DB01,valsartan and amlodipine
+C09DB02,olmesartan medoxomil and amlodipine
+C09DB04,telmisartan and amlodipine
+C09DB05,irbesartan and amlodipine
+C09DB06,losartan and amlodipine
+C09DB07,candesartan and amlodipine
+C09DB08,valsartan and lercanidipine
+C09DB09,fimasartan and amlodipine
+C09DX,"Angiotensin II receptor blockers (ARBs), other combinations"
+C09DX01,"valsartan, amlodipine and hydrochlorothiazide"
+C09DX02,valsartan and aliskiren
+C09DX03,"olmesartan medoxomil, amlodipine and hydrochlorothiazide"
+C09DX04,valsartan and sacubitril
+C09DX05,valsartan and nebivolol
+C09DX06,"candesartan, amlodipine and hydrochlorothiazide"
+C09DX07,"irbesartan, amlodipine and hydrochlorothiazide"
+C09DX08,"telmisartan, amlodipine and hydrochlorothiazide"
+C09X,OTHER AGENTS ACTING ON THE RENIN-ANGIOTENSIN SYSTEM
+C09XA,Renin-inhibitors
+C09XA01,remikiren
+C09XA02,aliskiren
+C09XA52,aliskiren and hydrochlorothiazide
+C09XA53,aliskiren and amlodipine
+C09XA54,"aliskiren, amlodipine and hydrochlorothiazide"
+C09XX,Other agents acting on the renin-angiotensin system
+C09XX01,sparsentan
+C10,LIPID MODIFYING AGENTS
+C10A,"LIPID MODIFYING AGENTS, PLAIN"
+C10AA,HMG CoA reductase inhibitors
+C10AA01,simvastatin
+C10AA02,lovastatin
+C10AA03,pravastatin
+C10AA04,fluvastatin
+C10AA05,atorvastatin
+C10AA06,cerivastatin
+C10AA07,rosuvastatin
+C10AA08,pitavastatin
+C10AB,Fibrates
+C10AB01,clofibrate
+C10AB02,bezafibrate
+C10AB03,aluminium clofibrate
+C10AB04,gemfibrozil
+C10AB05,fenofibrate
+C10AB06,simfibrate
+C10AB07,ronifibrate
+C10AB08,ciprofibrate
+C10AB09,etofibrate
+C10AB10,clofibride
+C10AB11,choline fenofibrate
+C10AB12,pemafibrate
+C10AC,Bile acid sequestrants
+C10AC01,colestyramine
+C10AC02,colestipol
+C10AC03,colextran
+C10AC04,colesevelam
+C10AD,Nicotinic acid and derivatives
+C10AD01,niceritrol
+C10AD02,nicotinic acid
+C10AD03,nicofuranose
+C10AD04,aluminium nicotinate
+C10AD05,nicotinyl alcohol (pyridylcarbinol)
+C10AD06,acipimox
+C10AD52,"nicotinic acid, combinations"
+C10AX,Other lipid modifying agents
+C10AX01,dextrothyroxine
+C10AX02,probucol
+C10AX03,tiadenol
+C10AX05,meglutol
+C10AX06,omega-3-triglycerides incl. other esters and acids
+C10AX07,magnesium pyridoxal 5-phosphate glutamate
+C10AX08,policosanol
+C10AX09,ezetimibe
+C10AX10,alipogene tiparvovec
+C10AX11,mipomersen
+C10AX12,lomitapide
+C10AX13,evolocumab
+C10AX14,alirocumab
+C10AX15,bempedoic acid
+C10AX16,inclisiran
+C10AX17,evinacumab
+C10AX18,volanesorsen
+C10B,"LIPID MODIFYING AGENTS, COMBINATIONS"
+C10BA,Combinations of various lipid modifying agents
+C10BA01,lovastatin and nicotinic acid
+C10BA02,simvastatin and ezetimibe
+C10BA03,pravastatin and fenofibrate
+C10BA04,simvastatin and fenofibrate
+C10BA05,atorvastatin and ezetimibe
+C10BA06,rosuvastatin and ezetimibe
+C10BA07,rosuvastatin and omega-3 fatty acids
+C10BA08,atorvastatin and omega-3 fatty acids
+C10BA09,rosuvastatin and fenofibrate
+C10BA10,bempedoic acid and ezetimibe
+C10BA11,pravastatin and ezetimibe
+C10BA12,"pravastatin, ezetimibe and fenofibrate"
+C10BA13,pitavastatin and ezetimibe
+C10BX,Lipid modifying agents in combination with other drugs
+C10BX01,simvastatin and acetylsalicylic acid
+C10BX02,pravastatin and acetylsalicylic acid
+C10BX03,atorvastatin and amlodipine
+C10BX04,"simvastatin, acetylsalicylic acid and ramipril"
+C10BX05,rosuvastatin and acetylsalicylic acid
+C10BX06,"atorvastatin, acetylsalicylic acid and ramipril"
+C10BX07,"rosuvastatin, amlodipine and lisinopril"
+C10BX08,atorvastatin and acetylsalicylic acid
+C10BX09,rosuvastatin and amlodipine
+C10BX10,rosuvastatin and valsartan
+C10BX11,"atorvastatin, amlodipine and perindopril"
+C10BX12,"atorvastatin, acetylsalicylic acid and perindopril"
+C10BX13,"rosuvastatin, perindopril and indapamide"
+C10BX14,"rosuvastatin, amlodipine and perindopril"
+C10BX15,atorvastatin and perindopril
+C10BX16,rosuvastatin and fimasartan
+C10BX17,rosuvastatin and ramipril
+C10BX18,"atorvastatin, amlodipine and ramipril"
+C10BX19,"atorvastatin, amlodipine and candesartan"
+C10BX20,rosuvastatin and telmisartan
+C10BX21,rosuvastatin and perindopril
+C10BX22,rosuvastatin and nebivolol
+N01,ANESTHETICS
+N01A,"ANESTHETICS, GENERAL"
+N01AA,Ethers
+N01AA01,diethyl ether
+N01AA02,vinyl ether
+N01AB,Halogenated hydrocarbons
+N01AB01,halothane
+N01AB02,chloroform
+N01AB04,enflurane
+N01AB05,trichloroethylene
+N01AB06,isoflurane
+N01AB07,desflurane
+N01AB08,sevoflurane
+N01AF,"Barbiturates, plain"
+N01AF01,methohexital
+N01AF02,hexobarbital
+N01AF03,thiopental
+N01AG,Barbiturates in combination with other drugs
+N01AG01,narcobarbital
+N01AH,Opioid anesthetics
+N01AH01,fentanyl
+N01AH02,alfentanil
+N01AH03,sufentanil
+N01AH04,phenoperidine
+N01AH05,anileridine
+N01AH06,remifentanil
+N01AH51,"fentanyl, combinations"
+N01AX,Other general anesthetics
+N01AX03,ketamine
+N01AX04,propanidid
+N01AX05,alfaxalone
+N01AX07,etomidate
+N01AX10,propofol
+N01AX11,sodium oxybate
+N01AX13,nitrous oxide
+N01AX14,esketamine
+N01AX15,xenon
+N01AX63,"nitrous oxide, combinations"
+N01B,"ANESTHETICS, LOCAL"
+N01BA,Esters of aminobenzoic acid
+N01BA01,metabutethamine
+N01BA02,procaine
+N01BA03,tetracaine
+N01BA04,chloroprocaine
+N01BA05,benzocaine
+N01BA52,"procaine, combinations"
+N01BA53,"tetracaine, combinations"
+N01BB,Amides
+N01BB01,bupivacaine
+N01BB02,lidocaine
+N01BB03,mepivacaine
+N01BB04,prilocaine
+N01BB05,butanilicaine
+N01BB06,cinchocaine
+N01BB07,etidocaine
+N01BB08,articaine
+N01BB09,ropivacaine
+N01BB10,levobupivacaine
+N01BB20,combinations
+N01BB51,"bupivacaine, combinations"
+N01BB52,"lidocaine, combinations"
+N01BB53,"mepivacaine, combinations"
+N01BB54,"prilocaine, combinations"
+N01BB57,"etidocaine, combinations"
+N01BB58,"articaine, combinations"
+N01BB59,bupivacaine and meloxicam
+N01BC,Esters of benzoic acid
+N01BC01,cocaine
+N01BX,Other local anesthetics
+N01BX01,ethyl chloride
+N01BX02,dyclonine
+N01BX03,phenol
+N01BX04,capsaicin
+N02,ANALGESICS
+N02A,OPIOIDS
+N02AA,Natural opium alkaloids
+N02AA01,morphine
+N02AA02,opium
+N02AA03,hydromorphone
+N02AA04,nicomorphine
+N02AA05,oxycodone
+N02AA08,dihydrocodeine
+N02AA10,papaveretum
+N02AA11,oxymorphone
+N02AA51,"morphine, combinations"
+N02AA53,hydromorphone and naloxone
+N02AA55,oxycodone and naloxone
+N02AA56,oxycodone and naltrexone
+N02AA58,"dihydrocodeine, combinations"
+N02AA59,"codeine, combinations excl. psycholeptics"
+N02AA79,"codeine, combinations with psycholeptics"
+N02AB,Phenylpiperidine derivatives
+N02AB01,ketobemidone
+N02AB02,pethidine
+N02AB03,fentanyl
+N02AB52,"pethidine, combinations excl. psycholeptics"
+N02AB72,"pethidine, combinations with psycholeptics"
+N02AC,Diphenylpropylamine derivatives
+N02AC01,dextromoramide
+N02AC03,piritramide
+N02AC04,dextropropoxyphene
+N02AC05,bezitramide
+N02AC52,"methadone, combinations excl. psycholeptics"
+N02AC54,"dextropropoxyphene, combinations excl. psycholeptics"
+N02AC74,"dextropropoxyphene, combinations with psycholeptics"
+N02AD,Benzomorphan derivatives
+N02AD01,pentazocine
+N02AD02,phenazocine
+N02AD51,pentazocine and naloxone
+N02AE,Oripavine derivatives
+N02AE01,buprenorphine
+N02AF,Morphinan derivatives
+N02AF01,butorphanol
+N02AF02,nalbuphine
+N02AG,Opioids in combination with antispasmodics
+N02AG01,morphine and antispasmodics
+N02AG02,ketobemidone and antispasmodics
+N02AG03,pethidine and antispasmodics
+N02AG04,hydromorphone and antispasmodics
+N02AJ,Opioids in combination with non-opioid analgesics
+N02AJ01,dihydrocodeine and paracetamol
+N02AJ02,dihydrocodeine and acetylsalicylic acid
+N02AJ03,dihydrocodeine and other non-opioid analgesics
+N02AJ06,codeine and paracetamol
+N02AJ07,codeine and acetylsalicylic acid
+N02AJ08,codeine and ibuprofen
+N02AJ09,codeine and other non-opioid analgesics
+N02AJ13,tramadol and paracetamol
+N02AJ14,tramadol and dexketoprofen
+N02AJ15,tramadol and other non-opioid analgesics
+N02AJ16,tramadol and celecoxib
+N02AJ17,oxycodone and paracetamol
+N02AJ18,oxycodone and acetylsalicylic acid
+N02AJ19,oxycodone and ibuprofen
+N02AJ22,hydrocodone and paracetamol
+N02AJ23,hydrocodone and ibuprofen
+N02AX,Other opioids
+N02AX01,tilidine
+N02AX02,tramadol
+N02AX03,dezocine
+N02AX05,meptazinol
+N02AX06,tapentadol
+N02AX07,oliceridine
+N02AX51,tilidine and naloxone
+N02B,OTHER ANALGESICS AND ANTIPYRETICS
+N02BA,Salicylic acid and derivatives
+N02BA01,acetylsalicylic acid
+N02BA02,aloxiprin
+N02BA03,choline salicylate
+N02BA04,sodium salicylate
+N02BA05,salicylamide
+N02BA06,salsalate
+N02BA07,ethenzamide
+N02BA08,morpholine salicylate
+N02BA09,dipyrocetyl
+N02BA10,benorilate
+N02BA11,diflunisal
+N02BA12,potassium salicylate
+N02BA14,guacetisal
+N02BA15,carbasalate calcium
+N02BA16,imidazole salicylate
+N02BA51,"acetylsalicylic acid, combinations excl. psycholeptics"
+N02BA55,"salicylamide, combinations excl. psycholeptics"
+N02BA57,"ethenzamide, combinations excl. psycholeptics"
+N02BA59,"dipyrocetyl, combinations excl. psycholeptics"
+N02BA65,carbasalate calcium combinations excl. psycholeptics
+N02BA67,"magnesium salicylate, combinations excl. psycholeptics"
+N02BA71,"acetylsalicylic acid, combinations with psycholeptics"
+N02BA75,"salicylamide, combinations with psycholeptics"
+N02BA77,"ethenzamide, combinations with psycholeptics"
+N02BA79,"dipyrocetyl, combinations with psycholeptics"
+N02BB,Pyrazolones
+N02BB01,phenazone
+N02BB02,metamizole sodium
+N02BB03,aminophenazone
+N02BB04,propyphenazone
+N02BB05,nifenazone
+N02BB51,"phenazone, combinations excl. psycholeptics"
+N02BB52,"metamizole sodium, combinations excl. psycholeptics"
+N02BB53,"aminophenazone, combinations excl. psycholeptics"
+N02BB54,"propyphenazone, combinations excl. psycholeptics"
+N02BB71,"phenazone, combinations with psycholeptics"
+N02BB72,"metamizole sodium, combinations with psycholeptics"
+N02BB73,"aminophenazone, combinations with psycholeptics"
+N02BB74,"propyphenazone, combinations with psycholeptics"
+N02BE,Anilides
+N02BE01,paracetamol
+N02BE03,phenacetin
+N02BE04,bucetin
+N02BE05,propacetamol
+N02BE51,"paracetamol, combinations excl. psycholeptics"
+N02BE53,"phenacetin, combinations excl. psycholeptics"
+N02BE54,"bucetin, combinations excl. psycholeptics"
+N02BE71,"paracetamol, combinations with psycholeptics"
+N02BE73,"phenacetin, combinations with psycholeptics"
+N02BE74,"bucetin, combinations with psycholeptics"
+N02BF,Gabapentinoids
+N02BF01,gabapentin
+N02BF02,pregabalin
+N02BF03,mirogabalin
+N02BG,Other analgesics and antipyretics
+N02BG02,rimazolium
+N02BG03,glafenine
+N02BG04,floctafenine
+N02BG05,viminol
+N02BG06,nefopam
+N02BG07,flupirtine
+N02BG08,ziconotide
+N02BG09,methoxyflurane
+N02BG10,cannabinoids
+N02BG12,tanezumab
+N02C,ANTIMIGRAINE PREPARATIONS
+N02CA,Ergot alkaloids
+N02CA01,dihydroergotamine
+N02CA02,ergotamine
+N02CA04,methysergide
+N02CA07,lisuride
+N02CA51,"dihydroergotamine, combinations"
+N02CA52,"ergotamine, combinations excl. psycholeptics"
+N02CA72,"ergotamine, combinations with psycholeptics"
+N02CB,Corticosteroid derivatives
+N02CB01,flumedroxone
+N02CC,Selective serotonin (5HT1) agonists
+N02CC01,sumatriptan
+N02CC02,naratriptan
+N02CC03,zolmitriptan
+N02CC04,rizatriptan
+N02CC05,almotriptan
+N02CC06,eletriptan
+N02CC07,frovatriptan
+N02CC08,lasmiditan
+N02CC51,sumatriptan and naproxen
+N02CD,Calcitonin gene-related peptide (CGRP) antagonists
+N02CD01,erenumab
+N02CD02,galcanezumab
+N02CD03,fremanezumab
+N02CD04,ubrogepant
+N02CD05,eptinezumab
+N02CD06,rimegepant
+N02CD07,atogepant
+N02CD08,zavegepant
+N02CX,Other antimigraine preparations
+N02CX01,pizotifen
+N02CX02,clonidine
+N02CX03,iprazochrome
+N02CX05,dimetotiazine
+N02CX06,oxetorone
+N03,ANTIEPILEPTICS
+N03A,ANTIEPILEPTICS
+N03AA,Barbiturates and derivatives
+N03AA01,methylphenobarbital
+N03AA02,phenobarbital
+N03AA03,primidone
+N03AA04,barbexaclone
+N03AA30,metharbital
+N03AB,Hydantoin derivatives
+N03AB01,ethotoin
+N03AB02,phenytoin
+N03AB03,amino(diphenylhydantoin) valeric acid
+N03AB04,mephenytoin
+N03AB05,fosphenytoin
+N03AB52,"phenytoin, combinations"
+N03AB54,"mephenytoin, combinations"
+N03AC,Oxazolidine derivatives
+N03AC01,paramethadione
+N03AC02,trimethadione
+N03AC03,ethadione
+N03AD,Succinimide derivatives
+N03AD01,ethosuximide
+N03AD02,phensuximide
+N03AD03,mesuximide
+N03AD51,"ethosuximide, combinations"
+N03AE,Benzodiazepine derivatives
+N03AE01,clonazepam
+N03AF,Carboxamide derivatives
+N03AF01,carbamazepine
+N03AF02,oxcarbazepine
+N03AF03,rufinamide
+N03AF04,eslicarbazepine
+N03AG,Fatty acid derivatives
+N03AG01,valproic acid
+N03AG02,valpromide
+N03AG03,aminobutyric acid
+N03AG04,vigabatrin
+N03AG05,progabide
+N03AG06,tiagabine
+N03AX,Other antiepileptics
+N03AX03,sultiame
+N03AX07,phenacemide
+N03AX09,lamotrigine
+N03AX10,felbamate
+N03AX11,topiramate
+N03AX13,pheneturide
+N03AX14,levetiracetam
+N03AX15,zonisamide
+N03AX17,stiripentol
+N03AX18,lacosamide
+N03AX19,carisbamate
+N03AX21,retigabine
+N03AX22,perampanel
+N03AX23,brivaracetam
+N03AX24,cannabidiol
+N03AX25,cenobamate
+N03AX26,fenfluramine
+N03AX27,ganaxolone
+N03AX30,beclamide
+N04,ANTI-PARKINSON DRUGS
+N04A,ANTICHOLINERGIC AGENTS
+N04AA,Tertiary amines
+N04AA01,trihexyphenidyl
+N04AA02,biperiden
+N04AA03,metixene
+N04AA04,procyclidine
+N04AA05,profenamine
+N04AA08,dexetimide
+N04AA09,phenglutarimide
+N04AA10,mazaticol
+N04AA11,bornaprine
+N04AA12,tropatepine
+N04AB,Ethers chemically close to antihistamines
+N04AB01,etanautine
+N04AB02,orphenadrine (chloride)
+N04AC,Ethers of tropine or tropine derivatives
+N04AC01,benzatropine
+N04AC30,etybenzatropine
+N04B,DOPAMINERGIC AGENTS
+N04BA,Dopa and dopa derivatives
+N04BA01,levodopa
+N04BA02,levodopa and decarboxylase inhibitor
+N04BA03,"levodopa, decarboxylase inhibitor and COMT inhibitor"
+N04BA04,melevodopa
+N04BA05,melevodopa and decarboxylase inhibitor
+N04BA06,etilevodopa and decarboxylase inhibitor
+N04BA07,foslevodopa and decarboxylase inhibitor
+N04BB,Adamantane derivatives
+N04BB01,amantadine
+N04BC,Dopamine agonists
+N04BC01,bromocriptine
+N04BC02,pergolide
+N04BC03,dihydroergocryptine mesylate
+N04BC04,ropinirole
+N04BC05,pramipexole
+N04BC06,cabergoline
+N04BC07,apomorphine
+N04BC08,piribedil
+N04BC09,rotigotine
+N04BD,Monoamine oxidase B inhibitors
+N04BD01,selegiline
+N04BD02,rasagiline
+N04BD03,safinamide
+N04BX,Other dopaminergic agents
+N04BX01,tolcapone
+N04BX02,entacapone
+N04BX03,budipine
+N04BX04,opicapone
+N04C,OTHER ANTIPARKINSON DRUGS
+N04CX,Other antiparkinson drugs
+N04CX01,istradefylline
+N05,PSYCHOLEPTICS
+N05A,ANTIPSYCHOTICS
+N05AA,Phenothiazines with aliphatic side-chain
+N05AA01,chlorpromazine
+N05AA02,levomepromazine
+N05AA03,promazine
+N05AA04,acepromazine
+N05AA05,triflupromazine
+N05AA06,cyamemazine
+N05AA07,chlorproethazine
+N05AB,Phenothiazines with piperazine structure
+N05AB01,dixyrazine
+N05AB02,fluphenazine
+N05AB03,perphenazine
+N05AB04,prochlorperazine
+N05AB05,thiopropazate
+N05AB06,trifluoperazine
+N05AB07,acetophenazine
+N05AB08,thioproperazine
+N05AB09,butaperazine
+N05AB10,perazine
+N05AC,Phenothiazines with piperidine structure
+N05AC01,periciazine
+N05AC02,thioridazine
+N05AC03,mesoridazine
+N05AC04,pipotiazine
+N05AD,Butyrophenone derivatives
+N05AD01,haloperidol
+N05AD02,trifluperidol
+N05AD03,melperone
+N05AD04,moperone
+N05AD05,pipamperone
+N05AD06,bromperidol
+N05AD07,benperidol
+N05AD08,droperidol
+N05AD09,fluanisone
+N05AD10,lumateperone
+N05AE,Indole derivatives
+N05AE01,oxypertine
+N05AE02,molindone
+N05AE03,sertindole
+N05AE04,ziprasidone
+N05AE05,lurasidone
+N05AF,Thioxanthene derivatives
+N05AF01,flupentixol
+N05AF02,clopenthixol
+N05AF03,chlorprothixene
+N05AF04,tiotixene
+N05AF05,zuclopenthixol
+N05AG,Diphenylbutylpiperidine derivatives
+N05AG01,fluspirilene
+N05AG02,pimozide
+N05AG03,penfluridol
+N05AH,"Diazepines, oxazepines, thiazepines and oxepines"
+N05AH01,loxapine
+N05AH02,clozapine
+N05AH03,olanzapine
+N05AH04,quetiapine
+N05AH05,asenapine
+N05AH06,clotiapine
+N05AH53,olanzapine and samidorphan
+N05AL,Benzamides
+N05AL01,sulpiride
+N05AL02,sultopride
+N05AL03,tiapride
+N05AL04,remoxipride
+N05AL05,amisulpride
+N05AL06,veralipride
+N05AL07,levosulpiride
+N05AN,Lithium
+N05AN01,lithium
+N05AX,Other antipsychotics
+N05AX07,prothipendyl
+N05AX08,risperidone
+N05AX10,mosapramine
+N05AX11,zotepine
+N05AX12,aripiprazole
+N05AX13,paliperidone
+N05AX14,iloperidone
+N05AX15,cariprazine
+N05AX16,brexpiprazole
+N05AX17,pimavanserin
+N05B,ANXIOLYTICS
+N05BA,Benzodiazepine derivatives
+N05BA01,diazepam
+N05BA02,chlordiazepoxide
+N05BA03,medazepam
+N05BA04,oxazepam
+N05BA05,potassium clorazepate
+N05BA06,lorazepam
+N05BA07,adinazolam
+N05BA08,bromazepam
+N05BA09,clobazam
+N05BA10,ketazolam
+N05BA11,prazepam
+N05BA12,alprazolam
+N05BA13,halazepam
+N05BA14,pinazepam
+N05BA15,camazepam
+N05BA16,nordazepam
+N05BA17,fludiazepam
+N05BA18,ethyl loflazepate
+N05BA19,etizolam
+N05BA21,clotiazepam
+N05BA22,cloxazolam
+N05BA23,tofisopam
+N05BA24,bentazepam
+N05BA25,mexazolam
+N05BA56,"lorazepam, combinations"
+N05BB,Diphenylmethane derivatives
+N05BB01,hydroxyzine
+N05BB02,captodiame
+N05BB51,"hydroxyzine, combinations"
+N05BC,Carbamates
+N05BC01,meprobamate
+N05BC03,emylcamate
+N05BC04,mebutamate
+N05BC51,"meprobamate, combinations"
+N05BD,Dibenzo-bicyclo-octadiene derivatives
+N05BD01,benzoctamine
+N05BE,Azaspirodecanedione derivatives
+N05BE01,buspirone
+N05BX,Other anxiolytics
+N05BX01,mephenoxalone
+N05BX02,gedocarnil
+N05BX03,etifoxine
+N05BX04,fabomotizole
+N05BX05,Lavandulae aetheroleum
+N05C,HYPNOTICS AND SEDATIVES
+N05CA,"Barbiturates, plain"
+N05CA01,pentobarbital
+N05CA02,amobarbital
+N05CA03,butobarbital
+N05CA04,barbital
+N05CA05,aprobarbital
+N05CA06,secobarbital
+N05CA07,talbutal
+N05CA08,vinylbital
+N05CA09,vinbarbital
+N05CA10,cyclobarbital
+N05CA11,heptabarbital
+N05CA12,reposal
+N05CA15,methohexital
+N05CA16,hexobarbital
+N05CA19,thiopental
+N05CA20,etallobarbital
+N05CA21,allobarbital
+N05CA22,proxibarbal
+N05CB,"Barbiturates, combinations"
+N05CB01,combinations of barbiturates
+N05CB02,barbiturates in combination with other drugs
+N05CC,Aldehydes and derivatives
+N05CC01,chloral hydrate
+N05CC02,chloralodol
+N05CC03,acetylglycinamide chloral hydrate
+N05CC04,dichloralphenazone
+N05CC05,paraldehyde
+N05CD,Benzodiazepine derivatives
+N05CD01,flurazepam
+N05CD02,nitrazepam
+N05CD03,flunitrazepam
+N05CD04,estazolam
+N05CD05,triazolam
+N05CD06,lormetazepam
+N05CD07,temazepam
+N05CD08,midazolam
+N05CD09,brotizolam
+N05CD10,quazepam
+N05CD11,loprazolam
+N05CD12,doxefazepam
+N05CD13,cinolazepam
+N05CD14,remimazolam
+N05CD15,nimetazepam
+N05CE,Piperidinedione derivatives
+N05CE01,glutethimide
+N05CE02,methyprylon
+N05CE03,pyrithyldione
+N05CF,Benzodiazepine related drugs
+N05CF01,zopiclone
+N05CF02,zolpidem
+N05CF03,zaleplon
+N05CF04,eszopiclone
+N05CH,Melatonin receptor agonists
+N05CH01,melatonin
+N05CH02,ramelteon
+N05CH03,tasimelteon
+N05CJ,Orexin receptor antagonists
+N05CJ01,suvorexant
+N05CJ02,lemborexant
+N05CJ03,daridorexant
+N05CM,Other hypnotics and sedatives
+N05CM01,methaqualone
+N05CM02,clomethiazole
+N05CM03,bromisoval
+N05CM04,carbromal
+N05CM05,scopolamine
+N05CM06,propiomazine
+N05CM07,triclofos
+N05CM08,ethchlorvynol
+N05CM09,Valerianae radix
+N05CM10,hexapropymate
+N05CM11,bromides
+N05CM12,apronal
+N05CM13,valnoctamide
+N05CM15,methylpentynol
+N05CM16,niaprazine
+N05CM18,dexmedetomidine
+N05CX,"Hypnotics and sedatives in combination, excl. barbiturates"
+N05CX01,"meprobamate, combinations"
+N05CX02,"methaqualone, combinations"
+N05CX03,"methylpentynol, combinations"
+N05CX04,"clomethiazole, combinations"
+N05CX05,"emepronium, combinations"
+N05CX06,"dipiperonylaminoethanol, combinations"
+N06,PSYCHOANALEPTICS
+N06A,ANTIDEPRESSANTS
+N06AA,Non-selective monoamine reuptake inhibitors
+N06AA01,desipramine
+N06AA02,imipramine
+N06AA03,imipramine oxide
+N06AA04,clomipramine
+N06AA05,opipramol
+N06AA06,trimipramine
+N06AA07,lofepramine
+N06AA08,dibenzepin
+N06AA09,amitriptyline
+N06AA10,nortriptyline
+N06AA11,protriptyline
+N06AA12,doxepin
+N06AA13,iprindole
+N06AA14,melitracen
+N06AA15,butriptyline
+N06AA16,dosulepin
+N06AA17,amoxapine
+N06AA18,dimetacrine
+N06AA19,amineptine
+N06AA21,maprotiline
+N06AA23,quinupramine
+N06AB,Selective serotonin reuptake inhibitors
+N06AB02,zimeldine
+N06AB03,fluoxetine
+N06AB04,citalopram
+N06AB05,paroxetine
+N06AB06,sertraline
+N06AB07,alaproclate
+N06AB08,fluvoxamine
+N06AB09,etoperidone
+N06AB10,escitalopram
+N06AF,"Monoamine oxidase inhibitors, non-selective"
+N06AF01,isocarboxazid
+N06AF02,nialamide
+N06AF03,phenelzine
+N06AF04,tranylcypromine
+N06AF05,iproniazide
+N06AF06,iproclozide
+N06AG,Monoamine oxidase A inhibitors
+N06AG02,moclobemide
+N06AG03,toloxatone
+N06AX,Other antidepressants
+N06AX01,oxitriptan
+N06AX02,tryptophan
+N06AX03,mianserin
+N06AX04,nomifensine
+N06AX05,trazodone
+N06AX06,nefazodone
+N06AX07,minaprine
+N06AX08,bifemelane
+N06AX09,viloxazine
+N06AX10,oxaflozane
+N06AX11,mirtazapine
+N06AX12,bupropion
+N06AX13,medifoxamine
+N06AX14,tianeptine
+N06AX15,pivagabine
+N06AX16,venlafaxine
+N06AX17,milnacipran
+N06AX18,reboxetine
+N06AX19,gepirone
+N06AX21,duloxetine
+N06AX22,agomelatine
+N06AX23,desvenlafaxine
+N06AX24,vilazodone
+N06AX25,Hyperici herba
+N06AX26,vortioxetine
+N06AX27,esketamine
+N06AX28,levomilnacipran
+N06AX29,brexanolone
+N06AX31,zuranolone
+N06AX62,bupropion and dextromethorphan
+N06B,"PSYCHOSTIMULANTS, AGENTS USED FOR ADHD AND NOOTROPICS"
+N06BA,Centrally acting sympathomimetics
+N06BA01,amfetamine
+N06BA02,dexamfetamine
+N06BA03,metamfetamine
+N06BA04,methylphenidate
+N06BA05,pemoline
+N06BA06,fencamfamin
+N06BA07,modafinil
+N06BA08,fenozolone
+N06BA09,atomoxetine
+N06BA10,fenetylline
+N06BA11,dexmethylphenidate
+N06BA12,lisdexamfetamine
+N06BA13,armodafinil
+N06BA14,solriamfetol
+N06BA15,dexmethylphenidate and serdexmethylphenidate
+N06BC,Xanthine derivatives
+N06BC01,caffeine
+N06BC02,propentofylline
+N06BX,Other psychostimulants and nootropics
+N06BX01,meclofenoxate
+N06BX02,pyritinol
+N06BX03,piracetam
+N06BX04,deanol
+N06BX05,fipexide
+N06BX06,citicoline
+N06BX07,oxiracetam
+N06BX08,pirisudanol
+N06BX09,linopirdine
+N06BX10,nizofenone
+N06BX11,aniracetam
+N06BX12,acetylcarnitine
+N06BX13,idebenone
+N06BX14,prolintane
+N06BX15,pipradrol
+N06BX16,pramiracetam
+N06BX17,adrafinil
+N06BX18,vinpocetine
+N06BX21,temgicoluril
+N06BX22,phenibut
+N06C,PSYCHOLEPTICS AND PSYCHOANALEPTICS IN COMBINATION
+N06CA,Antidepressants in combination with psycholeptics
+N06CA01,amitriptyline and psycholeptics
+N06CA02,melitracen and psycholeptics
+N06CA03,fluoxetine and psycholeptics
+N06CB,Psychostimulants in combination with psycholeptics
+N06D,ANTI-DEMENTIA DRUGS
+N06DA,Anticholinesterases
+N06DA01,tacrine
+N06DA02,donepezil
+N06DA03,rivastigmine
+N06DA04,galantamine
+N06DA05,ipidacrine
+N06DA52,donepezil and memantine
+N06DA53,"donepezil, memantine and Ginkgo folium"
+N06DX,Other anti-dementia drugs
+N06DX01,memantine
+N06DX02,Ginkgo folium
+N06DX03,aducanumab
+N06DX04,lecanemab
+N06DX05,donanemab
+N06DX30,combinations
+N07,OTHER NERVOUS SYSTEM DRUGS
+N07A,PARASYMPATHOMIMETICS
+N07AA,Anticholinesterases
+N07AA01,neostigmine
+N07AA02,pyridostigmine
+N07AA03,distigmine
+N07AA30,ambenonium
+N07AA51,"neostigmine, combinations"
+N07AB,Choline esters
+N07AB01,carbachol
+N07AB02,bethanechol
+N07AX,Other parasympathomimetics
+N07AX01,pilocarpine
+N07AX02,choline alfoscerate
+N07AX03,cevimeline
+N07B,DRUGS USED IN ADDICTIVE DISORDERS
+N07BA,Drugs used in nicotine dependence
+N07BA01,nicotine
+N07BA03,varenicline
+N07BA04,cytisinicline
+N07BB,Drugs used in alcohol dependence
+N07BB01,disulfiram
+N07BB02,calcium carbimide
+N07BB03,acamprosate
+N07BB04,naltrexone
+N07BB05,nalmefene
+N07BB06,ondelopran
+N07BC,Drugs used in opioid dependence
+N07BC01,buprenorphine
+N07BC02,methadone
+N07BC03,levacetylmethadol
+N07BC04,lofexidine
+N07BC05,levomethadone
+N07BC06,diamorphine
+N07BC51,"buprenorphine, combinations"
+N07C,ANTIVERTIGO PREPARATIONS
+N07CA,Antivertigo preparations
+N07CA01,betahistine
+N07CA02,cinnarizine
+N07CA03,flunarizine
+N07CA04,acetylleucine
+N07CA52,"cinnarizine, combinations"
+N07X,OTHER NERVOUS SYSTEM DRUGS
+N07XA,Gangliosides and ganglioside derivatives
+N07XX,Other nervous system drugs
+N07XX01,tirilazad
+N07XX02,riluzole
+N07XX03,xaliproden
+N07XX04,sodium oxybate
+N07XX05,amifampridine
+N07XX06,tetrabenazine
+N07XX07,fampridine
+N07XX08,tafamidis
+N07XX10,laquinimod
+N07XX11,pitolisant
+N07XX12,patisiran
+N07XX13,valbenazine
+N07XX14,edaravone
+N07XX15,inotersen
+N07XX16,deutetrabenazine
+N07XX17,arimoclomol
+N07XX18,vutrisiran
+N07XX19,sodium phenylbutyrate and ursodoxicoltaurine
+N07XX21,eplontersen
+N07XX22,tofersen
+N07XX23,troriluzole
+N07XX24,trofinetide
+N07XX25,omaveloxolone
+N07XX59,"dextromethorphan, combinations"

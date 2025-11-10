@@ -18,7 +18,7 @@ Description: Comprehensive tools for crawling and parsing the World Health
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Depends: R (>= 4.2.0)
 Imports:
     cli (>= 3.6.0),
@@ -47,4 +47,3 @@ Config/testthat/edition: 3
 URL: https://vanhungtran.github.io/atcddd, https://github.com/vanhungtran/atcddd
 BugReports: https://github.com/vanhungtran/atcddd/issues
 Language: en-US
-

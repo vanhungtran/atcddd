@@ -19,6 +19,11 @@ utils::globalVariables(c(
   "note",
   "source_code",
   
+  # Variables used in api.R
+  "level",
+  "parent_code",
+  "has_children",
+  
   # Variables used in parse.R and other modules
   ".data"
 ))
