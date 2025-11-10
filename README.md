@@ -195,6 +195,47 @@ atc_write_manifest(paths)
 
 ------------------------------------------------------------------------
 
+## ⚠️ Understanding DDD Data Quality
+
+**Not all medications have Defined Daily Dose (DDD) values** - this is expected from WHO source data.
+
+### Why Some Drugs Show NA Values:
+
+1. **Topical/Dermatological Medications** (D group)
+   - Variable absorption and application area
+   - Dosing depends on body surface treated
+   - Example: Antifungal creams, corticosteroid ointments
+
+2. **Fixed-Dose Combinations**
+   - WHO policy: No DDD assigned to combinations
+   - Example: "combinations of tetracyclines"
+
+3. **Ophthalmics, Nasal, Otic Preparations**
+   - Local application with minimal systemic absorption
+   - Highly individualized dosing
+
+4. **Less Commonly Used Drugs**
+   - Older medications not prioritized for DDD assignment
+
+### Verifying Data Quality:
+
+```r
+# Compare systemic vs. topical drugs
+antibiotics <- atc_crawl(roots = "J01AA", rate = 0.5, max_codes = 20)
+cat("Antibiotics with DDD:", 
+    sum(!is.na(antibiotics$ddd$ddd)), "/", nrow(antibiotics$ddd))
+#> Antibiotics with DDD: 20 / 23  ✓ High percentage expected
+
+dermatologicals <- atc_crawl(roots = "D01", rate = 0.5, max_codes = 50)
+cat("Dermatologicals with DDD:", 
+    sum(!is.na(dermatologicals$ddd$ddd)), "/", nrow(dermatologicals$ddd))
+#> Dermatologicals with DDD: 0 / 50  ✓ Low/zero percentage expected
+```
+
+**This is correct behavior** - the parser works as intended. NA values reflect WHO source data limitations, not package errors.
+
+------------------------------------------------------------------------
+
 ------------------------------------------------------------------------
 
 ## 📚 Core Functions

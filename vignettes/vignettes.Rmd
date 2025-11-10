@@ -191,6 +191,47 @@ res_full <- atc_crawl(
 )
 ```
 
+# Understanding DDD Data Quality
+
+## Why Do Some Drugs Have NA Values?
+
+**Not all medications have Defined Daily Dose (DDD) values**, and this is expected behavior from the WHO source data.
+
+### When DDD Values Are Missing:
+
+1. **Topical/Dermatological medications** (D group)
+   - Dosing depends on body surface area treated
+   - Variable absorption through skin
+   - Example: Antifungal creams, corticosteroid ointments
+
+2. **Fixed-dose combinations**
+   - WHO policy: No DDD for combinations
+   - Example: "combinations of tetracyclines"
+
+3. **Less commonly used drugs**
+   - Not prioritized for DDD assignment
+   - Example: Older antimicrobials
+
+4. **Medications with variable dosing**
+   - Individualized treatment (e.g., chemotherapy)
+   - Complex dosing regimens
+
+### Example: Comparing Systemic vs. Topical Drugs
+
+```{r ddd_comparison, eval=FALSE}
+# Antibiotics (systemic) - SHOULD have DDD values
+antibiotics <- atc_crawl(roots = "J01AA", rate = 0.5, max_codes = 20)
+cat("Antibiotics with DDD:", 
+    sum(!is.na(antibiotics$ddd$ddd)), "/", nrow(antibiotics$ddd), "\n")
+
+# Dermatologicals (topical) - Often NO DDD values  
+derma <- atc_crawl(roots = "D01", rate = 0.5, max_codes = 50)
+cat("Dermatologicals with DDD:", 
+    sum(!is.na(derma$ddd$ddd)), "/", nrow(derma$ddd), "\n")
+```
+
+**This is correct behavior** - your parser is working as intended!
+
 # Data Analysis Examples
 
 ## Analyzing DDD Availability
@@ -208,6 +249,31 @@ ddd_summary <- res$ddd %>%
   arrange(desc(n_drugs))
 
 print(ddd_summary)
+```
+
+## DDD Availability by Anatomical Group
+
+```{r ddd_by_group, eval=FALSE}
+# Calculate DDD availability for each main anatomical group
+library(stringr)
+
+ddd_by_anatomical <- res$ddd %>%
+  mutate(anatomical_group = str_sub(atc_code, 1, 1)) %>%
+  group_by(anatomical_group) %>%
+  summarise(
+    total_entries = n(),
+    with_ddd = sum(!is.na(ddd)),
+    without_ddd = sum(is.na(ddd)),
+    pct_complete = round(100 * with_ddd / total_entries, 1),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(pct_complete))
+
+print(ddd_by_anatomical)
+
+# Interpretation:
+# - High % (>80%): Systemic drugs (antibiotics, cardiovascular, etc.)
+# - Low % (<20%): Topical/local drugs (dermatologicals, ophthalmics)
 ```
 
 ## Exploring the Hierarchy
@@ -319,9 +385,44 @@ print(manifest)
 
 ## Common Issues
 
-1. **Slow crawling**: Increase the `rate` parameter or use `max_codes` for testing
-2. **Network errors**: Check internet connection and WHO website availability
-3. **Memory issues**: Crawl specific groups instead of all at once
+### 1. Many NA Values in DDD Data
+
+**This is expected and correct!** Not all drugs have DDD values:
+
+- **Topical/dermatological medications** (D group): Highly variable dosing
+- **Fixed-dose combinations**: WHO policy excludes combinations
+- **Ophthalmics, otic, nasal preparations**: Local application, variable absorption
+- **Some older/rarely used drugs**: Not prioritized for DDD assignment
+
+**To verify your data quality:**
+
+```{r verify_ddd, eval=FALSE}
+# Check DDD availability by anatomical group
+res$ddd %>%
+  mutate(group = substr(atc_code, 1, 1)) %>%
+  group_by(group) %>%
+  summarise(
+    total = n(),
+    with_ddd = sum(!is.na(ddd)),
+    pct = round(100 * with_ddd / total, 1)
+  ) %>%
+  arrange(desc(pct))
+
+# Groups with high % (>80%): Systemic drugs working correctly
+# Groups with low % (<20%): Topical/local drugs - also correct!
+```
+
+### 2. Slow Crawling
+
+Increase the `rate` parameter or use `max_codes` for testing.
+
+### 3. Network Errors
+
+Check internet connection and WHO website availability at <https://www.whocc.no/atc_ddd_index/>.
+
+### 4. Memory Issues
+
+Crawl specific groups instead of all at once, or use `max_codes` to limit scope.
 
 ## Getting Help
 
