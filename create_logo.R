@@ -47,12 +47,12 @@ sticker(p1,
         s_y = 0.75,
         s_width = 1.3,
         s_height = 1,
-        h_fill = "#ffffff",
+        h_fill = "transparent",
         h_color = "#2a9d8f",
         h_size = 1.5,
         filename = "man/figures/logo_option1.png",
         dpi = 300,
-        white_around_sticker = TRUE
+        white_around_sticker = FALSE
 )
 
 cat("✓ Created logo_option1.png - Hierarchy bar chart theme\n\n")
@@ -117,12 +117,12 @@ sticker(p2,
         s_y = 0.75,
         s_width = 1.4,
         s_height = 1.2,
-        h_fill = "#f8f9fa",
+        h_fill = "transparent",
         h_color = "#2a9d8f",
         h_size = 1.5,
         filename = "man/figures/logo_option2.png",
         dpi = 300,
-        white_around_sticker = TRUE
+        white_around_sticker = FALSE
 )
 
 cat("✓ Created logo_option2.png - Molecular network theme\n\n")
@@ -169,12 +169,12 @@ sticker(p3,
         s_y = 0.75,
         s_width = 1.2,
         s_height = 1.2,
-        h_fill = "#ffffff",
+        h_fill = "transparent",
         h_color = "#2a9d8f",
         h_size = 1.5,
         filename = "man/figures/logo_option3.png",
         dpi = 300,
-        white_around_sticker = TRUE
+        white_around_sticker = FALSE
 )
 
 cat("✓ Created logo_option3.png - Medical cross + data theme\n\n")
@@ -234,12 +234,12 @@ sticker(p4,
         s_y = 0.75,
         s_width = 1.3,
         s_height = 1.1,
-        h_fill = "#ffffff",
+        h_fill = "transparent",
         h_color = "#2a9d8f",
         h_size = 1.5,
         filename = "man/figures/logo_option4.png",
         dpi = 300,
-        white_around_sticker = TRUE
+        white_around_sticker = FALSE
 )
 
 cat("✓ Created logo_option4.png - Pills/capsules theme (RECOMMENDED)\n\n")
@@ -289,12 +289,12 @@ sticker(p5,
         s_y = 0.75,
         s_width = 1.4,
         s_height = 1.1,
-        h_fill = "#f8f9fa",
+        h_fill = "transparent",
         h_color = "#2a9d8f",
         h_size = 1.5,
         filename = "man/figures/logo_option5.png",
         dpi = 300,
-        white_around_sticker = TRUE
+        white_around_sticker = FALSE
 )
 
 cat("✓ Created logo_option5.png - Minimalist ATC text theme\n\n")
@@ -302,7 +302,7 @@ cat("✓ Created logo_option5.png - Minimalist ATC text theme\n\n")
 
 # Create a comparison HTML file
 cat("\n===========================================\n")
-cat("✓ ALL 5 LOGO OPTIONS CREATED!\n")
+cat("✓ ALL 5 LOGO OPTIONS CREATED WITH TRANSPARENT BACKGROUNDS!\n")
 cat("===========================================\n\n")
 cat("Files saved in: man/figures/\n\n")
 cat("Logo options:\n")
@@ -311,6 +311,8 @@ cat("  2. logo_option2.png - Molecular network (scientific, connected)\n")
 cat("  3. logo_option3.png - Medical cross + data (healthcare focus)\n")
 cat("  4. logo_option4.png - Pills/capsules (RECOMMENDED - clear pharma theme)\n")
 cat("  5. logo_option5.png - Minimalist ATC text (simple, modern)\n\n")
+cat("All logos now have TRANSPARENT backgrounds!\n")
+cat("Perfect for use on any background color (white, dark, colored).\n\n")
 cat("To use a logo, rename it to 'logo.png':\n")
 cat("  Example: file.copy('man/figures/logo_option4.png', 'man/figures/logo.png', overwrite=TRUE)\n\n")
 cat("Or update README.md to reference your chosen option.\n")
