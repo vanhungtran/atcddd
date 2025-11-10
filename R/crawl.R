@@ -111,23 +111,9 @@
 }
 
 # Internal: safe HTML fetch that avoids caching xml_document pointers
-# Requires either:
-#   - fetch_html(url, rate) defined in http.R (preferred), or
-#   - http_get_raw_cached(url, min_delay) + xml2::read_html
-# Fallback to http_get_html_cached (not recommended across sessions).
+# Uses fetch_html(url, rate) defined in http.R which handles caching and rate limiting
 .fetch_html_safe <- function(url, rate = 0.5) {
-  if (exists("fetch_html", mode = "function")) {
-    return(fetch_html(url, rate = rate))
-  }
-  if (exists("http_get_raw_cached", mode = "function")) {
-    raw <- http_get_raw_cached(url, min_delay = rate)
-    return(xml2::read_html(raw))
-  }
-  # Fallback (works within-session but fragile if cached across sessions)
-  if (exists("http_get_html_cached", mode = "function")) {
-    return(http_get_html_cached(url, min_delay = rate))
-  }
-  stop("No suitable HTML fetch function found. Provide fetch_html() or http_get_raw_cached().")
+  fetch_html(url, rate = rate)
 }
 
 # Fetch a single ATC page and parse children/DDD
