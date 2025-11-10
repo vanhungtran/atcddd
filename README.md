@@ -14,8 +14,7 @@
     1)](#extract-anatomical-group-level-1)
   - [Fuzzy match drug name → ATC code](#fuzzy-match-drug-name--atc-code)
 - [📚 Core Functions](#books-core-functions)
-- [📊 Example: Visualize Top Anatomical
-  Groups](#bar_chart-example-visualize-top-anatomical-groups)
+- [📊 Example: Visualize ATC Hierarchy Distribution](#bar_chart-example-visualize-atc-hierarchy-distribution)
 - [🤝 Contributing](#handshake-contributing)
 - [📜 License](#scroll-license)
 - [❓ Need Help?](#question-need-help)
@@ -262,40 +261,68 @@ Run `?function_name` in R for comprehensive documentation:
 
 ------------------------------------------------------------------------
 
-## 📊 Example: Visualize Top Anatomical Groups
+## 📊 Example: Visualize ATC Hierarchy Distribution
 
-Let’s explore how many drugs exist in each top-level anatomical group.
+Explore the distribution of codes across the 5-level ATC hierarchy:
 
-``` r
+```r
+library(atcddd)
 library(dplyr)
 library(ggplot2)
 
-atc_table() %>%
-  filter(level == 1) %>%
-  count(code, name, .drop = FALSE) %>%
-  arrange(desc(n)) %>%
-  head(10) %>%
-  ggplot(aes(x = reorder(name, n), y = n)) +
-  geom_col(fill = "#2a9d8f", width = 0.7, alpha = 0.9) +
-  coord_flip() +
+# Crawl dermatological drugs
+res <- atc_crawl(roots = "D", rate = 0.5, max_codes = 100)
+
+# Calculate ATC code levels
+code_levels <- res$codes %>%
+  mutate(
+    code_length = nchar(atc_code),
+    level = case_when(
+      code_length == 1 ~ "Level 1 (Anatomical)",
+      code_length == 3 ~ "Level 2 (Therapeutic)",
+      code_length == 4 ~ "Level 3 (Pharmacological)",
+      code_length == 5 ~ "Level 4 (Chemical)",
+      code_length == 7 ~ "Level 5 (Substance)",
+      TRUE ~ "Other"
+    )
+  ) %>%
+  count(level) %>%
+  filter(level != "Other") %>%
+  mutate(level = factor(level, levels = c(
+    "Level 1 (Anatomical)", 
+    "Level 2 (Therapeutic)", 
+    "Level 3 (Pharmacological)", 
+    "Level 4 (Chemical)", 
+    "Level 5 (Substance)"
+  )))
+
+# Visualize
+ggplot(code_levels, aes(x = level, y = n, fill = level)) +
+  geom_col(width = 0.7, alpha = 0.9) +
+  geom_text(aes(label = n), vjust = -0.5, size = 4) +
+  scale_fill_brewer(palette = "Set2") +
   labs(
-    title = "Top 10 Anatomical Groups by Number of Drugs",
-    subtitle = "Based on WHO ATC/DDD Index",
-    x = NULL,
-    y = "Number of Drugs",
-    caption = "Source: WHO Collaborating Centre for Drug Statistics Methodology"
+    title = "Distribution of ATC Codes by Hierarchy Level",
+    x = "ATC Level",
+    y = "Number of Codes",
+    caption = "Source: WHO ATC/DDD Index"
   ) +
-  theme_minimal(base_size = 12, base_family = "Helvetica") +
+  theme_minimal(base_size = 12) +
   theme(
-    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
-    plot.subtitle = element_text(hjust = 0.5, size = 12, color = "#555555"),
-    axis.text = element_text(size = 11),
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    panel.grid.major.x = element_line(color = "#e0e0e0", linetype = "dashed"),
-    plot.caption = element_text(size = 9, color = "#777777", hjust = 0.5)
+    legend.position = "none",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    panel.grid.major.x = element_blank(),
+    axis.text.x = element_text(angle = 45, hjust = 1)
   )
 ```
+
+### Example Output:
+
+- **Level 1** (Anatomical): 1 code
+- **Level 2** (Therapeutic): 8-10 codes  
+- **Level 3** (Pharmacological): 10-15 codes
+- **Level 4** (Chemical): 15-25 codes
+- **Level 5** (Substance): 40-80 individual drugs
 
 ------------------------------------------------------------------------
 
@@ -412,3 +439,4 @@ p <- ggplot() +
   h_color = "#264653",
 &#10;)
  &#10;-->
+
