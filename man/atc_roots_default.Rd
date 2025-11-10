@@ -2,10 +2,44 @@
 % Please edit documentation in R/cache.R
 \name{atc_roots_default}
 \alias{atc_roots_default}
-\title{Default ATC roots}
+\title{Default ATC Root Codes}
 \usage{
 atc_roots_default()
 }
+\value{
+Character vector of single-letter codes: A through V (excluding E, F, I, K, O, Q, T, U, W, X, Y, Z)
+}
 \description{
-Default ATC roots
+Returns the 14 main anatomical groups (Level 1) of the ATC classification system.
+These represent the highest level categories for pharmaceutical classification.
+}
+\section{ATC Main Groups}{
+
+\itemize{
+\item \strong{A}: Alimentary tract and metabolism
+\item \strong{B}: Blood and blood forming organs
+\item \strong{C}: Cardiovascular system
+\item \strong{D}: Dermatologicals
+\item \strong{G}: Genito-urinary system and sex hormones
+\item \strong{H}: Systemic hormonal preparations
+\item \strong{J}: Antiinfectives for systemic use
+\item \strong{L}: Antineoplastic and immunomodulating agents
+\item \strong{M}: Musculo-skeletal system
+\item \strong{N}: Nervous system
+\item \strong{P}: Antiparasitic products
+\item \strong{R}: Respiratory system
+\item \strong{S}: Sensory organs
+\item \strong{V}: Various
+}
+}
+
+\examples{
+# Get all default root codes
+atc_roots_default()
+
+# Crawl only cardiovascular and nervous system
+\dontrun{
+res <- atc_crawl(roots = c("C", "N"))
+}
+
 }

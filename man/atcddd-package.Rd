@@ -7,19 +7,42 @@
 \title{atcddd: WHO ATC/DDD Crawler and Parser}
 \description{
 Crawl and parse the WHO ATC/DDD index (whocc.no) into tidy tables with
-robust HTTP (retries, timeouts, UA), on-disk caching, rate limiting,
-iterative traversal, resilient parsing, and checksum manifests.
+robust HTTP (retries, timeouts, user agent), on-disk caching, rate limiting,
+iterative traversal, resilient parsing, and checksum manifests for reproducibility.
+
+This package provides tools for working with the World Health Organization's
+Anatomical Therapeutic Chemical (ATC) classification system and Defined Daily
+Dose (DDD) values for medications. It enables researchers and healthcare
+professionals to systematically retrieve, parse, and analyze pharmaceutical
+classification data.
 }
-\seealso{
-Useful links:
+\section{Main Features}{
+
 \itemize{
-  \item \url{https://vanhungtran.github.io/atcddd}
-  \item Report bugs at \url{https://github.com/vanhungtran/atcddd/issues}
+\item \strong{Web Crawling}: Automated retrieval from WHO ATC/DDD index
+\item \strong{Caching}: Filesystem-based caching to minimize HTTP requests
+\item \strong{Rate Limiting}: Respectful crawling with configurable delays
+\item \strong{Reproducibility}: SHA256 checksums and manifest generation
+\item \strong{Robust Parsing}: Handles malformed HTML and missing data
+}
 }
 
+\section{Core Functions}{
+
+\itemize{
+\item \code{\link{atc_crawl}}: Crawl ATC/DDD index from specified roots
+\item \code{\link{atc_write_csv}}: Export results to CSV files
+\item \code{\link{atc_manifest}}: Generate checksums for reproducibility
+}
+}
+
+\seealso{
+\itemize{
+\item WHO ATC/DDD Index: \url{https://www.whocc.no/atc_ddd_index/}
+\item Package Repository: \url{https://github.com/vanhungtran/atcddd}
+}
 }
 \author{
-\strong{Maintainer}: Lucas VHH TRAN \email{tranhungydhcm@gmail.com}
-
+Lucas VHH TRAN \email{tranhungydhcm@gmail.com}
 }
 \keyword{internal}

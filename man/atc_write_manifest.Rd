@@ -2,15 +2,37 @@
 % Please edit documentation in R/manifest.R
 \name{atc_write_manifest}
 \alias{atc_write_manifest}
-\title{Write a checksum manifest next to outputs}
+\title{Write a Checksum Manifest CSV File}
 \usage{
 atc_write_manifest(paths, manifest_path = NULL)
 }
 \arguments{
-\item{paths}{vector of file paths}
+\item{paths}{Character vector of file paths to include in manifest.}
 
-\item{manifest_path}{optional output path (default: MANIFEST.csv in same dir as first path)}
+\item{manifest_path}{Character; optional output path for manifest file.
+Default: \code{MANIFEST.csv} in the same directory as the first path.}
+}
+\value{
+Character; path to manifest file (invisible).
 }
 \description{
-Write a checksum manifest next to outputs
+Creates a CSV file documenting file paths, sizes, and SHA256 checksums
+for a set of output files. This supports reproducible research and
+data verification workflows.
+}
+\examples{
+\dontrun{
+# Standard workflow
+res <- atc_crawl(roots = c("A", "B"))
+paths <- atc_write_csv(res, dir = "data/2025-01-09")
+atc_write_manifest(paths)
+
+# Custom manifest location
+atc_write_manifest(paths, manifest_path = "data/checksums.csv")
+}
+
+}
+\seealso{
+\code{\link{atc_manifest}} for generating manifest data,
+\code{\link{atc_write_csv}} for data export
 }

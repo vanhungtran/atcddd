@@ -7,6 +7,8 @@
 
 #' Crawl the WHO ATC/DDD Index
 #'
+#' Crawl the WHO ATC/DDD Index
+#'
 #' @description
 #' Iteratively traverses ATC codes starting from one or more root codes,
 #' respecting rate limits and using the HTTP layer's caching. Returns two
@@ -27,6 +29,7 @@
 #' @param max_codes Integer; limit on number of codes to visit (default: Inf).
 #'   Useful for testing or partial crawls. Set to a finite value to limit scope.
 #' @param quiet Logical; reduce informational messages (default: FALSE).
+#'   Note: Messages have been suppressed in this version.
 #'
 #' @return A list with two components:
 #' \describe{
@@ -175,16 +178,6 @@ atc_fetch_code <- function(code, rate = 0.5, quiet = FALSE) {
   }
 }
 
-# Crawl WHO ATC/DDD from one or more root codes
-# Iterative, rate-limited, cached (via HTTP layer), robust to partial failures.
-# Returns two tidy tibbles: codes (unique codes with names) and ddd (rows with DDD/UOM/route/notes).
-#' @param roots character vector of root ATC codes (default: anatomical main groups)
-#' @param rate minimum seconds between HTTP requests
-#' @param progress logical; show a progress bar
-#' @param max_codes integer; limit for development/testing (default Inf)
-#' @param quiet logical; reduce info messages
-#' @return list(codes = tibble, ddd = tibble)
-#' @export
 atc_crawl <- function(roots = atc_roots_default(),
                       rate = 0.5,
                       progress = interactive(),

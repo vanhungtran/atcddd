@@ -2,16 +2,50 @@
 % Please edit documentation in R/manifest.R
 \name{atc_manifest}
 \alias{atc_manifest}
-\title{Compute a checksum manifest for outputs}
+\title{Compute a Checksum Manifest for Output Files}
 \usage{
 atc_manifest(paths)
 }
 \arguments{
-\item{paths}{character vector of file paths}
+\item{paths}{Character vector of file paths to include in manifest.
+All paths must exist and be readable.}
 }
 \value{
-tibble with columns: file, size, sha256
+A tibble with columns:
+\describe{
+\item{file}{Character; normalized absolute file path}
+\item{size}{Numeric; file size in bytes}
+\item{sha256}{Character; SHA256 cryptographic hash}
+}
 }
 \description{
 Generates a data frame with file paths, sizes, and SHA256 checksums.
+This provides cryptographic verification of file integrity and supports
+reproducible research by documenting exact file contents.
+}
+\section{Reproducibility}{
+
+SHA256 checksums provide a unique fingerprint for each file. Even minor
+changes to file contents will result in completely different checksums,
+making this ideal for verifying data integrity and documenting exact
+versions used in analyses.
+}
+
+\examples{
+\dontrun{
+# Generate manifest for crawled data
+res <- atc_crawl(roots = "D", max_codes = 50)
+paths <- atc_write_csv(res, dir = "data")
+manifest <- atc_manifest(paths)
+print(manifest)
+
+# Check file integrity later
+current_manifest <- atc_manifest(paths)
+identical(manifest, current_manifest)  # TRUE if files unchanged
+}
+
+}
+\seealso{
+\code{\link{atc_write_manifest}} for saving manifest to CSV,
+\code{\link{atc_write_csv}} for exporting data
 }

@@ -2,20 +2,53 @@
 % Please edit documentation in R/io.R
 \name{atc_write_csv}
 \alias{atc_write_csv}
-\title{Write codes and DDD tables to CSV files}
+\title{Write ATC Codes and DDD Tables to CSV Files}
 \usage{
 atc_write_csv(x, dir = ".", stamp = TRUE)
 }
 \arguments{
-\item{x}{list with 'codes' and 'ddd'}
+\item{x}{List; output from \code{\link{atc_crawl}} containing \code{codes}
+and \code{ddd} tibbles.}
 
-\item{dir}{output directory}
+\item{dir}{Character; output directory path (default: current directory).
+Directory will be created if it doesn't exist.}
 
-\item{stamp}{logical date-stamped filenames}
+\item{stamp}{Logical; whether to include date stamp in filenames
+(default: TRUE). Format: \code{_YYYY-MM-DD}.}
 }
 \value{
-character vector of file paths (invisible)
+Character vector of file paths (invisible). Use this for
+subsequent operations like manifest generation.
 }
 \description{
-Write codes and DDD tables to CSV files
+Exports the results from \code{\link{atc_crawl}} to two separate CSV files:
+one for ATC codes and names, and one for DDD (Defined Daily Dose) data.
+Files can optionally include a date stamp for version tracking.
+}
+\section{Output Files}{
+
+\itemize{
+\item \code{WHO_ATC_codes[_YYYY-MM-DD].csv}: Contains atc_code and atc_name
+\item \code{WHO_ATC_DDD[_YYYY-MM-DD].csv}: Contains DDD specifications
+}
+}
+
+\examples{
+\dontrun{
+# Basic usage
+res <- atc_crawl(roots = "D", max_codes = 50)
+paths <- atc_write_csv(res)
+
+# Custom directory without date stamp
+atc_write_csv(res, dir = "output/atc_data", stamp = FALSE)
+
+# With manifest generation
+paths <- atc_write_csv(res, dir = "data")
+atc_write_manifest(paths)
+}
+
+}
+\seealso{
+\code{\link{atc_crawl}} for data collection,
+\code{\link{atc_write_manifest}} for checksum generation
 }

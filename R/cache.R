@@ -92,12 +92,30 @@ atc_roots_default <- function() {
 #'
 #' @description
 #' Checks if a string is a valid ATC code format (uppercase alphanumeric).
+#' ATC codes can be 1-7 characters long, following the WHO hierarchy:
+#' \itemize{
+#'   \item Level 1: 1 character (e.g., "N")
+#'   \item Level 2: 3 characters (e.g., "N02")
+#'   \item Level 3: 4 characters (e.g., "N02B")
+#'   \item Level 4: 5 characters (e.g., "N02BE")
+#'   \item Level 5: 7 characters (e.g., "N02BE01")
+#' }
 #'
-#' @param x Character; a potential ATC code
-#' @return Logical; TRUE if valid, FALSE otherwise
+#' @param x Character; a potential ATC code to validate
+#' @return Logical; TRUE if valid format, FALSE otherwise
 #'
-#' @keywords internal
+#' @examples
+#' is_valid_atc_code("N02BE01")  # TRUE - valid Level 5 code
+#' is_valid_atc_code("C")        # TRUE - valid Level 1 code
+#' is_valid_atc_code("n02be01")  # FALSE - must be uppercase
+#' is_valid_atc_code("N02-BE01") # FALSE - no special characters
+#'
+#' @export
 is_valid_atc_code <- function(x) {
   is.character(x) && length(x) == 1L && grepl("^[A-Z0-9]+$", x)
 }
+
+#' @rdname is_valid_atc_code
+#' @export
+is_valid_atc <- is_valid_atc_code
 
