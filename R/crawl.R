@@ -122,7 +122,6 @@
   }
   # Fallback (works within-session but fragile if cached across sessions)
   if (exists("http_get_html_cached", mode = "function")) {
-    cli::cli_warn("Using http_get_html_cached fallback; avoid caching xml_document across sessions.")
     return(http_get_html_cached(url, min_delay = rate))
   }
   stop("No suitable HTML fetch function found. Provide fetch_html() or http_get_raw_cached().")
@@ -133,7 +132,6 @@
 atc_fetch_code <- function(code, rate = 0.5, quiet = FALSE) {
   stopifnot(is_valid_atc_code(code))
   url <- paste0(atc_base_url(), code, "&showdescription=no")
-  if (!isTRUE(quiet)) cli::cli_inform("Fetching {url}")
 
   html <- .fetch_html_safe(url, rate = rate)
 
@@ -142,7 +140,6 @@ atc_fetch_code <- function(code, rate = 0.5, quiet = FALSE) {
     ddd <- tryCatch(
       parse_ddd_table(html),
       error = function(e) {
-        cli::cli_warn("Failed to parse DDD table at {url}: {conditionMessage(e)}")
         NULL
       }
     )
@@ -151,7 +148,6 @@ atc_fetch_code <- function(code, rate = 0.5, quiet = FALSE) {
     codes <- if (!is.null(ddd) && nrow(ddd) && "atc_code" %in% names(ddd)) {
       dplyr::distinct(ddd, atc_code, atc_name)
     } else {
-      if (!isTRUE(quiet)) cli::cli_warn("Leaf page without usable atc_code at {url}")
       tibble::tibble(atc_code = code, atc_name = NA_character_)
     }
 
@@ -166,7 +162,6 @@ atc_fetch_code <- function(code, rate = 0.5, quiet = FALSE) {
     kids <- tryCatch(
       parse_children(html, code),
       error = function(e) {
-        cli::cli_warn("Failed to parse children at {url}: {conditionMessage(e)}")
         tibble::tibble()
       }
     )
@@ -221,7 +216,6 @@ atc_crawl <- function(roots = atc_roots_default(),
     res <- tryCatch(
       atc_fetch_code(code, rate = rate, quiet = quiet),
       error = function(e) {
-        cli::cli_warn("Fetch/parse failed for code {code}: {conditionMessage(e)}")
         NULL
       }
     )
