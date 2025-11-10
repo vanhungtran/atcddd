@@ -18,6 +18,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+<div align="center">
+  <img src="../man/figures/logo.png" width="180" alt="atcddd logo"/>
+</div>
+
 # Introduction
 
 The **atcddd** package provides comprehensive tools for working with the World Health Organization's Anatomical Therapeutic Chemical (ATC) Classification System and Defined Daily Dose (DDD) values. This vignette demonstrates the main features and workflows.
@@ -463,6 +467,26 @@ Crawl specific groups instead of all at once, or use `max_codes` to limit scope.
 
 ```{r session_info}
 sessionInfo()
+```
+
+# Creating a Package Logo
+
+To create or update the package logo, run the following commands in your R console:
+
+```{r logo_creation, eval=FALSE}
+# 1. Install required packages
+install.packages(c("hexSticker", "ggplot2", "dplyr", "showtext"))
+
+# 2. Generate all 5 logo options
+source("create_logo.R")
+
+# 3. Preview and choose favorite
+# Files created: logo_option1.png through logo_option5.png
+
+# 4. Activate chosen logo
+file.copy("man/figures/logo_option4.png", 
+          "man/figures/logo.png", 
+          overwrite = TRUE)
 ```
 
 

@@ -32,6 +32,8 @@
 
 <div align="center">
 
+<img src="man/figures/logo.png" align="center" width="200" alt="atcddd logo"/>
+
 # 🧬 atcddd
 
 ### *Work with ATC (Anatomical Therapeutic Chemical) Codes in R*
@@ -389,12 +391,6 @@ community.</em> <br><br>
 </div>
 
 ------------------------------------------------------------------------
-
-<div align="center">
-
-<img src="man/figures/logo.png" width="220">
-
-</div>
 
 ## Reference
 
