@@ -20,6 +20,7 @@
 - [❓ Need Help?](#question-need-help)
 - [Reference](#reference)
 - [🙏 Acknowledgements](#pray-acknowledgements)
+- [🎨 Create Your Own Logo](#art-create-your-own-logo)
 
 <!-- README.md is auto-generated from README.Rmd -->
 <!-- Please edit README.Rmd, not README.md directly -->
@@ -399,44 +400,35 @@ community.</em> <br><br>
 
 ## 🙏 Acknowledgements
 
-- WHO Collaborating Centre for Drug Statistics Methodology — for
-  maintaining the ATC/DDD Index
-- Inspired by packages: `stringdist`, `dplyr`, `fuzzyjoin`, `rvest`
-- Hex sticker design: Use `hexSticker` package or
-  [hexb.in](https://hexb.in)
+- WHO Collaborating Centre for Drug Statistics Methodology — for maintaining the ATC/DDD Index
+- Inspired by packages: `httr2`, `rvest`, `dplyr`, `memoise`
 
-<!---
-&#10;
-4. Commit both `README.Rmd` and `README.md` to GitHub.
-&#10;> 💡 Tip: Add `README.md` to `.Rbuildignore` if you don’t want it in the built package (optional).
-&#10;
-## 🖌️ Customize Further
-- Replace `yourusername` with your GitHub username
-- Replace `[Your Name or Organization]` and email
-- Add your hex sticker image under `man/figures/logo.png` and uncomment the image line if desired
-- Update example code to match your actual function names and outputs
-&#10;
-&#10;
-&#10;🎁 Bonus: Generate a Hex Sticker in R
-&#10;If you want to create a hex sticker, install `hexSticker` and run:
-&#10;
-library(ggplot2)
-library(hexSticker)
-&#10;# Just a centered "A" for ATC
-p <- ggplot() + 
-  annotate("text", x = 1, y = 1, label = "A", size = 20, fontface = "bold") +
-  xlim(0.5, 1.5) + ylim(0.5, 1.5) +
-  theme_void()
-&#10;sticker(
-  subplot = p,
-  package = "atcddd",
-  p_size = 20,
-  s_x = 1,
-  s_y = 0.8,
-  s_width = 1.3,
-  filename = "man/figures/logo.png",
-  h_fill = "#2a9d8f",
-  h_color = "#264653",
-&#10;)
- &#10;-->
+------------------------------------------------------------------------
+
+## 🎨 Create Your Own Logo
+
+Want to customize the package logo? We provide a script that generates **5 professional hex sticker designs**:
+
+```r
+# Run the logo generator
+source("create_logo.R")
+
+# This creates 5 options in man/figures/:
+# - logo_option1.png - Hierarchy bar chart
+# - logo_option2.png - Molecular network
+# - logo_option3.png - Medical cross + data
+# - logo_option4.png - Pills/capsules (RECOMMENDED)
+# - logo_option5.png - Minimalist ATC text
+
+# Choose your favorite:
+file.copy("man/figures/logo_option4.png", 
+          "man/figures/logo.png", 
+          overwrite = TRUE)
+```
+
+**Requirements:** `hexSticker`, `ggplot2`, `dplyr`, `showtext`
+
+See [`LOGO_README.md`](LOGO_README.md) for detailed customization options and design tips.
+
+------------------------------------------------------------------------
 
