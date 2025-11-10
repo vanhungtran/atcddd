@@ -58,3 +58,33 @@ assert_character_vector <- function(x, name = deparse(substitute(x))) {
 normalize_atc_code <- function(x) {
   toupper(stringr::str_trim(x))
 }
+
+#' Determine ATC level from code
+#' @keywords internal
+#' @param code character vector of ATC codes
+#' @return integer vector with values 1..5 or NA for invalid/unknown
+atc_level <- function(code) {
+  code <- normalize_atc_code(code)
+  lvl <- rep(NA_integer_, length(code))
+  lvl[grepl("^[A-Z]$", code)] <- 1L
+  lvl[grepl("^[A-Z][0-9]{2}$", code)] <- 2L
+  lvl[grepl("^[A-Z][0-9]{2}[A-Z]$", code)] <- 3L
+  lvl[grepl("^[A-Z][0-9]{2}[A-Z]{2}$", code)] <- 4L
+  lvl[grepl("^[A-Z][0-9]{2}[A-Z]{2}[0-9]{2}$", code)] <- 5L
+  lvl
+}
+
+#' Get parent ATC code
+#' @keywords internal
+#' @param code character vector of ATC codes
+#' @return character vector of parent codes or NA for Level 1/invalid
+atc_parent <- function(code) {
+  code <- normalize_atc_code(code)
+  lvl <- atc_level(code)
+  out <- rep(NA_character_, length(code))
+  out[lvl == 2L] <- substr(code[lvl == 2L], 1, 1)
+  out[lvl == 3L] <- substr(code[lvl == 3L], 1, 3)
+  out[lvl == 4L] <- substr(code[lvl == 4L], 1, 4)
+  out[lvl == 5L] <- substr(code[lvl == 5L], 1, 5)
+  out
+}

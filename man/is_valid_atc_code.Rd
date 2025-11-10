@@ -10,20 +10,20 @@ is_valid_atc_code(x)
 is_valid_atc(x)
 }
 \arguments{
-\item{x}{Character; a potential ATC code to validate}
+\item{x}{Character; a potential ATC code to validate (scalar)}
 }
 \value{
 Logical; TRUE if valid format, FALSE otherwise
 }
 \description{
-Checks if a string is a valid ATC code format (uppercase alphanumeric).
-ATC codes can be 1-7 characters long, following the WHO hierarchy:
+Checks if a string is a valid WHO ATC code by enforcing
+the official level-specific patterns (uppercase only):
 \itemize{
-\item Level 1: 1 character (e.g., "N")
-\item Level 2: 3 characters (e.g., "N02")
-\item Level 3: 4 characters (e.g., "N02B")
-\item Level 4: 5 characters (e.g., "N02BE")
-\item Level 5: 7 characters (e.g., "N02BE01")
+\item Level 1: \verb{^[A-Z]$}
+\item Level 2: \verb{^[A-Z][0-9]\{2\}$}
+\item Level 3: \verb{^[A-Z][0-9]\{2\}[A-Z]$}
+\item Level 4: \verb{^[A-Z][0-9]\{2\}[A-Z]\{2\}$}
+\item Level 5: \verb{^[A-Z][0-9]\{2\}[A-Z]\{2\}[0-9]\{2\}$}
 }
 }
 \examples{

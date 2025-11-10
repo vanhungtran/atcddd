@@ -5,85 +5,8 @@
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the MIT License.
 
-#' Crawl the WHO ATC/DDD Index
-#'
-#' Crawl the WHO ATC/DDD Index
-#'
-#' @description
-#' Iteratively traverses ATC codes starting from one or more root codes,
-#' respecting rate limits and using the HTTP layer's caching. Returns two
-#' tidy tables: \code{codes} (unique ATC codes with names) and \code{ddd} 
-#' (dose definitions and related fields).
-#'
-#' This function implements a breadth-first traversal of the ATC hierarchy,
-#' automatically discovering child codes and handling both parent nodes
-#' (with child links) and leaf nodes (with DDD tables).
-#'
-#' @param roots Character vector of root ATC codes to start from.
-#'   Default: anatomical main groups A-V (see \code{\link{atc_roots_default}}).
-#'   Must be uppercase alphanumeric codes.
-#' @param rate Numeric; minimum seconds between HTTP requests (default: 0.5).
-#'   Increase this value for more conservative crawling.
-#' @param progress Logical; show a progress bar (default: \code{interactive()}).
-#'   Set to \code{FALSE} for batch processing or scripting.
-#' @param max_codes Integer; limit on number of codes to visit (default: Inf).
-#'   Useful for testing or partial crawls. Set to a finite value to limit scope.
-#' @param quiet Logical; reduce informational messages (default: FALSE).
-#'   Note: Messages have been suppressed in this version.
-#'
-#' @return A list with two components:
-#' \describe{
-#'   \item{codes}{A tibble with columns:
-#'     \itemize{
-#'       \item \code{atc_code}: Character; the ATC code (uppercase)
-#'       \item \code{atc_name}: Character; the WHO description/name
-#'     }
-#'   }
-#'   \item{ddd}{A tibble with columns:
-#'     \itemize{
-#'       \item \code{source_code}: Character; the parent code where this DDD was found
-#'       \item \code{atc_code}: Character; the specific drug's ATC code
-#'       \item \code{atc_name}: Character; drug name
-#'       \item \code{ddd}: Character; defined daily dose value
-#'       \item \code{uom}: Character; unit of measure
-#'       \item \code{adm_r}: Character; administration route
-#'       \item \code{note}: Character; additional notes
-#'     }
-#'   }
-#' }
-#'
-#' @section Caching:
-#' Results are cached at the HTTP level using the \code{memoise} package.
-#' The cache is stored in the user's cache directory (see \code{rappdirs::user_cache_dir}).
-#' To clear the cache, delete the cache directory or restart R.
-#'
-#' @section Rate Limiting:
-#' The function respects the \code{rate} parameter by enforcing a minimum delay
-#' between consecutive HTTP requests. This helps prevent overloading the WHO server.
-#'
-#' @examples
-#' \dontrun{
-#' # Crawl a single anatomical group (Dermatologicals)
-#' res_d <- atc_crawl(roots = "D", rate = 0.8, max_codes = 50)
-#' head(res_d$codes)
-#' head(res_d$ddd)
-#'
-#' # Crawl multiple groups
-#' res_multi <- atc_crawl(roots = c("A", "B"), rate = 1.0)
-#'
-#' # Full crawl (may take several minutes)
-#' res_all <- atc_crawl(progress = TRUE)
-#' nrow(res_all$codes)  # Total unique codes
-#' nrow(res_all$ddd)    # Total DDD entries
-#' }
-#'
-#' @seealso
-#' \code{\link{atc_write_csv}} for exporting results,
-#' \code{\link{atc_roots_default}} for default root codes
-#'
-#' @export
-
 # Internal: template for a shaped, empty DDD tibble (stable schema)
+#' @keywords internal
 .empty_ddd <- function() {
   tibble::tibble(
     source_code = character(),
@@ -164,6 +87,33 @@ atc_fetch_code <- function(code, rate = 0.5, quiet = FALSE) {
   }
 }
 
+#' Crawl the WHO ATC/DDD Index
+#'
+#' @description
+#' Iteratively traverses ATC codes starting from one or more root codes,
+#' respecting rate limits and using the HTTP layer's caching. Returns two
+#' tidy tables: `codes` (unique ATC codes with names) and `ddd`
+#' (dose definitions and related fields).
+#'
+#' @param roots Character vector of root ATC codes to start from. Must be
+#'   uppercase codes. Default: `atc_roots_default()`.
+#' @param rate Numeric; minimum seconds between HTTP requests (default: 0.5).
+#' @param progress Logical; show a progress bar (default: `interactive()`).
+#' @param max_codes Integer; limit on number of codes to visit (default: `Inf`).
+#' @param quiet Logical; reduce informational messages (default: FALSE).
+#'
+#' @return A list with `codes` and `ddd` tibbles.
+#'
+#' @seealso [atc_write_csv()], [atc_roots_default()]
+#'
+#' @examples
+#' \dontrun{
+#' res <- atc_crawl(roots = "D", rate = 0.8, max_codes = 50)
+#' head(res$codes)
+#' head(res$ddd)
+#' }
+#'
+#' @export
 atc_crawl <- function(roots = atc_roots_default(),
                       rate = 0.5,
                       progress = interactive(),

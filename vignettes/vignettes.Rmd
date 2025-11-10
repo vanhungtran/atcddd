@@ -201,7 +201,7 @@ roots <- atc_roots_default()
 print(roots)
 
 # Full crawl (may take several minutes)
-res_full <- resatc_crawl(
+res_full <- atc_crawl(
   roots = roots,
   rate = 0.5,
   progress = TRUE

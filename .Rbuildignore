@@ -12,3 +12,11 @@
 ^doc$
 ^Meta$
 ^LICENSE\.md$
+^IMPROVEMENTS\.md$
+^LOGO_README\.md$
+^MANIFEST\.csv$
+^README\.Rmd$
+^Rplots\.pdf$
+^WHO_ATC_.*\.csv$
+^create_logo\.R$
+^run_install\.R$

@@ -102,111 +102,67 @@ get_atc_data <- function(codes = NULL,
                          include_children = FALSE,
                          rate_limit = 0.5,
                          use_cache = TRUE) {
-  
-  # If no codes provided, use all main anatomical groups
+
+  # Default to all main anatomical groups
   if (is.null(codes)) {
     codes <- atc_roots_default()
   }
-  
+  codes <- normalize_atc_code(unique(codes))
+
   # Validate input codes
-  invalid_codes <- codes[!sapply(codes, is_valid_atc_code)]
+  invalid_codes <- codes[!vapply(codes, is_valid_atc_code, logical(1))]
   if (length(invalid_codes) > 0) {
     message(sprintf(
-      "Invalid ATC code format: %s. Codes must be uppercase alphanumeric (e.g., 'N02BE01').",
+      "Invalid ATC code format: %s. Expect patterns like 'N', 'N02', 'N02B', 'N02BE', 'N02BE01'.",
       paste(invalid_codes, collapse = ", ")
     ))
     return(NULL)
   }
-  
-  # Create fetch function with optional caching
-  fetch_atc <- function(code, rate, depth) {
-    tryCatch({
-      # Use atc_crawl as the underlying engine
-      # Note: atc_crawl doesn't have max_depth, it crawls the full tree
-      # So we filter by depth after fetching
-      result <- atc_crawl(
-        roots = code,
-        rate = rate,
-        quiet = TRUE
-      )
-      
-      if (is.null(result) || nrow(result) == 0) {
-        message(sprintf("No data returned for ATC code: %s", code))
-        return(NULL)
-      }
-      
-      # Ensure consistent column structure
-      result <- dplyr::as_tibble(result)
-      
-      # Add level information based on code length
-      result <- dplyr::mutate(
-        result,
-        level = dplyr::case_when(
-          nchar(.data$atc_code) == 1 ~ 1L,
-          nchar(.data$atc_code) == 3 ~ 2L,
-          nchar(.data$atc_code) == 4 ~ 3L,
-          nchar(.data$atc_code) == 5 ~ 4L,
-          nchar(.data$atc_code) == 7 ~ 5L,
-          TRUE ~ NA_integer_
-        )
-      )
-      
-      # Filter by depth if not crawling full tree
-      if (!is.infinite(depth) && depth == 1) {
-        result <- dplyr::filter(result, .data$atc_code == code)
-      }
-      
-      # Reorder columns for better readability
-      col_order <- c("atc_code", "atc_name", "level", "ddd", "uom", "adm_r", "note")
-      existing_cols <- intersect(col_order, names(result))
-      result <- result[, existing_cols]
-      
-      # Sort by atc_code for consistent output
-      result <- dplyr::arrange(result, .data$atc_code)
-      
-      return(result)
-      
-    }, error = function(e) {
-      message(sprintf("Error fetching ATC code %s: %s", code, e$message))
-      return(NULL)
-    })
+
+  # Optionally enable memoised HTTP cache
+  if (isTRUE(use_cache)) {
+    # http layer already memoises; nothing additional needed here
+    invisible(NULL)
   }
-  
-  # Apply caching if requested
-  if (use_cache) {
-    fetch_atc <- memoise::memoise(
-      fetch_atc,
-      cache = atc_cache()
-    )
-  }
-  
-  # Determine crawl depth based on include_children
-  max_depth <- if (include_children) Inf else 1
-  
-  # Fetch data for all requested codes
-  results_list <- lapply(codes, function(code) {
-    Sys.sleep(rate_limit)  # Rate limiting between codes
-    fetch_atc(code, rate_limit, max_depth)
+
+  # Crawl once for all requested roots
+  res <- tryCatch({
+    atc_crawl(roots = codes, rate = rate_limit, progress = FALSE, quiet = TRUE)
+  }, error = function(e) {
+    message(sprintf("Error fetching ATC data: %s", e$message))
+    NULL
   })
-  
-  # Remove NULL results (failed fetches)
-  results_list <- Filter(Negate(is.null), results_list)
-  
-  if (length(results_list) == 0) {
-    message("No data could be retrieved for any of the requested codes.")
+  if (is.null(res)) return(NULL)
+
+  codes_tbl <- dplyr::as_tibble(res$codes)
+  ddd_tbl   <- dplyr::as_tibble(res$ddd)
+
+  # Limit to specified nodes only when include_children = FALSE
+  if (!isTRUE(include_children)) {
+    codes_tbl <- dplyr::filter(codes_tbl, .data$atc_code %in% codes)
+  }
+
+  # Attach level and join DDD for Level 5 (by code only)
+  codes_tbl <- dplyr::mutate(codes_tbl, level = atc_level(.data$atc_code))
+  if (nrow(ddd_tbl)) {
+    ddd_min <- dplyr::select(ddd_tbl, -dplyr::any_of("source_code"))
+    out <- dplyr::left_join(codes_tbl, ddd_min, by = "atc_code")
+  } else {
+    out <- codes_tbl
+  }
+
+  # Reorder and sort
+  col_order <- c("atc_code", "atc_name", "level", "ddd", "uom", "adm_r", "note")
+  keep <- intersect(col_order, names(out))
+  out <- out[, keep]
+  out <- dplyr::arrange(out, .data$atc_code)
+
+  if (!nrow(out)) {
+    message("No data available for the requested codes.")
     return(NULL)
   }
-  
-  # Combine all results
-  combined_result <- dplyr::bind_rows(results_list)
-  
-  # Remove duplicates (in case of overlapping hierarchies)
-  combined_result <- dplyr::distinct(combined_result, .data$atc_code, .keep_all = TRUE)
-  
-  # Final sort
-  combined_result <- dplyr::arrange(combined_result, .data$atc_code)
-  
-  return(combined_result)
+
+  out
 }
 
 
@@ -244,51 +200,39 @@ get_atc_data <- function(codes = NULL,
 get_atc_hierarchy <- function(codes = NULL,
                                max_levels = 5,
                                rate_limit = 0.5) {
-  
-  # Get data with all children
+
   data <- get_atc_data(
     codes = codes,
     include_children = TRUE,
     rate_limit = rate_limit
   )
-  
-  if (is.null(data)) {
-    return(NULL)
+  if (is.null(data)) return(NULL)
+
+  # Ensure level present
+  if (!"level" %in% names(data)) {
+    data <- dplyr::mutate(data, level = atc_level(.data$atc_code))
   }
-  
+
   # Filter by max_levels
   if (!is.infinite(max_levels)) {
     data <- dplyr::filter(data, .data$level <= max_levels)
   }
-  
-  # Add parent code information
-  data <- dplyr::mutate(
-    data,
-    parent_code = dplyr::case_when(
-      .data$level == 1 ~ NA_character_,
-      .data$level == 2 ~ substr(.data$atc_code, 1, 1),
-      .data$level == 3 ~ substr(.data$atc_code, 1, 3),
-      .data$level == 4 ~ substr(.data$atc_code, 1, 4),
-      .data$level == 5 ~ substr(.data$atc_code, 1, 5),
-      TRUE ~ NA_character_
-    )
-  )
-  
-  # Determine which codes have children
+
+  # Parent and has_children
+  data <- dplyr::mutate(data, parent_code = atc_parent(.data$atc_code))
   all_codes <- data$atc_code
   data <- dplyr::mutate(
     data,
-    has_children = sapply(.data$atc_code, function(code) {
-      any(grepl(paste0("^", code), all_codes) & all_codes != code)
-    })
+    has_children = vapply(
+      .data$atc_code,
+      function(code) any(grepl(paste0("^", code), all_codes) & all_codes != code),
+      logical(1)
+    )
   )
-  
-  # Select and order columns
-  data <- dplyr::select(
+
+  dplyr::select(
     data,
-    .data$atc_code, .data$atc_name, .data$level, .data$parent_code, .data$has_children,
+    dplyr::any_of(c("atc_code", "atc_name", "level", "parent_code", "has_children")),
     dplyr::everything()
   )
-  
-  return(data)
 }
