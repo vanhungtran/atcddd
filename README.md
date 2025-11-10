@@ -403,7 +403,7 @@ community.</em> <br><br>
 
 ## 🎨 Create Your Own Logo
 
-Want to customize the package logo? We provide a script that generates **5 professional hex sticker designs**:
+Want to customize the package logo? We provide a script that generates **5 professional hex sticker designs with transparent backgrounds**:
 
 ```r
 # Run the logo generator
@@ -421,6 +421,12 @@ file.copy("man/figures/logo_option4.png",
           "man/figures/logo.png", 
           overwrite = TRUE)
 ```
+
+**Features:**
+- ✨ Transparent backgrounds (works on any color)
+- 🎨 Professional design with consistent color palette
+- 📐 High resolution 300 DPI PNG format
+- 💎 Clean hexagon sticker style
 
 **Requirements:** `hexSticker`, `ggplot2`, `dplyr`, `showtext`
 

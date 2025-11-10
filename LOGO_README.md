@@ -1,6 +1,6 @@
 # Logo Creation Guide for atcddd Package
 
-This script generates 5 different professional logo options for the `atcddd` R package.
+This script generates 5 different professional logo options for the `atcddd` R package, all with **transparent backgrounds**.
 
 ## Quick Start
 
@@ -9,7 +9,14 @@ This script generates 5 different professional logo options for the `atcddd` R p
 source("create_logo.R")
 ```
 
-This will generate 5 PNG files in `man/figures/`:
+This will generate 5 PNG files with transparent backgrounds in `man/figures/`:
+
+## ✨ Key Features
+
+- **Transparent Backgrounds** - Works on white, dark, or colored backgrounds
+- **High Resolution** - 300 DPI for crisp, professional appearance
+- **Consistent Design** - Professional color palette across all options
+- **Hex Sticker Format** - Standard hexagon shape for R package branding
 
 ## Logo Options
 
@@ -82,6 +89,7 @@ To customize any logo, edit `create_logo.R`:
 - **Size:** Adjust `p_size` (package name size)
 - **Position:** Change `p_y`, `s_x`, `s_y` coordinates
 - **Border:** Modify `h_color` and `h_size`
+- **Background:** Set `h_fill` (currently "transparent")
 
 ## Requirements
 
@@ -91,10 +99,11 @@ install.packages(c("hexSticker", "ggplot2", "dplyr", "showtext"))
 
 ## Specifications
 
-- **Format:** PNG with transparency
-- **Resolution:** 300 DPI (high quality)
+- **Format:** PNG with alpha channel (transparency)
+- **Resolution:** 300 DPI (high quality for print and web)
 - **Dimensions:** Standard hexagon sticker size
-- **Background:** White with colored border
+- **Background:** Transparent (works on any color)
+- **Border:** Teal color (#2a9d8f) with professional thickness
 
 ## Tips
 
@@ -102,7 +111,10 @@ install.packages(c("hexSticker", "ggplot2", "dplyr", "showtext"))
 - **For CRAN:** Option 5 (minimalist) or Option 1 (hierarchy) are more conservative
 - **For presentations:** Option 2 (network) or Option 4 (pills) are visually striking
 - **For academic papers:** Option 1 (hierarchy) or Option 5 (minimalist) are more formal
+- **Dark themes:** All options work perfectly thanks to transparent backgrounds!
 
 ## Preview Before Deciding
 
 Open all files in `man/figures/` and compare side-by-side before choosing!
+
+**Pro tip:** Preview logos on both white and dark backgrounds to see how the transparency looks.
