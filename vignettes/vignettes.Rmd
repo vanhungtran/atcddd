@@ -96,22 +96,35 @@ res <- atc_crawl(
 # In practice, users would run the above command
 res <- list(
   codes = data.frame(
-    atc_code = c("D", "D01", "D01A", "D01AA", "D01AA01", "D01AA02"),
+    atc_code = c("D", "D01", "D01A", "D01AA", "D01AA01", "D01AA02", 
+                 "D01AA03", "D01AA04", "D01AA05", "D01AA06", "D01AA07",
+                 "D01AC", "D01AC01", "D01AC02", "D01AE", "D01AE01", "D01AE02",
+                 "D02", "D02A", "D02AA", "D02AA01", "D02AA02"),
     atc_name = c("DERMATOLOGICALS", 
                  "ANTIFUNGALS FOR DERMATOLOGICAL USE",
                  "ANTIFUNGALS FOR TOPICAL USE",
                  "Antibiotics",
-                 "nystatin",
-                 "natamycin")
+                 "nystatin", "natamycin", "hachimycin", "pecilocin",
+                 "mepartricin", "pyrrolnitrin", "griseofulvin",
+                 "Imidazole and triazole derivatives",
+                 "clotrimazole", "miconazole",
+                 "Other antifungals for topical use",
+                 "ciclopirox", "terbinafine",
+                 "EMOLLIENTS AND PROTECTIVES",
+                 "EMOLLIENTS AND PROTECTIVES",
+                 "Softeners and protectives",
+                 "white soft paraffin", "liquid paraffin")
   ),
   ddd = data.frame(
-    source_code = c("D01AA", "D01AA"),
-    atc_code = c("D01AA01", "D01AA02"),
-    atc_name = c("nystatin", "natamycin"),
-    ddd = c(NA, NA),
-    uom = c(NA, NA),
-    adm_r = c(NA, NA),
-    note = c(NA, NA)
+    source_code = rep("D01AA", 7),
+    atc_code = c("D01AA01", "D01AA02", "D01AA03", "D01AA04", 
+                 "D01AA05", "D01AA06", "D01AA07"),
+    atc_name = c("nystatin", "natamycin", "hachimycin", "pecilocin",
+                 "mepartricin", "pyrrolnitrin", "griseofulvin"),
+    ddd = rep(NA, 7),
+    uom = rep(NA, 7),
+    adm_r = rep(NA, 7),
+    note = rep(NA, 7)
   )
 )
 ```
@@ -303,21 +316,31 @@ head(oral_drugs, 20)
 
 ## Distribution of Codes by Level
 
-```{r viz_levels, eval=FALSE, fig.width=8, fig.height=5}
+```{r viz_levels, eval=TRUE, fig.width=8, fig.height=5, message=FALSE, warning=FALSE}
+library(ggplot2)
+
 # Calculate ATC code levels
 code_levels <- res$codes %>%
-  mutate(
-    level = case_when(
-      stringr::str_length(atc_code) == 1 ~ "Level 1",
-      stringr::str_length(atc_code) == 3 ~ "Level 2",
-      stringr::str_length(atc_code) == 4 ~ "Level 3",
-      stringr::str_length(atc_code) == 5 ~ "Level 4",
-      stringr::str_length(atc_code) == 7 ~ "Level 5",
+  dplyr::mutate(
+    code_length = nchar(atc_code),
+    level = dplyr::case_when(
+      code_length == 1 ~ "Level 1 (Anatomical)",
+      code_length == 3 ~ "Level 2 (Therapeutic)",
+      code_length == 4 ~ "Level 3 (Pharmacological)",
+      code_length == 5 ~ "Level 4 (Chemical)",
+      code_length == 7 ~ "Level 5 (Substance)",
       TRUE ~ "Other"
     )
   ) %>%
-  count(level) %>%
-  filter(level != "Other")
+  dplyr::count(level) %>%
+  dplyr::filter(level != "Other") %>%
+  dplyr::mutate(level = factor(level, levels = c(
+    "Level 1 (Anatomical)", 
+    "Level 2 (Therapeutic)", 
+    "Level 3 (Pharmacological)", 
+    "Level 4 (Chemical)", 
+    "Level 5 (Substance)"
+  )))
 
 # Visualize
 ggplot(code_levels, aes(x = level, y = n, fill = level)) +
@@ -328,13 +351,14 @@ ggplot(code_levels, aes(x = level, y = n, fill = level)) +
     title = "Distribution of ATC Codes by Hierarchy Level",
     x = "ATC Level",
     y = "Number of Codes",
-    caption = "Source: WHO ATC/DDD Index"
+    caption = "Source: WHO ATC/DDD Index (sample data)"
   ) +
   theme_minimal(base_size = 12) +
   theme(
     legend.position = "none",
     plot.title = element_text(face = "bold", hjust = 0.5),
-    panel.grid.major.x = element_blank()
+    panel.grid.major.x = element_blank(),
+    axis.text.x = element_text(angle = 45, hjust = 1)
   )
 ```
 
