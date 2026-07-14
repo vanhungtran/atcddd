@@ -2,7 +2,12 @@
 title: "Navigating the ATC Hierarchy"
 author: "Lucas VHH TRAN"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
+    includes:
+      in_header: header.html
 vignette: >
   %\VignetteIndexEntry{Navigating the ATC Hierarchy}
   %\VignetteEngine{knitr::rmarkdown}
@@ -18,6 +23,41 @@ knitr::opts_chunk$set(
   message    = FALSE,
   warning    = FALSE
 )
+```
+
+<!-- ── Branded banner ───────────────────────────────────────────── -->
+<header style="
+  background: linear-gradient(135deg, #05161a 0%, #0B525B 55%, #168aad 100%);
+  color: #fff;
+  padding: 1.5em 2.2em 1.3em;
+  margin: 0 -2em 2.2em;
+  border-radius: 0 0 14px 14px;
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  box-shadow: 0 4px 18px rgba(5,22,26,.35);
+">
+  <div style="font-size: 2.6em; line-height:1; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));">🧬</div>
+  <div>
+    <div style="font-size:1.45em; font-weight:800; letter-spacing:.04em; line-height:1;">
+      atcddd
+    </div>
+    <div style="font-size:.8em; opacity:.80; margin-top:.18em; letter-spacing:.01em;">
+      WHO ATC/DDD Drug Classification Toolkit &nbsp;·&nbsp; v0.2.0
+    </div>
+  </div>
+  <nav style="margin-left:auto; font-size:.78em; opacity:.78; text-align:right; line-height:1.7;">
+    <a href="https://www.whocc.no/atc_ddd_index/" target="_blank"
+       style="color:#99e8c0; text-decoration:none; border-bottom:1px solid transparent;
+              transition:border-color .18s;"
+       onmouseover="this.style.borderBottomColor='#99e8c0'"
+       onmouseout="this.style.borderBottomColor='transparent'">WHO ATC/DDD Index</a><br>
+    Pharmacoepidemiology · Drug Utilisation Research
+  </nav>
+</header>
+
+```{r include-lightbox, echo=FALSE, results='asis'}
+if (file.exists('lightbox.html')) cat(readLines('lightbox.html'), sep = '\n')
 ```
 
 # Introduction
