@@ -25,3 +25,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^.codegraph$
 ^.claude$
+^man/figures/generate_readme_plots\.R$

@@ -142,16 +142,35 @@ atc_parent("N02BE01")    # "N02BE"
 ### DDD Coverage by Anatomical Group
 
 Not all drugs have DDD values — this is by design. Systemic drugs generally do,
-while topicals, ophthalmics, and combinations typically don't.
+while topicals, ophthalmics, and combinations typically don't. The lollipop chart
+below shows the striking contrast: anti-infectives and nervous system drugs have
+high coverage, while dermatologicals and sensory organs barely register.
 
-![DDD Coverage by Anatomical Group](man/figures/ddd-coverage.png)
+![DDD Coverage by Anatomical Group](man/figures/readme-ddd-coverage.png)
 
-### ATC Code Distribution
+### ATC Hierarchy: From 14 Groups to 6,000+ Substances
 
-The ATC hierarchy fans out from 14 anatomical groups to thousands of individual
-substances:
+The ATC tree fans out from 14 anatomical main groups to over 6,000 individual
+chemical substances. The steep pyramid shape reflects how each therapeutic class
+branches into many specific drugs.
 
-![ATC Hierarchy Distribution](man/figures/atc-hierarchy.png)
+![ATC Hierarchy Distribution](man/figures/readme-atc-pyramid.png)
+
+### DDDs Differ by Administration Route
+
+The same drug can have dramatically different DDDs depending on how it's
+administered — oral, parenteral, rectal, or transdermal. These small multiples
+show 8 drugs with 3+ route-specific DDDs:
+
+![DDD by Route — Small Multiples](man/figures/readme-ddd-routes.png)
+
+### DDD Coverage: Anatomical Groups × Administration Routes
+
+This heatmap reveals the interaction between drug class and route: oral and
+parenteral DDDs are well-covered across most systemic groups, while topical
+routes are sparse across the board:
+
+![DDD Coverage Heatmap](man/figures/readme-ddd-heatmap.png)
 
 ---
 
