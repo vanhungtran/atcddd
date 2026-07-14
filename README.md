@@ -141,31 +141,36 @@ This heatmap shows a clear pattern: oral and parenteral routes are well-covered 
 
 ### The ATC hierarchy as a network
 
-Every ATC code is a node in a beautiful bipartite tree. These visualisations — built with the **Repurp** package — show the hierarchy in different styles.
+Every ATC code is a node in a beautiful bipartite tree — from 14 anatomical roots branching into thousands of substances. These visualisations show the hierarchy from multiple angles:
 
 <br>
 
-| Cardiovascular System | All ATC Groups (L1–L4) |
+| 🧬 Hierarchy Fan-out | 📊 Level 1 → Level 2 Distribution |
 |:---:|:---:|
-| ![CV igraph](man/figures/atc-network-igraph.png) | ![Full igraph](man/figures/atc-network-full.png) |
-| 830 connections, igraph + Fruchterman-Reingold | 445 connections across all 14 anatomical groups |
+| ![ATC Fanout](man/figures/readme-atc-fanout.png) | ![ATC Treemap](man/figures/readme-atc-treemap.png) |
+| All 5 levels: Anatomical → Substance | 14 groups branch into therapeutic subgroups |
 
-| Nervous System (igraph) | CV Top Level (ggraph) |
+| 💊 Substances per Group | 🔬 Cardiovascular System (igraph) |
 |:---:|:---:|
-| ![Nervous igraph](man/figures/atc-network-nervous.png) | ![CV ggraph](man/figures/atc-network-ggraph.png) |
-| 787 connections in the nervous system branch | L1→L2 with publication-quality ggrepel labels |
+| ![ATC Substances](man/figures/readme-atc-substances.png) | ![CV igraph](man/figures/atc-network-igraph.png) |
+| Level-5 chemical substances by anatomical group | 830 connections, Fruchterman-Reingold layout |
 
-| Chord Diagram (circlize) | Drug × Gene Heatmap |
+| 🌐 All ATC Groups (L1–L4) | 🧠 Nervous System (igraph) |
 |:---:|:---:|
-| ![ATC Chord](man/figures/atc-network-chord.svg) | ![ATC Heatmap](man/figures/atc-network-heatmap.png) |
-| ATC Level 1 → Level 2, circular layout with coloured sectors | Interaction matrix of 200 therapeutic–chemical connections |
+| ![Full igraph](man/figures/atc-network-full.png) | ![Nervous igraph](man/figures/atc-network-nervous.png) |
+| 445 connections across all 14 anatomical groups | 787 connections in the nervous system branch |
 
-| Gene × Drug-Class Dot Matrix |
-|:---:|
-| ![ATC Dot Matrix](man/figures/atc-network-dotmatrix.png) |
-| Bubble plot: each dot encodes a parent–child connection, sized by density |
+| 🫀 CV Top Level (ggraph) | 🎵 Chord Diagram (circlize) |
+|:---:|:---:|
+| ![CV ggraph](man/figures/atc-network-ggraph.png) | ![ATC Chord](man/figures/atc-network-chord.png) |
+| L1→L2, publication-quality ggrepel labels | ATC Level 1 → Level 2, circular layout |
 
-These networks show how 14 anatomical roots branch into therapeutic subgroups, chemical classes, and thousands of individual drugs — from a single table of parent–child relationships.
+| 🔥 Drug × Gene Heatmap | 🫧 Gene × Drug-Class Dot Matrix |
+|:---:|:---:|
+| ![ATC Heatmap](man/figures/atc-network-heatmap.png) | ![ATC Dot Matrix](man/figures/atc-network-dotmatrix.png) |
+| Interaction matrix of 200 therapeutic–chemical connections | Bubble plot: each dot encodes a parent–child connection |
+
+These networks show how 14 anatomical roots branch into therapeutic subgroups, chemical classes, and 6,982 individual substances — all from a single table of parent–child relationships.
 
 ---
 
