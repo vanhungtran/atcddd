@@ -10,7 +10,6 @@ run_install.R
 .httr2
 run_install.R
 README.Rmd
-docs
 inst/doc
 vignettes/*.R
 vignettes/*.html
@@ -39,8 +38,7 @@ codegraph.json
 CODEGRAPH.md
 .claude/codegraph/
 
-# GitHub Pages build output
-docs/
+# GitHub Pages build output — committed for deployment
 _gh-pages/
 
 # Zenodo — local archiving materials
