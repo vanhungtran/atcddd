@@ -7,7 +7,7 @@
   [![R-CMD-check](https://github.com/vanhungtran/atcddd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vanhungtran/atcddd/actions)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![GitHub Stars](https://img.shields.io/github/stars/vanhungtran/atcddd?style=social)](https://github.com/vanhungtran/atcddd)
-  [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.XXXXX-blue)](https://github.com/vanhungtran/atcddd)
+  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21360365.svg)](https://doi.org/10.5281/zenodo.21360365)
 
 </div>
 
@@ -344,6 +344,26 @@ Contributions are welcome — open an [issue](https://github.com/vanhungtran/atc
 **MIT** © 2025 Lucas VHH TRAN. See [LICENSE.md](LICENSE.md).
 
 **Data**: WHO ATC/DDD Index © WHO Collaborating Centre for Drug Statistics Methodology (https://atcddd.fhi.no/). The WHO data is freely available for non-commercial research use.
+
+---
+
+## 📖 Citation
+
+If you use `atcddd` in your research, please cite:
+
+> Van Hung (Huynh) TRAN. (2026). vanhungtran/atcddd: v0.2.0 (Version v0.2.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21360365
+
+```bibtex
+@software{tran2026atcddd,
+  author    = {Van Hung (Huynh) TRAN},
+  title     = {vanhungtran/atcddd: v0.2.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  version   = {v0.2.0},
+  doi       = {10.5281/zenodo.21360365},
+  url       = {https://doi.org/10.5281/zenodo.21360365}
+}
+```
 
 ---
 
