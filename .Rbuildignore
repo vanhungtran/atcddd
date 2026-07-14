@@ -26,3 +26,5 @@
 ^.codegraph$
 ^.claude$
 ^man/figures/generate_readme_plots\.R$
+^\.zenodo\.json$
+^zenodo$

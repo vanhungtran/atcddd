@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use atcddd in your research, please cite it as below."
+authors:
+  - family-names: "TRAN"
+    given-names: "Lucas VHH"
+    email: "tranhungydhcm@gmail.com"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "atcddd: WHO ATC/DDD Crawler and Parser"
+version: 0.2.0
+date-released: 2026-07-14
+url: "https://github.com/vanhungtran/atcddd"
+preferred-citation:
+  type: manual
+  title: "atcddd: WHO ATC/DDD Crawler and Parser"
+  authors:
+    - family-names: "TRAN"
+      given-names: "Lucas VHH"
+      email: "tranhungydhcm@gmail.com"
+  version: 0.2.0
+  year: 2026
+  url: "https://github.com/vanhungtran/atcddd"
+abstract: "Comprehensive R package for working with the WHO Anatomical Therapeutic Chemical (ATC) Classification System and Defined Daily Dose (DDD) values. Provides offline drug name search with brand name synonyms and fuzzy matching, ATC hierarchy navigation, DDD computation from prescription data, free-text drug name extraction from clinical notes, and live WHO index crawling with caching and rate limiting."
+keywords:
+  - "ATC classification"
+  - "DDD"
+  - "pharmacoepidemiology"
+  - "drug utilization"
+  - "WHO"
+  - "R"
+  - "drug classification"
+license: "MIT"
+repository-code: "https://github.com/vanhungtran/atcddd"

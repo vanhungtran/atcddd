@@ -1,6 +1,6 @@
 ## Title: WHO ATC/DDD Crawler and Parser
 ## Version: 0.2.0
-## Date: 2025-11-09
+## Date: 2026-07-14
 ## Author: Lucas VHH TRAN
 ## Maintainer: Lucas VHH TRAN <tranhungydhcm@gmail.com>
 
@@ -22,7 +22,7 @@ citEntry(
   author   = personList(
     as.person("Lucas VHH TRAN")
   ),
-  year     = "2025",
+  year     = "2026",
   url      = "https://github.com/vanhungtran/atcddd",
   note     = sprintf("R package version %s",
     utils::packageDescription("atcddd", fields = "Version")),

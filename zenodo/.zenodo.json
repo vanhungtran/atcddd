@@ -1,0 +1,38 @@
+{
+  "title": "atcddd: WHO ATC/DDD Crawler and Parser",
+  "description": "Comprehensive R package for working with the WHO Anatomical Therapeutic Chemical (ATC) Classification System and Defined Daily Dose (DDD) values. Provides offline drug name search with brand name synonyms and fuzzy matching, ATC hierarchy navigation, DDD computation from prescription data, free-text drug name extraction from clinical notes, and live WHO index crawling with caching and rate limiting.",
+  "creators": [
+    {
+      "name": "TRAN, Lucas VHH",
+      "affiliation": "Independent Researcher",
+      "orcid": "0000-0000-0000-0000"
+    }
+  ],
+  "keywords": [
+    "ATC classification",
+    "DDD",
+    "pharmacoepidemiology",
+    "drug utilization",
+    "WHO",
+    "R",
+    "drug classification",
+    "defined daily dose",
+    "pharmaceutical"
+  ],
+  "license": "MIT",
+  "related_identifiers": [
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/vanhungtran/atcddd",
+      "relation": "isSupplementTo"
+    },
+    {
+      "scheme": "url",
+      "identifier": "https://cran.r-project.org/package=atcddd",
+      "relation": "isSupplementTo"
+    }
+  ],
+  "access_right": "open",
+  "upload_type": "software",
+  "language": "eng"
+}
