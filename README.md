@@ -1,304 +1,359 @@
-# 🧬 atcddd
-
-### *Work with ATC (Anatomical Therapeutic Chemical) Codes in R*
-
 <div align="center">
-  <img src="man/figures/logo.png" width="200" alt="atcddd logo"/>
+  <img src="man/figures/logo.png" width="220" alt="atcddd logo"/>
+  <h1>atcddd</h1>
+  <h3><em>Work with ATC Drug Classification Codes in R</em></h3>
+
+  [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+  [![R-CMD-check](https://github.com/vanhungtran/atcddd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vanhungtran/atcddd/actions)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![GitHub Stars](https://img.shields.io/github/stars/vanhungtran/atcddd?style=social)](https://github.com/vanhungtran/atcddd)
+  [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.XXXXX-blue)](https://github.com/vanhungtran/atcddd)
+
 </div>
 
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![R-CMD-check](https://github.com/vanhungtran/atcddd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vanhungtran/atcddd/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-atcddd-blue.svg)](https://github.com/vanhungtran/atcddd)
+<br>
 
-> *Classify, validate, search, and compute — all in R.*
+> 🧬 **Classify. Validate. Search. Compute.**  
+> A complete R toolkit for the WHO Anatomical Therapeutic Chemical (ATC) classification system and Defined Daily Doses (DDD) — with **offline drug name resolution**, **fuzzy matching**, **DDD computation**, and **hierarchy navigation**.
 
 ---
 
-## 📖 Overview
+<br>
 
-**`atcddd`** is a comprehensive R package for working with the World Health
-Organization's **Anatomical Therapeutic Chemical (ATC) Classification System**
-and **Defined Daily Dose (DDD)** values. It provides a complete toolkit for
-pharmacoepidemiology and drug utilisation research.
+<table>
+<tr>
+<td width="50%" valign="top">
 
-### What you can do
-
-| Workflow | How | Offline? |
-|----------|-----|:--------:|
-| **Validate** ATC codes | `is_valid_atc_code("N02BE01")` | ✅ |
-| **Search** drug names | `search_drug("aspirin")` | ✅ |
-| **Resolve** brand names | `resolve_atc("lipitor")` → ATC code + DDD | ✅ |
-| **Navigate** the hierarchy | `atc_children("C10AA", data)` | ✅ |
-| **Compute** DDDs from prescriptions | `compute_ddd(prescriptions)` | ✅ |
-| **Extract** drugs from clinical notes | `atc_from_text("patient on metformin")` | ✅ |
-| **Crawl** the WHO index | `atc_crawl(roots = "D")` | 🌐 |
-
-### Key Features
-
-- **Offline drug name search** — bundled WHO database for instant lookups
-- **Brand name synonyms** — "lipitor", "tylenol", "advil" → correct ATC codes
-- **Fuzzy matching** — handles typos like "acetominophen"
-- **DDD computation** — prescription data → Defined Daily Doses, with unit conversion
-- **Hierarchy navigation** — children, descendants, levels, parents
-- **Free-text extraction** — pull drug names from clinical notes
-- **WHO crawling** — live retrieval with caching and rate limiting
-
----
-
-## 🚀 Installation
-
+### ✨ One-liner
 ```r
-# From GitHub
-install.packages("remotes")
-remotes::install_github("vanhungtran/atcddd")
+resolve_atc("aspirin", source = "local")
+#>         ┌────────────  N02BA01 ────────────┐
+#>         │  acetylsalicylic acid  ·  3 g Oral│
+#>         └───────────────────────────────────┘
 ```
 
+</td>
+<td width="50%" valign="top">
+
+### 📦 Install
 ```r
+remotes::install_github("vanhungtran/atcddd")
 library(atcddd)
 ```
 
+</td>
+</tr>
+</table>
+
+<br>
+
 ---
 
-## 🧪 Quick Start
+## 🧪 Quick Start — 30-Second Workflow
 
-### Resolve drug names to ATC codes (your #1 workflow)
+<table>
+<tr>
+<td>
 
+### 🔍 Find any drug
 ```r
-# Instant, offline lookup
-resolve_atc("aspirin", source = "local")
-#> ── aspirin → N02BA01 (acetylsalicylic acid) ──
-#>    DDD: 3 g (Oral)
-
-# Brand names work too
-resolve_atc("lipitor", source = "local")
-#> ── lipitor → C10AA05 (atorvastatin) ──
-#>    DDD: 20 mg (Oral)
-
-# Batch resolve a list of medications
-medications <- c("aspirin", "metformin", "atorvastatin", "ibuprofen")
-resolve_batch(medications, source = "local")
+resolve_atc("lipitor")
+# ── lipitor → C10AA05 (atorvastatin) ──
+#    DDD: 20 mg (Oral)
 ```
 
-### Search by drug name
-
+**Brands, generics, typos — all work.**
 ```r
-# Find all drugs containing "statin"
-search_drug("statin", max_results = 5)
+resolve_batch(c("aspirin", "tylenol", "advil"))
 ```
 
-### Fuzzy match misspelled drug names
+</td>
+<td>
 
+### 💊 Compute DDDs
 ```r
-# Typo-tolerant matching
-fuzzy_match_drug("acetominophen")
-fuzzy_match_drug("metmorphin")  # → metformin
+compute_ddd(data.frame(
+  atc_code = c("N02BA01", "C10AA05"),
+  quantity = c(100, 30),
+  strength = c(500, 20)
+))
+#   ddd_value ddd_ratio
+# 1        3      16.7
+# 2       20      30.0
 ```
 
-### Extract drugs from clinical text
+</td>
+</tr>
+<tr>
+<td>
 
+### 🌳 Navigate the tree
 ```r
-atc_from_text("Patient was started on atorvastatin 20 mg daily")
+codes <- read.csv(system.file("extdata",
+  "WHO_ATC_codes_2026-07-14.csv",
+  package = "atcddd"))
+
+atc_children("C10AA", codes)
+# 1 C10AA01  simvastatin
+# 2 C10AA02  lovastatin
+# 3 C10AA05  atorvastatin
+# ...
 ```
 
-### Compute DDDs from prescription records
+</td>
+<td>
 
+### 📝 From clinical notes
 ```r
-prescriptions <- data.frame(
-  patient_id    = c(1, 1, 2),
-  atc_code      = c("N02BA01", "C10AA05", "A10BA02"),
-  quantity      = c(100, 30, 90),
-  strength      = c(500, 20, 500)
+atc_from_text(
+  "Patient on metformin 500mg BID and lipitor 20mg"
 )
-compute_ddd(prescriptions)
+# 1 A10BA02  metformin
+# 2 C10AA05  atorvastatin
 ```
 
-### Navigate the ATC hierarchy
-
-```r
-# Load bundled data
-codes <- read.csv(system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-                               package = "atcddd"))
-
-# Direct children of a class
-atc_children("C10AA", codes)  # all statins
-
-# Everything under a branch
-atc_descendants("N", codes, max_level = 3)  # nervous system subgroups
-```
-
-### Validate ATC codes
-
-```r
-# Vectorized — accepts multiple codes at once
-is_valid_atc_code(c("N02BE01", "C10AA05", "garbage"))
-#> TRUE  TRUE  FALSE
-
-# Hierarchy tools
-atc_level("N02BE01")     # 5
-atc_parent("N02BE01")    # "N02BE"
-```
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📊 Visualising WHO ATC/DDD Data
 
-### DDD Coverage by Anatomical Group
+### 🎯 DDD Coverage by Anatomical Group
 
-Not all drugs have DDD values — this is by design. Systemic drugs generally do,
-while topicals, ophthalmics, and combinations typically don't. The lollipop chart
-below shows the striking contrast: anti-infectives and nervous system drugs have
-high coverage, while dermatologicals and sensory organs barely register.
+<details open>
+<summary><i>Systemic drugs have DDDs; topicals, ophthalmics, and combinations typically don't</i></summary>
+<br>
 
 ![DDD Coverage by Anatomical Group](man/figures/readme-ddd-coverage.png)
 
-### ATC Hierarchy: From 14 Groups to 6,000+ Substances
+</details>
 
-The ATC tree fans out from 14 anatomical main groups to over 6,000 individual
-chemical substances. The steep pyramid shape reflects how each therapeutic class
-branches into many specific drugs.
+<br>
+
+### 🌲 ATC Hierarchy: From 14 Groups to 7,000+ Substances
+
+<details open>
+<summary><i>The tree fans out from 14 anatomical main groups to thousands of individual drugs</i></summary>
+<br>
 
 ![ATC Hierarchy Distribution](man/figures/readme-atc-pyramid.png)
 
-### DDDs Differ by Administration Route
+</details>
 
-The same drug can have dramatically different DDDs depending on how it's
-administered — oral, parenteral, rectal, or transdermal. These small multiples
-show 8 drugs with 3+ route-specific DDDs:
+<br>
+
+### 🚑 DDDs Differ by Administration Route
+
+<details open>
+<summary><i>Same drug, different routes — dramatically different DDDs</i></summary>
+<br>
 
 ![DDD by Route — Small Multiples](man/figures/readme-ddd-routes.png)
 
-### DDD Coverage: Anatomical Groups × Administration Routes
+</details>
 
-This heatmap reveals the interaction between drug class and route: oral and
-parenteral DDDs are well-covered across most systemic groups, while topical
-routes are sparse across the board:
+<br>
+
+### 🗺️ DDD Coverage: Groups × Routes
+
+<details open>
+<summary><i>Which classes have DDDs — and by which route?</i></summary>
+<br>
 
 ![DDD Coverage Heatmap](man/figures/readme-ddd-heatmap.png)
 
----
-
-## 📚 Core Functions
-
-### Drug Name Search & Resolution
-
-| Function | Description |
-|----------|-------------|
-| `search_drug()` | Search the WHO database by drug name (exact, prefix, substring) |
-| `fuzzy_match_drug()` | Levenshtein distance matching for typos |
-| `resolve_atc()` | Drug name → ATC code + DDD (local/live/hybrid) |
-| `resolve_batch()` | Vectorised resolution for character vectors |
-| `atc_add_synonym()` | Register custom brand/clinical name mappings |
-| `atc_from_text()` | Extract drug names from free-text clinical notes |
-
-### DDD Computation
-
-| Function | Description |
-|----------|-------------|
-| `compute_ddd()` | Prescription data → DDDs per drug per prescription |
-| `compute_did()` | DDDs per 1000 inhabitants per day |
-| `ddd_availability()` | DDD coverage summary by anatomical group |
-| `ddd_route_comparison()` | Compare DDDs across administration routes |
-
-### Offline Hierarchy
-
-| Function | Description |
-|----------|-------------|
-| `atc_children()` | Direct children of an ATC code |
-| `atc_descendants()` | All descendant codes through the hierarchy |
-| `atc_level()` | Determine the hierarchy level (1–5) |
-| `atc_parent()` | Get the parent code one level up |
-| `normalize_atc_code()` | Normalise ATC codes (trim + uppercase) |
-
-### ATC Code Validation
-
-| Function | Description |
-|----------|-------------|
-| `is_valid_atc_code()` | Check format of one or more ATC codes |
-| `is_valid_atc()` | Alias for `is_valid_atc_code()` |
-
-### WHO Data Crawling
-
-| Function | Description |
-|----------|-------------|
-| `atc_crawl()` | Crawl the WHO ATC/DDD index from specified roots |
-| `get_atc_data()` | API-style data retrieval |
-| `get_atc_hierarchy()` | Retrieve complete hierarchical tree |
-| `atc_roots_default()` | Return the 14 main anatomical groups |
-
-### Data I/O & Reproducibility
-
-| Function | Description |
-|----------|-------------|
-| `atc_write_csv()` | Export crawl results to CSV files |
-| `atc_manifest()` | Generate SHA256 checksums for file verification |
-| `atc_write_manifest()` | Save checksum manifest to CSV |
-| `atc_load_db()` | Load bundled WHO database into memory |
+</details>
 
 ---
 
-## 📊 Example: DDD Coverage Visualisation
+## 🧬 What is the ATC Classification System?
+
+The <b>A</b>natomical <b>T</b>herapeutic <b>C</b>hemical system classifies every drug into a 5‑level hierarchy:
+
+| Level | Pattern | Example | Meaning |
+|-------|---------|---------|---------|
+| 1 · Anatomical | `A` | **N** | Nervous system |
+| 2 · Therapeutic | `A00` | **N02** | Analgesics |
+| 3 · Pharmacological | `A00A` | **N02B** | Other analgesics & antipyretics |
+| 4 · Chemical | `A00AA` | **N02BE** | Anilides |
+| 5 · Substance | `A00AA00` | **N02BE01** | Paracetamol |
+
+> **📦 6,982 codes · 6,218 DDD entries** — bundled with the package, updated July 2026.
+
+---
+
+## 🔬 Feature Deep-Dive
+
+<details>
+<summary><b>🔍 Drug Name Search & Resolution</b> — <i>Your #1 workflow, solved</i></summary>
+<br>
+
+| Function | What it does |
+|----------|-------------|
+| `resolve_atc("aspirin")` | Drug name → ATC code + DDD. Works offline. |
+| `resolve_batch(c("a", "b"))` | Vectorised resolution for many drugs at once |
+| `search_drug("statin")` | Ranked search: synonym → exact → starts_with → contains → word |
+| `fuzzy_match_drug("asprin")` | Levenshtein distance matching for typos |
+| `atc_from_text("...")` | Extract drug names from free-text clinical notes |
+| `atc_add_synonym("eliquis", "B01AF02", "apixaban")` | Register custom brand/name mappings |
 
 ```r
-library(atcddd)
-library(dplyr)
-
-ddd_path <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
-                         package = "atcddd")
-ddd <- readr::read_csv(ddd_path)
-
-ddd %>%
-  mutate(group = substr(atc_code, 1, 1)) %>%
-  group_by(group) %>%
-  summarise(
-    n_drugs = n_distinct(atc_code),
-    with_ddd = n_distinct(atc_code[!is.na(ddd)]),
-    pct = round(100 * with_ddd / n_drugs, 1)
-  ) %>%
-  arrange(pct)
+# Your daily workflow — offline, instant
+resolve_batch(c("aspirin", "lipitor", "metformin"), source = "local")
 ```
 
-### Understanding DDD Data Quality
+</details>
 
-**Not all drugs have DDD values.** This is expected behaviour:
+<details>
+<summary><b>💊 DDD Computation</b> — <i>Prescription data → Defined Daily Doses</i></summary>
+<br>
 
-| Drug Category | Reason |
-|---------------|--------|
-| Topicals / dermatologicals | Variable absorption; dosing depends on body surface area |
-| Fixed-dose combinations | WHO policy: no DDD for combinations |
-| Ophthalmics, otics, nasal | Local application, minimal systemic absorption |
-| Older / rarely used drugs | Not prioritised for DDD assignment |
+| Function | What it does |
+|----------|-------------|
+| `compute_ddd(prescriptions)` | Convert prescription data into DDDs per drug |
+| `compute_did(ddd_data, pop, days)` | DDDs per 1000 inhabitants per day (DID) |
+| `ddd_availability()` | Summary of which groups have DDDs assigned |
+| `ddd_route_comparison("N02BE01")` | Compare DDDs across administration routes |
+
+```r
+prescriptions <- data.frame(
+  atc_code = c("N02BA01", "C10AA05", "A10BA02"),
+  quantity = c(100, 30, 90),
+  strength = c(500, 20, 500)
+)
+
+ddd <- compute_ddd(prescriptions)
+compute_did(ddd, population = 10000, days = 30)
+```
+
+**Unit conversion is automatic** — mg ↔ g ↔ mcg, U ↔ TU ↔ MU. No manual maths.
+
+</details>
+
+<details>
+<summary><b>🌳 Offline Hierarchy Navigation</b> — <i>No internet needed</i></summary>
+<br>
+
+| Function | What it does |
+|----------|-------------|
+| `atc_children("C10AA", data)` | Direct children of any ATC code |
+| `atc_descendants("C", data)` | Everything below, down to Level 5 |
+| `atc_level("N02BE01")` | Returns the hierarchy level (1–5) |
+| `atc_parent("N02BE01")` | The immediate parent code |
+
+```r
+# Trace the ancestry of any drug
+atc_children("N", codes)    # All nervous system subgroups
+atc_descendants("C10AA", codes)  # All statins and their drugs
+atc_parent("N02BE01")      # → N02BE (anilides)
+atc_level(c("N", "N02", "N02BE01"))  # → 1, 2, 5
+```
+
+</details>
+
+<details>
+<summary><b>✅ ATC Code Validation</b> — <i>Vectorised, fast</i></summary>
+<br>
+
+```r
+is_valid_atc_code(c("N02BE01", "C10AA05", "garbage"))
+# [1]  TRUE  TRUE FALSE
+```
+
+| Function | What it does |
+|----------|-------------|
+| `is_valid_atc_code(x)` | Check one or more ATC codes (vectorised) |
+| `normalize_atc_code(x)` | Trim + uppercase (canonical form) |
+
+</details>
+
+<details>
+<summary><b>🌐 WHO Data Crawling</b> — <i>Live retrieval with caching</i></summary>
+<br>
+
+| Function | What it does |
+|----------|-------------|
+| `atc_crawl(roots = "D")` | Crawl WHO ATC/DDD index with rate limiting |
+| `get_atc_data("N02")` | API-style data retrieval |
+| `get_atc_hierarchy("N02")` | Live hierarchy with parent/child metadata |
+| `atc_roots_default()` | The 14 main anatomical groups |
+
+```r
+# Fetch the latest data for dermatologicals
+res <- atc_crawl(roots = "D", rate = 0.5, max_codes = 100)
+```
+
+</details>
+
+<details>
+<summary><b>📁 Data I/O & Reproducibility</b></summary>
+<br>
+
+| Function | What it does |
+|----------|-------------|
+| `atc_write_csv(res, dir = "data")` | Export results to dated CSV files |
+| `atc_manifest(paths)` | Generate SHA256 checksums |
+| `atc_write_manifest(paths)` | Save checksum manifest |
+| `atc_load_db()` | Load bundled WHO data into memory cache |
+
+</details>
+
+---
+
+## 🎯 Why atcddd?
+
+| Feature | **atcddd** | AMR (CRAN) | Other tools |
+|---------|:----------:|:----------:|:-----------:|
+| **All ATC groups** (not just antimicrobials) | ✅ | ❌ | — |
+| **Offline drug name lookup** (no internet) | ✅ | ❌ | ❌ |
+| **Fuzzy matching** (typo-tolerant) | ✅ | ❌ | ❌ |
+| **Brand name synonyms** (lipitor → atorvastatin) | ✅ | ❌ | ❌ |
+| **Free-text extraction** from clinical notes | ✅ | ⚠️ limited | ❌ |
+| **DDD computation** with unit conversion | ✅ | ❌ | ❌ |
+| **Hierarchy tools** (children, descendants) | ✅ | ❌ | ❌ |
+| **WHO crawling** with rate limiting | ✅ | ✅ | ❌ |
+| **Vectorised ATC validation** | ✅ | ❌ | — |
+| **Bundled data** (6,982 codes) | ✅ | ⚠️ 620 only | — |
+
+---
+
+## 📖 Vignettes
+
+| Vignette | Description |
+|----------|-------------|
+| [Getting Started](https://vanhungtran.github.io/atcddd/articles/vignettes.html) | Package overview, installation, first steps |
+| [Navigating the ATC Hierarchy](https://vanhungtran.github.io/atcddd/articles/atc-hierarchy.html) | Tree traversal, parents, children, descendants |
+| [Working with DDDs](https://vanhungtran.github.io/atcddd/articles/ddd-analysis.html) | Understanding DDD coverage, data quality |
+| [Computing DDDs from Prescription Data](https://vanhungtran.github.io/atcddd/articles/computing-ddd.html) | Step-by-step DDD computation workflow |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for
-guidelines, and note that this project follows a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+Contributions are welcome — open an [issue](https://github.com/vanhungtran/atcddd/issues) or submit a PR.
 
-- **Bug reports & feature requests**: [GitHub Issues](https://github.com/vanhungtran/atcddd/issues)
-- **Pull requests**: Fork, branch, commit, and submit a PR
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ---
 
-## 📜 License
+## 📜 License & Attribution
 
-MIT © 2025 Lucas VHH TRAN. See [LICENSE.md](LICENSE.md) for full text.
+**MIT** © 2025 Lucas VHH TRAN. See [LICENSE.md](LICENSE.md).
 
-**Data attribution**: The WHO ATC/DDD data is copyright of the WHO Collaborating
-Centre for Drug Statistics Methodology (https://atcddd.fhi.no/). When publishing
-analyses using this data, please cite the WHO source.
-
----
-
-## 🙏 Acknowledgements
-
-- **WHO Collaborating Centre for Drug Statistics Methodology** — for maintaining the ATC/DDD Index
-- Inspired by the `httr2`, `rvest`, `dplyr`, and `memoise` packages
+**Data**: WHO ATC/DDD Index © WHO Collaborating Centre for Drug Statistics Methodology (https://atcddd.fhi.no/). The WHO data is freely available for non-commercial research use.
 
 ---
 
 <div align="center">
-<br><em>Developed with 💊 and 🧬 for the R and health data science community.</em><br><br>
+<br>
+<em>Built with 💊 and 🧬 for the R health data science community.</em>
+<br><br>
+<sub>
+  [📦 GitHub](https://github.com/vanhungtran/atcddd) ·
+  [🐛 Issues](https://github.com/vanhungtran/atcddd/issues) ·
+  [📖 Docs](https://vanhungtran.github.io/atcddd)
+</sub>
 </div>
