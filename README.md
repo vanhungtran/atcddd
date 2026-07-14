@@ -113,7 +113,7 @@ compute_ddd(prescriptions)
 
 ```r
 # Load bundled data
-codes <- read.csv(system.file("extdata", "WHO_ATC_codes_2025-08-19.csv",
+codes <- read.csv(system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
                                package = "atcddd"))
 
 # Direct children of a class
@@ -239,7 +239,7 @@ routes are sparse across the board:
 library(atcddd)
 library(dplyr)
 
-ddd_path <- system.file("extdata", "WHO_ATC_DDD_2025-08-19.csv",
+ddd_path <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
                          package = "atcddd")
 ddd <- readr::read_csv(ddd_path)
 

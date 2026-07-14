@@ -30,7 +30,7 @@
 #'
 #' @examples
 #' # Use the bundled WHO snapshot
-#' data_path <- system.file("extdata", "WHO_ATC_codes_2025-08-19.csv",
+#' data_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
 #'                           package = "atcddd")
 #' codes <- readr::read_csv(data_path, show_col_types = FALSE)
 #'
@@ -85,7 +85,7 @@ atc_children <- function(code, data) {
 #' @examples
 #' \donttest{
 #' codes <- readr::read_csv(
-#'   system.file("extdata", "WHO_ATC_codes_2025-08-19.csv",
+#'   system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
 #'               package = "atcddd"),
 #'   show_col_types = FALSE
 #' )

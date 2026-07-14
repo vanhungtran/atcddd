@@ -27,7 +27,7 @@ codes.
 \examples{
 \donttest{
 codes <- readr::read_csv(
-  system.file("extdata", "WHO_ATC_codes_2025-08-19.csv",
+  system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
               package = "atcddd"),
   show_col_types = FALSE
 )

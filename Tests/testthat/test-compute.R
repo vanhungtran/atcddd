@@ -8,7 +8,7 @@
 # Helper: path to bundled DDD data
 # ---------------------------------------------------------------------------
 .ddd_path <- function() {
-  system.file("extdata", "WHO_ATC_DDD_2025-08-19.csv", package = "atcddd")
+  system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv", package = "atcddd")
 }
 
 # ---------------------------------------------------------------------------

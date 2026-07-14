@@ -95,6 +95,7 @@ A02BC,A02BC08,vonoprazan,NA,NA,NA,NA
 A02BC,A02BC09,tegoprazan,NA,NA,NA,NA
 A02BC,A02BC10,fexuprazan,NA,NA,NA,NA
 A02BC,A02BC11,ilaprazole,NA,NA,NA,NA
+A02BC,A02BC12,zastaprazan,NA,NA,NA,NA
 A02BC,A02BC51,"omeprazole, combinations",NA,NA,NA,NA
 A02BC,A02BC53,"lansoprazole, combinations",NA,NA,NA,NA
 A02BC,A02BC54,"rabeprazole, combinations",NA,NA,NA,NA
@@ -283,6 +284,7 @@ A05AA,A05AA02,ursodeoxycholic acid,0.75,g,O,NA
 A05AA,A05AA03,cholic acid,NA,NA,NA,NA
 A05AA,A05AA04,obeticholic acid,10,mg,O,NA
 A05AA,A05AA05,ursodoxicoltaurine,NA,NA,NA,NA
+A05AA,A05AA06,norucholic acid,NA,NA,NA,NA
 A05AB,A05AB01,nicotinyl methylamide,NA,NA,NA,NA
 A05AX,A05AX01,piprozolin,NA,NA,NA,NA
 A05AX,A05AX02,hymecromone,NA,NA,NA,NA
@@ -291,6 +293,7 @@ A05AX,A05AX04,maralixibat chloride,NA,NA,NA,NA
 A05AX,A05AX05,odevixibat,NA,NA,NA,NA
 A05AX,A05AX06,elafibranor,NA,NA,NA,NA
 A05AX,A05AX07,seladelpar,NA,NA,NA,NA
+A05AX,A05AX08,linerixibat,NA,NA,NA,NA
 A05BA,A05BA01,arginine glutamate,NA,NA,NA,NA
 A05BA,A05BA03,silymarin,NA,NA,NA,NA
 A05BA,A05BA04,citiolone,NA,NA,NA,NA
@@ -300,6 +303,7 @@ A05BA,A05BA07,tidiacic arginine,NA,NA,NA,NA
 A05BA,A05BA08,glycyrrhizic acid,NA,NA,NA,NA
 A05BA,A05BA09,metadoxine,NA,NA,NA,NA
 A05BA,A05BA10,phospholipids,NA,NA,NA,NA
+A05BA,A05BA11,resmetirom,NA,NA,NA,NA
 A06AA,A06AA01,liquid paraffin,15,g,O,NA
 A06AA,A06AA02,docusate sodium,0.15,g,O,NA
 A06AA,A06AA51,"liquid paraffin, combinations",NA,NA,NA,NA
@@ -491,6 +495,7 @@ A10AE,A10AE07,insulin icodec,NA,NA,NA,NA
 A10AE,A10AE30,combinations,40,U,P,NA
 A10AE,A10AE54,insulin glargine and lixisenatide,40,U,P,Refers to insulin glargine
 A10AE,A10AE56,insulin degludec and liraglutide,40,U,P,Refers to insulin degludec
+A10AE,A10AE57,insulin icodec and semaglutide,NA,NA,NA,NA
 A10AF,A10AF01,insulin (human),40,U,P,NA
 A10BA,A10BA01,phenformin,0.1,g,O,NA
 A10BA,A10BA02,metformin,2,g,O,NA
@@ -540,6 +545,10 @@ A10BD,A10BD27,"metformin, linagliptin and empagliflozin",NA,NA,NA,NA
 A10BD,A10BD28,metformin and teneligliptin,NA,NA,NA,NA
 A10BD,A10BD29,sitagliptin and dapagliflozin,NA,NA,NA,NA
 A10BD,A10BD30,gemigliptin and dapagliflozin,NA,NA,NA,NA
+A10BD,A10BD31,"metformin, sitagliptin and dapagliflozin",NA,NA,NA,NA
+A10BD,A10BD32,glimepiride and dapagliflozin,NA,NA,NA,NA
+A10BD,A10BD33,pioglitazone and dapagliflozin,NA,NA,NA,NA
+A10BD,A10BD34,metformin and enavogliflozin,NA,NA,NA,NA
 A10BF,A10BF01,acarbose,0.3,g,O,NA
 A10BF,A10BF02,miglitol,0.3,g,O,NA
 A10BF,A10BF03,voglibose,0.6,mg,O,NA
@@ -651,6 +660,7 @@ A12CA,A12CA02,sodium sulfate,NA,NA,NA,NA
 A12CB,A12CB01,zinc sulfate,0.6,g,O,NA
 A12CB,A12CB02,zinc gluconate,NA,NA,NA,NA
 A12CB,A12CB03,zinc protein complex,NA,NA,NA,NA
+A12CB,A12CB04,zinc orotate,NA,NA,NA,NA
 A12CC,A12CC01,magnesium chloride,2.5,g,O,NA
 A12CC,A12CC02,magnesium sulfate,3,g,O,NA
 A12CC,A12CC03,magnesium gluconate,5,g,O,NA
@@ -716,6 +726,8 @@ A16AB,A16AB24,pegzilarginase,NA,NA,NA,NA
 A16AB,A16AB25,olipudase alfa,15,mg,P,NA
 A16AB,A16AB26,eladocagene exuparvovec,NA,NA,NA,NA
 A16AB,A16AB27,pabinafusp alfa,NA,NA,NA,NA
+A16AB,A16AB28,verenafusp alfa,NA,NA,NA,NA
+A16AB,A16AB29,rebisufligene etisparvovec,NA,NA,NA,NA
 A16AX,A16AX01,thioctic acid,0.6,g,O,NA
 A16AX,A16AX01,thioctic acid,0.6,g,P,NA
 A16AX,A16AX02,anethole trithione,NA,NA,NA,NA
@@ -735,13 +747,17 @@ A16AX,A16AX15,telotristat,0.75,g,O,NA
 A16AX,A16AX16,givosiran,NA,NA,NA,NA
 A16AX,A16AX17,triheptanoin,NA,NA,NA,NA
 A16AX,A16AX18,lumasiran,NA,NA,NA,NA
-A16AX,A16AX19,fosdenopterin,NA,NA,NA,NA
+A16AX,A16AX19,fosdenopterin,63,mg,P,NA
 A16AX,A16AX20,lonafarnib,NA,NA,NA,NA
 A16AX,A16AX21,elivaldogene autotemcel,NA,NA,NA,NA
 A16AX,A16AX22,tiomolibdic acid,NA,NA,NA,NA
 A16AX,A16AX23,leriglitazone,NA,NA,NA,NA
 A16AX,A16AX24,govorestat,NA,NA,NA,NA
 A16AX,A16AX25,nedosiran,NA,NA,NA,NA
+A16AX,A16AX26,glepaglutide,NA,NA,NA,NA
+A16AX,A16AX27,apraglutide,NA,NA,NA,NA
+A16AX,A16AX28,sepiapterin,NA,NA,NA,NA
+A16AX,A16AX29,doxecitine and doxribtimine,NA,NA,NA,NA
 A16AX,A16AX30,sodium benzoate and sodium phenylacetate,NA,NA,NA,NA
 B01AA,B01AA01,dicoumarol,0.1,g,O,NA
 B01AA,B01AA02,phenindione,0.1,g,O,NA
@@ -808,7 +824,7 @@ B01AD,B01AD09,ancrod,NA,NA,NA,NA
 B01AD,B01AD10,drotrecogin alfa (activated),40,mg,P,NA
 B01AD,B01AD11,tenecteplase,40,mg,P,NA
 B01AD,B01AD12,protein C,NA,NA,NA,NA
-B01AD,B01AD13,apadamtase alfa and cinaxadamtase alfa,NA,NA,NA,NA
+B01AD,B01AD13,apadamtase alfa and cinaxadamtase alfa,200,U,P,NA
 B01AE,B01AE01,desirudin,30,mg,P,NA
 B01AE,B01AE02,lepirudin,0.25,g,P,NA
 B01AE,B01AE03,argatroban,0.2,g,P,NA
@@ -863,6 +879,7 @@ B02BD,B02BD14,susoctocog alfa,NA,NA,NA,NA
 B02BD,B02BD15,valoctocogene roxaparvovec,NA,NA,NA,NA
 B02BD,B02BD16,etranacogene dezaparvovec,NA,NA,NA,NA
 B02BD,B02BD17,fidanacogene elaparvovec,NA,NA,NA,NA
+B02BD,B02BD18,arvenacogene sanparvovec,NA,NA,NA,NA
 B02BD,B02BD30,thrombin,NA,NA,NA,NA
 B02BX,B02BX01,etamsylate,NA,NA,NA,NA
 B02BX,B02BX02,carbazochrome,NA,NA,NA,NA
@@ -875,6 +892,7 @@ B02BX,B02BX08,avatrombopag,20,mg,O,NA
 B02BX,B02BX09,fostamatinib,0.2,g,O,NA
 B02BX,B02BX10,concizumab,NA,NA,NA,NA
 B02BX,B02BX11,marstacimab,NA,NA,NA,NA
+B02BX,B02BX12,fitusiran,NA,NA,NA,NA
 B03AA,B03AA01,ferrous glycine sulfate,0.2,g,O,Fe2+
 B03AA,B03AA02,ferrous fumarate,0.2,g,O,Fe2+
 B03AA,B03AA03,ferrous gluconate,0.2,g,O,Fe2+
@@ -896,7 +914,7 @@ B03AB,B03AB07,chondroitin sulfate-iron complex,NA,NA,NA,NA
 B03AB,B03AB08,ferric acetyl transferrin,NA,NA,NA,NA
 B03AB,B03AB09,ferric proteinsuccinylate,80,mg,O,Fe3+
 B03AB,B03AB10,ferric maltol,60,mg,O,Fe3+
-B03AC,B03AC,"Iron, parenteral preparations",0.1,g,P,Fe
+B03AC,B03AC,"Iron, parenteral preparations",0.1,g,P,NA
 B03AD,B03AD01,ferrous amino acid complex and folic acid,NA,NA,NA,NA
 B03AD,B03AD02,ferrous fumarate and folic acid,NA,NA,NA,NA
 B03AD,B03AD03,ferrous sulfate and folic acid,NA,NA,NA,NA
@@ -929,7 +947,7 @@ B03XA,B03XA06,luspatercept,3.33,mg,P,NA
 B03XA,B03XA07,daprodustat,NA,NA,NA,NA
 B03XA,B03XA08,vadadustat,0.3,g,O,NA
 B03XA,B03XA09,molidustat,NA,NA,NA,NA
-B03XA,B03XA10,efepoetin alfa,NA,NA,NA,NA
+B03XA,B03XA10,efepoetin alfa,20,mcg,P,NA
 B05AA,B05AA01,albumin,NA,NA,NA,NA
 B05AA,B05AA02,other plasma protein fractions,NA,NA,NA,NA
 B05AA,B05AA03,fluorocarbon blood substitutes,NA,NA,NA,NA
@@ -1015,11 +1033,14 @@ B06AC,B06AC05,lanadelumab,21.4,mg,P,NA
 B06AC,B06AC06,berotralstat,0.15,g,O,NA
 B06AC,B06AC07,garadacimab,NA,NA,NA,NA
 B06AC,B06AC08,sebetralstat,NA,NA,NA,NA
+B06AC,B06AC09,donidalorsen,NA,NA,NA,NA
 B06AX,B06AX01,crizanlizumab,12.5,mg,P,NA
 B06AX,B06AX02,betibeglogene autotemcel,NA,NA,NA,NA
 B06AX,B06AX03,voxelotor,NA,NA,NA,NA
 B06AX,B06AX04,mitapivat,0.1,g,O,NA
 B06AX,B06AX05,exagamglogene autotemcel,NA,NA,NA,NA
+B06AX,B06AX06,lovotibeglogene autotemcel,NA,NA,NA,NA
+B06AX,B06AX07,mozafancogene autotemcel,NA,NA,NA,NA
 C01AA,C01AA01,acetyldigitoxin,0.2,mg,O,NA
 C01AA,C01AA02,acetyldigoxin,0.5,mg,O,NA
 C01AA,C01AA03,digitalis leaves,0.1,g,O,NA
@@ -1184,7 +1205,7 @@ C01EB,C01EB16,ibuprofen,30,mg,P,NA
 C01EB,C01EB17,ivabradine,10,mg,O,NA
 C01EB,C01EB18,ranolazine,1.5,g,O,NA
 C01EB,C01EB21,regadenoson,0.4,mg,P,NA
-C01EB,C01EB22,meldonium,NA,NA,NA,NA
+C01EB,C01EB22,meldonium,0.75,g,O,NA
 C01EB,C01EB23,tiazotic acid,NA,NA,NA,NA
 C01EB,C01EB24,mavacamten,5,mg,O,NA
 C01EB,C01EB25,acoramidis,NA,NA,NA,NA
@@ -1238,6 +1259,7 @@ C02KC,C02KC01,pargyline,NA,NA,NA,NA
 C02KD,C02KD01,ketanserin,40,mg,O,NA
 C02KD,C02KD01,ketanserin,40,mg,P,NA
 C02KN,C02KN01,aprocitentan,NA,NA,NA,NA
+C02KN,C02KN02,baxdrostat,NA,NA,NA,NA
 C02KX,C02KX01,bosentan,0.25,g,O,NA
 C02KX,C02KX02,ambrisentan,7.5,mg,O,NA
 C02KX,C02KX03,sitaxentan,0.1,g,O,NA
@@ -1332,6 +1354,7 @@ C03DA,C03DA02,potassium canrenoate,0.4,g,P,NA
 C03DA,C03DA03,canrenone,NA,NA,NA,NA
 C03DA,C03DA04,eplerenone,50,mg,O,NA
 C03DA,C03DA05,finerenone,20,mg,O,NA
+C03DA,C03DA54,eplerenone and dapagliflozin,NA,NA,NA,NA
 C03DB,C03DB01,amiloride,10,mg,O,NA
 C03DB,C03DB02,triamterene,0.1,g,O,NA
 C03EA,C03EA01,hydrochlorothiazide and potassium-sparing agents,NA,NA,NA,NA
@@ -1346,6 +1369,7 @@ C03EA,C03EA13,bendroflumethiazide and potassium-sparing agents,NA,NA,NA,NA
 C03EA,C03EA14,butizide and potassium-sparing agents,NA,NA,NA,NA
 C03EB,C03EB01,furosemide and potassium-sparing agents,NA,NA,NA,NA
 C03EB,C03EB02,bumetanide and potassium-sparing agents,NA,NA,NA,NA
+C03EB,C03EB03,torasemide and potassium-sparing agents,NA,NA,NA,NA
 C03XA,C03XA01,tolvaptan,30,mg,O,NA
 C03XA,C03XA02,conivaptan,NA,NA,NA,NA
 C04AA,C04AA01,isoxsuprine,60,mg,O,NA
@@ -1594,6 +1618,7 @@ C09BB,C09BB07,ramipril and amlodipine,NA,NA,NA,NA
 C09BB,C09BB10,trandolapril and verapamil,NA,NA,NA,NA
 C09BB,C09BB12,delapril and manidipine,NA,NA,NA,NA
 C09BB,C09BB13,benazepril and amlodipine,NA,NA,NA,NA
+C09BB,C09BB14,zofenopril and amlodipine,NA,NA,NA,NA
 C09BX,C09BX01,"perindopril, amlodipine and indapamide",NA,NA,NA,NA
 C09BX,C09BX02,perindopril and bisoprolol,NA,NA,NA,NA
 C09BX,C09BX03,"ramipril, amlodipine and hydrochlorothiazide",NA,NA,NA,NA
@@ -1636,12 +1661,13 @@ C09DX,C09DX05,valsartan and nebivolol,NA,NA,NA,NA
 C09DX,C09DX06,"candesartan, amlodipine and hydrochlorothiazide",NA,NA,NA,NA
 C09DX,C09DX07,"irbesartan, amlodipine and hydrochlorothiazide",NA,NA,NA,NA
 C09DX,C09DX08,"telmisartan, amlodipine and hydrochlorothiazide",NA,NA,NA,NA
+C09DX,C09DX09,"candesartan, amlodipine and indapamide",NA,NA,NA,NA
 C09XA,C09XA01,remikiren,NA,NA,NA,NA
 C09XA,C09XA02,aliskiren,0.15,g,O,NA
 C09XA,C09XA52,aliskiren and hydrochlorothiazide,NA,NA,NA,NA
 C09XA,C09XA53,aliskiren and amlodipine,NA,NA,NA,NA
 C09XA,C09XA54,"aliskiren, amlodipine and hydrochlorothiazide",NA,NA,NA,NA
-C09XX,C09XX01,sparsentan,NA,NA,NA,NA
+C09XX,C09XX01,sparsentan,0.4,g,O,NA
 C10AA,C10AA01,simvastatin,30,mg,O,NA
 C10AA,C10AA02,lovastatin,45,mg,O,NA
 C10AA,C10AA03,pravastatin,30,mg,O,NA
@@ -1690,6 +1716,7 @@ C10AX,C10AX15,bempedoic acid,0.18,g,O,NA
 C10AX,C10AX16,inclisiran,1.6,mg,P,NA
 C10AX,C10AX17,evinacumab,NA,NA,NA,NA
 C10AX,C10AX18,volanesorsen,20,mg,P,NA
+C10AX,C10AX19,lerodalcibep,NA,NA,NA,NA
 C10BA,C10BA01,lovastatin and nicotinic acid,NA,NA,NA,NA
 C10BA,C10BA02,simvastatin and ezetimibe,NA,NA,NA,NA
 C10BA,C10BA03,pravastatin and fenofibrate,NA,NA,NA,NA
@@ -1703,6 +1730,9 @@ C10BA,C10BA10,bempedoic acid and ezetimibe,NA,NA,NA,NA
 C10BA,C10BA11,pravastatin and ezetimibe,NA,NA,NA,NA
 C10BA,C10BA12,"pravastatin, ezetimibe and fenofibrate",NA,NA,NA,NA
 C10BA,C10BA13,pitavastatin and ezetimibe,NA,NA,NA,NA
+C10BA,C10BA14,pitavastatin and fenofibrate,NA,NA,NA,NA
+C10BA,C10BA15,"rosuvastatin, ezetimibe and fenofibrate",NA,NA,NA,NA
+C10BA,C10BA16,atorvastatin and fenofibrate,NA,NA,NA,NA
 C10BX,C10BX01,simvastatin and acetylsalicylic acid,30,mg,O,Refers to simvastatin
 C10BX,C10BX02,pravastatin and acetylsalicylic acid,NA,NA,NA,NA
 C10BX,C10BX03,atorvastatin and amlodipine,NA,NA,NA,NA
@@ -1725,6 +1755,8 @@ C10BX,C10BX19,"atorvastatin, amlodipine and candesartan",NA,NA,NA,NA
 C10BX,C10BX20,rosuvastatin and telmisartan,NA,NA,NA,NA
 C10BX,C10BX21,rosuvastatin and perindopril,NA,NA,NA,NA
 C10BX,C10BX22,rosuvastatin and nebivolol,NA,NA,NA,NA
+C10BX,C10BX23,"rosuvastatin, amlodipine and ramipril",NA,NA,NA,NA
+C10BX,C10BX24,"rosuvastatin, amlodipine and telmisartan",NA,NA,NA,NA
 D01AA,D01AA01,nystatin,NA,NA,NA,NA
 D01AA,D01AA02,natamycin,NA,NA,NA,NA
 D01AA,D01AA03,hachimycin,NA,NA,NA,NA
@@ -1806,6 +1838,7 @@ D03AX,D03AX13,Betulae cortex,NA,NA,NA,NA
 D03AX,D03AX14,"Centella asiatica herba, incl. combinations",NA,NA,NA,NA
 D03AX,D03AX15,trafermin,NA,NA,NA,NA
 D03AX,D03AX16,beremagene geperpavec,NA,NA,NA,NA
+D03AX,D03AX17,diperoxochloric acid,NA,NA,NA,NA
 D03BA,D03BA01,trypsin,NA,NA,NA,NA
 D03BA,D03BA02,collagenase,NA,NA,NA,NA
 D03BA,D03BA03,bromelains,NA,NA,NA,NA
@@ -1888,6 +1921,7 @@ D06BB,D06BB09,edoxudine,NA,NA,NA,NA
 D06BB,D06BB10,imiquimod,NA,NA,NA,NA
 D06BB,D06BB11,docosanol,NA,NA,NA,NA
 D06BB,D06BB12,sinecatechins,NA,NA,NA,NA
+D06BB,D06BB13,berdazimer sodium,NA,NA,NA,NA
 D06BB,D06BB53,"aciclovir, combinations",NA,NA,NA,NA
 D06BX,D06BX01,metronidazole,NA,NA,NA,NA
 D06BX,D06BX02,ingenol mebutate,NA,NA,NA,NA
@@ -2074,6 +2108,7 @@ D10AX,D10AX30,various combinations,NA,NA,NA,NA
 D10BA,D10BA01,isotretinoin,30,mg,O,NA
 D10BX,D10BX01,ichtasol,NA,NA,NA,NA
 D11AA,D11AA01,glycopyrronium,NA,NA,NA,NA
+D11AA,D11AA02,sofpironium bromide,NA,NA,NA,NA
 D11AC,D11AC01,cetrimide,NA,NA,NA,NA
 D11AC,D11AC02,cadmium compounds,NA,NA,NA,NA
 D11AC,D11AC03,selenium compounds,NA,NA,NA,NA
@@ -2091,7 +2126,7 @@ D11AH,D11AH06,crisaborole,NA,NA,NA,NA
 D11AH,D11AH07,tralokinumab,16.1,mg,P,NA
 D11AH,D11AH08,abrocitinib,0.15,g,O,NA
 D11AH,D11AH09,ruxolitinib,NA,NA,NA,NA
-D11AH,D11AH10,lebrikizumab,NA,NA,NA,NA
+D11AH,D11AH10,lebrikizumab,8.9,mg,P,NA
 D11AH,D11AH11,delgocitinib,NA,NA,NA,NA
 D11AH,D11AH12,nemolizumab,NA,NA,NA,NA
 D11AX,D11AX01,minoxidil,NA,NA,NA,NA
@@ -2216,6 +2251,7 @@ G02CX,G02CX03,Agni casti fructus,NA,NA,NA,NA
 G02CX,G02CX04,Cimicifugae rhizoma,NA,NA,NA,NA
 G02CX,G02CX05,bremelanotide,NA,NA,NA,NA
 G02CX,G02CX06,fezolinetant,45,mg,O,NA
+G02CX,G02CX07,elinzanetant,NA,NA,NA,NA
 G03AA,G03AA01,etynodiol and ethinylestradiol,NA,NA,NA,NA
 G03AA,G03AA02,quingestanol and ethinylestradiol,NA,NA,NA,NA
 G03AA,G03AA03,lynestrenol and ethinylestradiol,NA,NA,NA,NA
@@ -2282,6 +2318,7 @@ G03CA,G03CA04,estriol,0.2,mg,V,NA
 G03CA,G03CA06,chlorotrianisene,24,mg,O,NA
 G03CA,G03CA07,estrone,1,mg,O,NA
 G03CA,G03CA09,promestriene,NA,NA,NA,NA
+G03CA,G03CA10,estetrol,NA,NA,NA,NA
 G03CA,G03CA53,"estradiol, combinations",NA,NA,NA,NA
 G03CA,G03CA57,conjugated estrogens,0.625,mg,O,NA
 G03CA,G03CA57,conjugated estrogens,0.625,mg,V,NA
@@ -2474,6 +2511,7 @@ H01CB,H01CB02,octreotide,0.7,mg,P,NA
 H01CB,H01CB03,lanreotide,3,mg,P,NA
 H01CB,H01CB04,vapreotide,NA,NA,NA,NA
 H01CB,H01CB05,pasireotide,1.2,mg,P,NA
+H01CB,H01CB06,paltusotine,NA,NA,NA,NA
 H01CC,H01CC01,ganirelix,0.25,mg,P,NA
 H01CC,H01CC02,cetrorelix,0.25,mg,P,NA
 H01CC,H01CC03,elagolix,NA,NA,NA,NA
@@ -2631,6 +2669,7 @@ J01CF,J01CF05,flucloxacillin,2,g,P,NA
 J01CF,J01CF06,nafcillin,3,g,P,NA
 J01CG,J01CG01,sulbactam,1,g,P,NA
 J01CG,J01CG02,tazobactam,NA,NA,NA,NA
+J01CG,J01CG30,sulbactam and durlobactam,NA,NA,NA,NA
 J01CR,J01CR01,ampicillin and beta-lactamase inhibitor,6,g,P,Refers to ampicillin
 J01CR,J01CR02,amoxicillin and beta-lactamase inhibitor,1.5,g,O,Refers to amoxicillin
 J01CR,J01CR02,amoxicillin and beta-lactamase inhibitor,3,g,P,Refers to amoxicillin
@@ -2700,7 +2739,7 @@ J01DE,J01DE51,cefepime and beta-lactamase inhibitor,NA,NA,NA,NA
 J01DF,J01DF01,aztreonam,0.225,g,Inhal.solution,NA
 J01DF,J01DF01,aztreonam,4,g,P,NA
 J01DF,J01DF02,carumonam,2,g,P,NA
-J01DF,J01DF51,aztreonam and beta-lactamase inhibitor,NA,NA,NA,NA
+J01DF,J01DF51,aztreonam and beta-lactamase inhibitor,6,g,P,refers to aztreonam
 J01DH,J01DH02,meropenem,3,g,P,NA
 J01DH,J01DH03,ertapenem,1,g,P,NA
 J01DH,J01DH04,doripenem,1.5,g,P,NA
@@ -2715,6 +2754,7 @@ J01DI,J01DI02,ceftaroline fosamil,1.2,g,P,NA
 J01DI,J01DI03,faropenem,0.75,g,O,NA
 J01DI,J01DI04,cefiderocol,6,g,P,NA
 J01DI,J01DI54,ceftolozane and beta-lactamase inhibitor,3,g,P,Refers to ceftolozane
+J01DI,J01DI55,sulopenem and probenecid,NA,NA,NA,NA
 J01EA,J01EA01,trimethoprim,0.4,g,O,NA
 J01EA,J01EA01,trimethoprim,0.4,g,P,NA
 J01EA,J01EA02,brodimoprim,0.2,g,O,NA
@@ -2773,6 +2813,7 @@ J01FA,J01FA13,dirithromycin,0.5,g,O,NA
 J01FA,J01FA14,flurithromycin,0.75,g,O,NA
 J01FA,J01FA15,telithromycin,0.8,g,O,NA
 J01FA,J01FA16,solithromycin,NA,NA,NA,NA
+J01FA,J01FA17,nafithromycin,NA,NA,NA,NA
 J01FF,J01FF01,clindamycin,1.2,g,O,NA
 J01FF,J01FF01,clindamycin,1.8,g,P,NA
 J01FF,J01FF02,lincomycin,1.8,g,O,NA
@@ -3142,6 +3183,8 @@ J06BD,J06BD06,regdanvimab,NA,NA,NA,NA
 J06BD,J06BD07,casirivimab and imdevimab,NA,NA,NA,NA
 J06BD,J06BD08,nirsevimab,NA,NA,NA,NA
 J06BD,J06BD09,sipavibart,NA,NA,NA,NA
+J06BD,J06BD10,clesrovimab,NA,NA,NA,NA
+J06BD,J06BD11,libevitug,NA,NA,NA,NA
 J07AC,J07AC01,anthrax antigen,NA,NA,NA,NA
 J07AD,J07AD01,brucella antigen,NA,NA,NA,NA
 J07AE,J07AE01,"cholera, inactivated, whole cell",NA,NA,NA,NA
@@ -3190,6 +3233,7 @@ J07BB,J07BB02,"influenza, inactivated, split virus or surface antigen",NA,NA,NA,
 J07BB,J07BB03,"influenza, live attenuated",NA,NA,NA,NA
 J07BB,J07BB04,"influenza, virus like particles",NA,NA,NA,NA
 J07BB,J07BB05,"influenza, RNA-based vaccine",NA,NA,NA,NA
+J07BB,J07BB55,"influenza and covid-19, RNA-based vaccine",NA,NA,NA,NA
 J07BC,J07BC01,"hepatitis B, purified antigen",NA,NA,NA,NA
 J07BC,J07BC02,"hepatitis A, inactivated, whole virus",NA,NA,NA,NA
 J07BC,J07BC20,combinations,NA,NA,NA,NA
@@ -3220,7 +3264,9 @@ J07BN,J07BN02,"covid-19, viral vector, non-replicating",NA,NA,NA,NA
 J07BN,J07BN03,"covid-19, inactivated virus",NA,NA,NA,NA
 J07BN,J07BN04,"covid-19, protein subunit",NA,NA,NA,NA
 J07BN,J07BN05,"covid-19, virus-like particles",NA,NA,NA,NA
-J07BX,J07BX01,smallpox and monkeypox vaccines,NA,NA,NA,NA
+J07BP,J07BP01,"chikungunya, live attenuated",NA,NA,NA,NA
+J07BP,J07BP02,"chikungunya, virus-like particles",NA,NA,NA,NA
+J07BX,J07BX01,smallpox and mpox vaccines,NA,NA,NA,NA
 J07BX,J07BX02,ebola vaccines,NA,NA,NA,NA
 J07BX,J07BX04,dengue virus vaccines,NA,NA,NA,NA
 J07BX,J07BX05,respiratory syncytial virus vaccines,NA,NA,NA,NA
@@ -3266,14 +3312,14 @@ L01AG,L01AG01,etoglucid,NA,NA,NA,NA
 L01AX,L01AX01,mitobronitol,NA,NA,NA,NA
 L01AX,L01AX02,pipobroman,NA,NA,NA,NA
 L01AX,L01AX03,temozolomide,NA,NA,NA,NA
-L01AX,L01AX04,dacarbazine,NA,NA,NA,NA
+L01AX,L01AX04,dacarbazine,43.3,mg,P,NA
 L01BA,L01BA01,methotrexate,NA,NA,NA,NA
 L01BA,L01BA03,raltitrexed,NA,NA,NA,NA
 L01BA,L01BA04,pemetrexed,NA,NA,NA,NA
 L01BA,L01BA05,pralatrexate,NA,NA,NA,NA
 L01BB,L01BB02,mercaptopurine,NA,NA,NA,NA
 L01BB,L01BB03,tioguanine,NA,NA,NA,NA
-L01BB,L01BB04,cladribine,NA,NA,NA,NA
+L01BB,L01BB04,cladribine,6.3,mg,P,NA
 L01BB,L01BB05,fludarabine,NA,NA,NA,NA
 L01BB,L01BB06,clofarabine,NA,NA,NA,NA
 L01BB,L01BB07,nelarabine,NA,NA,NA,NA
@@ -3343,9 +3389,11 @@ L01EB,L01EB08,icotinib,NA,NA,NA,NA
 L01EB,L01EB09,lazertinib,NA,NA,NA,NA
 L01EB,L01EB10,mobocertinib,NA,NA,NA,NA
 L01EB,L01EB11,aumolertinib,NA,NA,NA,NA
+L01EB,L01EB12,firmonertinib,80,mg,O,NA
 L01EC,L01EC01,vemurafenib,1.92,g,O,NA
 L01EC,L01EC02,dabrafenib,0.3,g,O,NA
 L01EC,L01EC03,encorafenib,0.45,g,O,NA
+L01EC,L01EC04,tovorafenib,NA,NA,NA,NA
 L01ED,L01ED01,crizotinib,0.5,g,O,NA
 L01ED,L01ED02,ceritinib,0.45,g,O,NA
 L01ED,L01ED03,alectinib,1.2,g,O,NA
@@ -3356,6 +3404,7 @@ L01EE,L01EE02,cobimetinib,45,mg,O,NA
 L01EE,L01EE03,binimetinib,90,mg,O,NA
 L01EE,L01EE04,selumetinib,NA,NA,NA,NA
 L01EE,L01EE05,mirdametinib,NA,NA,NA,NA
+L01EE,L01EE06,tunlametinib,NA,NA,NA,NA
 L01EF,L01EF01,palbociclib,94,mg,O,NA
 L01EF,L01EF02,ribociclib,0.45,g,O,NA
 L01EF,L01EF03,abemaciclib,0.3,g,O,NA
@@ -3366,29 +3415,37 @@ L01EG,L01EG04,sirolimus,NA,NA,NA,NA
 L01EH,L01EH01,lapatinib,1.25,g,O,NA
 L01EH,L01EH02,neratinib,0.24,g,O,NA
 L01EH,L01EH03,tucatinib,0.6,g,O,NA
+L01EH,L01EH04,zongertinib,NA,NA,NA,NA
+L01EH,L01EH05,mifanertinib,NA,NA,NA,NA
+L01EH,L01EH06,sevabertinib,NA,NA,NA,NA
 L01EJ,L01EJ01,ruxolitinib,30,mg,O,NA
 L01EJ,L01EJ02,fedratinib,0.4,g,O,NA
 L01EJ,L01EJ03,pacritinib,NA,NA,NA,NA
-L01EJ,L01EJ04,momelotinib,NA,NA,NA,NA
+L01EJ,L01EJ04,momelotinib,0.2,g,O,NA
 L01EK,L01EK01,axitinib,10,mg,O,NA
 L01EK,L01EK02,cediranib,NA,NA,NA,NA
 L01EK,L01EK03,tivozanib,1,mg,O,NA
-L01EK,L01EK04,fruquintinib,NA,NA,NA,NA
+L01EK,L01EK04,fruquintinib,3.75,mg,O,NA
+L01EK,L01EK05,rivoceranib,NA,NA,NA,NA
 L01EL,L01EL01,ibrutinib,0.42,g,O,NA
 L01EL,L01EL02,acalabrutinib,0.2,g,O,NA
 L01EL,L01EL03,zanubrutinib,0.32,g,O,NA
 L01EL,L01EL04,orelabrutinib,0.15,g,O,NA
-L01EL,L01EL05,pirtobrutinib,NA,NA,NA,NA
+L01EL,L01EL05,pirtobrutinib,0.2,g,O,NA
 L01EL,L01EL06,tirabrutinib,NA,NA,NA,NA
 L01EM,L01EM01,idelalisib,0.3,g,O,NA
 L01EM,L01EM02,copanlisib,6.43,mg,P,NA
 L01EM,L01EM03,alpelisib,0.3,g,O,NA
 L01EM,L01EM04,duvelisib,50,mg,O,NA
 L01EM,L01EM05,parsaclisib,NA,NA,NA,NA
+L01EM,L01EM06,inavolisib,9,mg,O,NA
 L01EN,L01EN01,erdafitinib,9,mg,O,NA
 L01EN,L01EN02,pemigatinib,9,mg,O,NA
 L01EN,L01EN03,infigratinib,NA,NA,NA,NA
 L01EN,L01EN04,futibatinib,NA,NA,NA,NA
+L01EP,L01EP01,capmatinib,0.8,g,O,NA
+L01EP,L01EP02,tepotinib,0.45,g,O,NA
+L01EP,L01EP03,savolitinib,NA,NA,NA,NA
 L01EX,L01EX01,sunitinib,33,mg,O,NA
 L01EX,L01EX02,sorafenib,0.8,g,O,NA
 L01EX,L01EX03,pazopanib,0.8,g,O,NA
@@ -3404,40 +3461,39 @@ L01EX,L01EX12,larotrectinib,0.2,g,O,NA
 L01EX,L01EX13,gilteritinib,0.12,g,O,NA
 L01EX,L01EX14,entrectinib,0.6,g,O,NA
 L01EX,L01EX15,pexidartinib,0.5,g,O,NA
-L01EX,L01EX17,capmatinib,0.8,g,O,NA
 L01EX,L01EX18,avapritinib,0.3,g,O,NA
 L01EX,L01EX19,ripretinib,0.15,g,O,NA
-L01EX,L01EX21,tepotinib,0.45,g,O,NA
 L01EX,L01EX22,selpercatinib,0.32,g,O,NA
 L01EX,L01EX23,pralsetinib,0.4,g,O,NA
 L01EX,L01EX24,surufatinib,NA,NA,NA,NA
 L01EX,L01EX25,umbralisib,NA,NA,NA,NA
 L01EX,L01EX26,sitravatinib,NA,NA,NA,NA
-L01EX,L01EX27,capivasertib,NA,NA,NA,NA
+L01EX,L01EX27,capivasertib,0.46,g,O,NA
 L01EX,L01EX28,repotrectinib,NA,NA,NA,NA
+L01EX,L01EX29,vimseltinib,NA,NA,NA,NA
 L01FA,L01FA01,rituximab,NA,NA,NA,NA
 L01FA,L01FA02,ofatumumab,NA,NA,NA,NA
-L01FA,L01FA03,obinutuzumab,NA,NA,NA,NA
+L01FA,L01FA03,obinutuzumab,35.7,mg,P,NA
 L01FB,L01FB01,inotuzumab ozogamicin,NA,NA,NA,NA
 L01FB,L01FB02,moxetumomab pasudotox,NA,NA,NA,NA
-L01FC,L01FC01,daratumumab,NA,NA,NA,NA
+L01FC,L01FC01,daratumumab,64.3,mg,P,NA
 L01FC,L01FC02,isatuximab,NA,NA,NA,NA
-L01FD,L01FD01,trastuzumab,NA,NA,NA,NA
-L01FD,L01FD02,pertuzumab,NA,NA,NA,NA
-L01FD,L01FD03,trastuzumab emtansine,NA,NA,NA,NA
-L01FD,L01FD04,trastuzumab deruxtecan,NA,NA,NA,NA
+L01FD,L01FD01,trastuzumab,28.6,mg,P,NA
+L01FD,L01FD02,pertuzumab,20,mg,P,NA
+L01FD,L01FD03,trastuzumab emtansine,12,mg,P,NA
+L01FD,L01FD04,trastuzumab deruxtecan,18,mg,P,NA
 L01FD,L01FD05,trastuzumab duocarmazine,NA,NA,NA,NA
 L01FD,L01FD06,margetuximab,NA,NA,NA,NA
 L01FD,L01FD07,zanidatamab,NA,NA,NA,NA
 L01FE,L01FE01,cetuximab,NA,NA,NA,NA
 L01FE,L01FE02,panitumumab,NA,NA,NA,NA
 L01FE,L01FE03,necitumumab,NA,NA,NA,NA
-L01FF,L01FF01,nivolumab,NA,NA,NA,NA
-L01FF,L01FF02,pembrolizumab,NA,NA,NA,NA
-L01FF,L01FF03,durvalumab,NA,NA,NA,NA
-L01FF,L01FF04,avelumab,NA,NA,NA,NA
-L01FF,L01FF05,atezolizumab,NA,NA,NA,NA
-L01FF,L01FF06,cemiplimab,NA,NA,NA,NA
+L01FF,L01FF01,nivolumab,17.1,mg,P,NA
+L01FF,L01FF02,pembrolizumab,9.5,mg,P,NA
+L01FF,L01FF03,durvalumab,53.6,mg,P,NA
+L01FF,L01FF04,avelumab,57.1,mg,P,NA
+L01FF,L01FF05,atezolizumab,57.1,mg,P,Refers to IV infusion
+L01FF,L01FF06,cemiplimab,16.7,mg,P,NA
 L01FF,L01FF07,dostarlimab,NA,NA,NA,NA
 L01FF,L01FF08,prolgolimab,NA,NA,NA,NA
 L01FF,L01FF09,tislelizumab,NA,NA,NA,NA
@@ -3445,16 +3501,19 @@ L01FF,L01FF10,retifanlimab,NA,NA,NA,NA
 L01FF,L01FF11,sugemalimab,NA,NA,NA,NA
 L01FF,L01FF12,serplulimab,NA,NA,NA,NA
 L01FF,L01FF13,toripalimab,NA,NA,NA,NA
+L01FF,L01FF14,camrelizumab,NA,NA,NA,NA
+L01FF,L01FF15,envafolimab,NA,NA,NA,NA
+L01FF,L01FF16,sasanlimab,NA,NA,NA,NA
 L01FG,L01FG01,bevacizumab,NA,NA,NA,NA
-L01FG,L01FG02,ramucirumab,NA,NA,NA,NA
+L01FG,L01FG02,ramucirumab,40,mg,P,NA
 L01FX,L01FX01,edrecolomab,NA,NA,NA,NA
 L01FX,L01FX02,gemtuzumab ozogamicin,NA,NA,NA,NA
 L01FX,L01FX03,catumaxomab,NA,NA,NA,NA
-L01FX,L01FX04,ipilimumab,NA,NA,NA,NA
-L01FX,L01FX05,brentuximab vedotin,NA,NA,NA,NA
+L01FX,L01FX04,ipilimumab,10,mg,P,NA
+L01FX,L01FX05,brentuximab vedotin,6,mg,P,NA
 L01FX,L01FX06,dinutuximab beta,NA,NA,NA,NA
-L01FX,L01FX07,blinatumomab,NA,NA,NA,NA
-L01FX,L01FX08,elotuzumab,NA,NA,NA,NA
+L01FX,L01FX07,blinatumomab,18.7,mcg,P,NA
+L01FX,L01FX08,elotuzumab,50,mg,P,NA
 L01FX,L01FX09,mogamulizumab,NA,NA,NA,NA
 L01FX,L01FX10,olaratumab,NA,NA,NA,NA
 L01FX,L01FX11,bermekimab,NA,NA,NA,NA
@@ -3482,6 +3541,9 @@ L01FX,L01FX33,tarlatamab,NA,NA,NA,NA
 L01FX,L01FX34,odronextamab,NA,NA,NA,NA
 L01FX,L01FX35,datopotamab deruxtecan,NA,NA,NA,NA
 L01FX,L01FX36,patritumab deruxtecan,NA,NA,NA,NA
+L01FX,L01FX37,linvoseltamab,NA,NA,NA,NA
+L01FX,L01FX38,ifinatamab deruxtecan,NA,NA,NA,NA
+L01FX,L01FX39,bemarituzumab,NA,NA,NA,NA
 L01FY,L01FY01,pertuzumab and trastuzumab,NA,NA,NA,NA
 L01FY,L01FY02,nivolumab and relatlimab,NA,NA,NA,NA
 L01FY,L01FY03,prolgolimab and nurulimab,NA,NA,NA,NA
@@ -3490,7 +3552,7 @@ L01XA,L01XA02,carboplatin,NA,NA,NA,NA
 L01XA,L01XA03,oxaliplatin,NA,NA,NA,NA
 L01XA,L01XA04,satraplatin,NA,NA,NA,NA
 L01XA,L01XA05,polyplatillen,NA,NA,NA,NA
-L01XB,L01XB01,procarbazine,NA,NA,NA,NA
+L01XB,L01XB01,procarbazine,0.1,g,O,NA
 L01XD,L01XD01,porfimer sodium,NA,NA,NA,NA
 L01XD,L01XD03,methyl aminolevulinate,NA,NA,NA,NA
 L01XD,L01XD04,aminolevulinic acid,NA,NA,NA,NA
@@ -3502,7 +3564,7 @@ L01XF,L01XF02,alitretinoin,NA,NA,NA,NA
 L01XF,L01XF03,bexarotene,NA,NA,NA,NA
 L01XG,L01XG01,bortezomib,NA,NA,NA,NA
 L01XG,L01XG02,carfilzomib,NA,NA,NA,NA
-L01XG,L01XG03,ixazomib,NA,NA,NA,NA
+L01XG,L01XG03,ixazomib,0.43,mg,O,NA
 L01XH,L01XH01,vorinostat,NA,NA,NA,NA
 L01XH,L01XH02,romidepsin,NA,NA,NA,NA
 L01XH,L01XH03,panobinostat,NA,NA,NA,NA
@@ -3510,15 +3572,16 @@ L01XH,L01XH04,belinostat,NA,NA,NA,NA
 L01XH,L01XH05,entinostat,NA,NA,NA,NA
 L01XH,L01XH06,tucidinostat,NA,NA,NA,NA
 L01XH,L01XH07,resminostat,NA,NA,NA,NA
-L01XJ,L01XJ01,vismodegib,NA,NA,NA,NA
-L01XJ,L01XJ02,sonidegib,NA,NA,NA,NA
+L01XJ,L01XJ01,vismodegib,0.15,g,O,NA
+L01XJ,L01XJ02,sonidegib,0.2,g,O,NA
 L01XJ,L01XJ03,glasdegib,NA,NA,NA,NA
-L01XK,L01XK01,olaparib,NA,NA,NA,NA
-L01XK,L01XK02,niraparib,NA,NA,NA,NA
-L01XK,L01XK03,rucaparib,NA,NA,NA,NA
+L01XK,L01XK01,olaparib,0.6,g,O,NA
+L01XK,L01XK02,niraparib,0.3,g,O,NA
+L01XK,L01XK03,rucaparib,1.2,g,O,NA
 L01XK,L01XK04,talazoparib,NA,NA,NA,NA
 L01XK,L01XK05,veliparib,NA,NA,NA,NA
 L01XK,L01XK06,pamiparib,NA,NA,NA,NA
+L01XK,L01XK07,senaparib,NA,NA,NA,NA
 L01XK,L01XK52,niraparib and abiraterone,NA,NA,NA,NA
 L01XL,L01XL01,sitimagene ceradenovec,NA,NA,NA,NA
 L01XL,L01XL02,talimogene laherparepvec,NA,NA,NA,NA
@@ -3539,7 +3602,7 @@ L01XM,L01XM04,vorasidenib,NA,NA,NA,NA
 L01XX,L01XX01,amsacrine,NA,NA,NA,NA
 L01XX,L01XX02,asparaginase,NA,NA,NA,NA
 L01XX,L01XX03,altretamine,NA,NA,NA,NA
-L01XX,L01XX05,hydroxycarbamide,NA,NA,NA,NA
+L01XX,L01XX05,hydroxycarbamide,1.4,g,O,NA
 L01XX,L01XX07,lonidamine,NA,NA,NA,NA
 L01XX,L01XX08,pentostatin,NA,NA,NA,NA
 L01XX,L01XX10,masoprocol,NA,NA,NA,NA
@@ -3548,15 +3611,15 @@ L01XX,L01XX16,mitoguazone,NA,NA,NA,NA
 L01XX,L01XX18,tiazofurine,NA,NA,NA,NA
 L01XX,L01XX23,mitotane,NA,NA,NA,NA
 L01XX,L01XX24,pegaspargase,NA,NA,NA,NA
-L01XX,L01XX27,arsenic trioxide,NA,NA,NA,NA
+L01XX,L01XX27,arsenic trioxide,7.5,mg,P,NA
 L01XX,L01XX29,denileukin diftitox,NA,NA,NA,NA
 L01XX,L01XX33,celecoxib,NA,NA,NA,NA
 L01XX,L01XX35,anagrelide,NA,NA,NA,NA
 L01XX,L01XX36,oblimersen,NA,NA,NA,NA
 L01XX,L01XX40,omacetaxine mepesuccinate,NA,NA,NA,NA
 L01XX,L01XX41,eribulin,NA,NA,NA,NA
-L01XX,L01XX44,aflibercept,NA,NA,NA,NA
-L01XX,L01XX52,venetoclax,NA,NA,NA,NA
+L01XX,L01XX44,aflibercept,20,mg,P,NA
+L01XX,L01XX52,venetoclax,0.4,g,O,NA
 L01XX,L01XX53,vosaroxin,NA,NA,NA,NA
 L01XX,L01XX57,plitidepsin,NA,NA,NA,NA
 L01XX,L01XX58,epacadostat,NA,NA,NA,NA
@@ -3577,6 +3640,7 @@ L01XX,L01XX83,para-toluenesulfonamide,NA,NA,NA,NA
 L01XX,L01XX84,pelabresib,NA,NA,NA,NA
 L01XX,L01XX85,idroxioleic acid,NA,NA,NA,NA
 L01XX,L01XX86,calaspargase pegol,NA,NA,NA,NA
+L01XX,L01XX87,revumenib,NA,NA,NA,NA
 L01XY,L01XY01,cytarabine and daunorubicin,NA,NA,NA,NA
 L01XY,L01XY04,bifikafusp alfa and onfekafusp alfa,NA,NA,NA,NA
 L02AA,L02AA01,diethylstilbestrol,3,mg,O,NA
@@ -3603,6 +3667,7 @@ L02BA,L02BA01,tamoxifen,20,mg,O,NA
 L02BA,L02BA02,toremifene,60,mg,O,NA
 L02BA,L02BA03,fulvestrant,16.7,mg,P,NA
 L02BA,L02BA04,elacestrant,NA,NA,NA,NA
+L02BA,L02BA05,camizestrant,NA,NA,NA,NA
 L02BB,L02BB01,flutamide,0.75,g,O,NA
 L02BB,L02BB02,nilutamide,0.3,g,O,NA
 L02BB,L02BB03,bicalutamide,50,mg,O,NA
@@ -3618,7 +3683,7 @@ L02BG,L02BG06,exemestane,25,mg,O,NA
 L02BX,L02BX01,abarelix,3.6,mg,P,NA
 L02BX,L02BX02,degarelix,2.7,mg,P,NA
 L02BX,L02BX03,abiraterone,1,g,O,NA
-L02BX,L02BX04,relugolix,NA,NA,NA,NA
+L02BX,L02BX04,relugolix,0.12,g,O,NA
 L02BX,L02BX53,abiraterone and corticosteroids,NA,NA,NA,NA
 L03AA,L03AA02,filgrastim,0.35,mg,P,NA
 L03AA,L03AA03,molgramostim,0.35,mg,P,NA
@@ -3653,6 +3718,7 @@ L03AB,L03AB60,"peginterferon alfa-2b, combinations",NA,NA,NA,NA
 L03AB,L03AB61,"peginterferon alfa-2a, combinations",NA,NA,NA,NA
 L03AC,L03AC01,aldesleukin,0.2,mg,P,NA
 L03AC,L03AC02,oprelvekin,3.5,mg,P,NA
+L03AC,L03AC03,nogapendekin alfa and inbakicept,12.5,mcg,intravesical,NA
 L03AX,L03AX01,lentinan,0.3,mg,O,NA
 L03AX,L03AX01,lentinan,0.3,mg,P,NA
 L03AX,L03AX02,roquinimex,NA,NA,NA,NA
@@ -3676,6 +3742,7 @@ L03AX,L03AX21,elapegademase,NA,NA,NA,NA
 L03AX,L03AX22,leniolisib,NA,NA,NA,NA
 L03AX,L03AX23,motixafortide,NA,NA,NA,NA
 L03AX,L03AX24,mavorixafor,NA,NA,NA,NA
+L03AX,L03AX25,thymalfasin,NA,NA,NA,NA
 L04AA,L04AA03,antilymphocyte immunoglobulin (horse),1.05,g,P,NA
 L04AA,L04AA04,antithymocyte immunoglobulin (rabbit),0.1,g,P,NA
 L04AA,L04AA06,mycophenolic acid,2,g,O,as mycophenolate mofetil
@@ -3689,8 +3756,9 @@ L04AA,L04AA32,apremilast,60,mg,O,NA
 L04AA,L04AA40,cladribine,0.34,mg,O,NA
 L04AA,L04AA41,imlifidase,17.5,mg,P,course dose
 L04AA,L04AA48,belumosudil,NA,NA,NA,NA
-L04AA,L04AA58,efgartigimod alfa,NA,NA,NA,NA
 L04AA,L04AA60,remibrutinib,NA,NA,NA,NA
+L04AA,L04AA61,nerandomilast,NA,NA,NA,NA
+L04AA,L04AA62,tolebrutinib,NA,NA,NA,NA
 L04AB,L04AB01,etanercept,7,mg,P,NA
 L04AB,L04AB02,infliximab,3.75,mg,P,NA
 L04AB,L04AB03,afelimomab,NA,NA,NA,NA
@@ -3723,6 +3791,7 @@ L04AC,L04AC23,olokizumab,NA,NA,NA,NA
 L04AC,L04AC24,mirikizumab,7.1,mg,P,NA
 L04AC,L04AC25,levilimab,NA,NA,NA,NA
 L04AC,L04AC26,goflikicept,NA,NA,NA,NA
+L04AC,L04AC27,cendakimab,NA,NA,NA,NA
 L04AD,L04AD01,ciclosporin,0.25,g,O,NA
 L04AD,L04AD01,ciclosporin,0.25,g,P,NA
 L04AD,L04AD02,tacrolimus,5,mg,O,NA
@@ -3730,9 +3799,9 @@ L04AD,L04AD02,tacrolimus,5,mg,P,NA
 L04AD,L04AD03,voclosporin,47.4,mg,O,NA
 L04AE,L04AE01,fingolimod,0.5,mg,O,NA
 L04AE,L04AE02,ozanimod,0.92,mg,O,NA
-L04AE,L04AE03,siponimod,NA,NA,NA,NA
+L04AE,L04AE03,siponimod,2,mg,O,NA
 L04AE,L04AE04,ponesimod,20,mg,O,NA
-L04AE,L04AE05,etrasimod,NA,NA,NA,NA
+L04AE,L04AE05,etrasimod,2,mg,O,NA
 L04AF,L04AF01,tofacitinib,10,mg,O,NA
 L04AF,L04AF02,baricitinib,3,mg,O,NA
 L04AF,L04AF03,upadacitinib,15,mg,O,NA
@@ -3741,6 +3810,7 @@ L04AF,L04AF05,itacitinib,NA,NA,NA,NA
 L04AF,L04AF06,peficitinib,NA,NA,NA,NA
 L04AF,L04AF07,deucravacitinib,6,mg,O,NA
 L04AF,L04AF08,ritlecitinib,50,mg,O,NA
+L04AF,L04AF09,deuruxolitinib,NA,NA,NA,NA
 L04AG,L04AG01,muromonab-CD3,5,mg,P,NA
 L04AG,L04AG02,efalizumab,10,mg,P,NA
 L04AG,L04AG03,natalizumab,10,mg,P,NA
@@ -3756,8 +3826,9 @@ L04AG,L04AG12,ofatumumab,0.67,mg,P,NA
 L04AG,L04AG13,teprotumumab,NA,NA,NA,NA
 L04AG,L04AG14,ublituximab,NA,NA,NA,NA
 L04AG,L04AG15,divozilimab,NA,NA,NA,NA
-L04AG,L04AG16,rozanolixizumab,NA,NA,NA,NA
 L04AG,L04AG17,seniprutug,NA,NA,NA,NA
+L04AG,L04AG18,sibeprenlimab,NA,NA,NA,NA
+L04AG,L04AG19,axatilimab,NA,NA,NA,NA
 L04AH,L04AH01,sirolimus,3,mg,O,NA
 L04AH,L04AH02,everolimus,1.5,mg,O,NA
 L04AJ,L04AJ01,eculizumab,64,mg,P,NA
@@ -3766,13 +3837,16 @@ L04AJ,L04AJ03,pegcetacoplan,0.3,g,P,NA
 L04AJ,L04AJ04,sutimlimab,0.46,g,P,NA
 L04AJ,L04AJ05,avacopan,60,mg,O,NA
 L04AJ,L04AJ06,zilucoplan,NA,NA,NA,NA
-L04AJ,L04AJ07,crovalimab,NA,NA,NA,NA
+L04AJ,L04AJ07,crovalimab,24.3,mg,P,NA
 L04AJ,L04AJ08,iptacopan,NA,NA,NA,NA
 L04AJ,L04AJ09,danicopan,NA,NA,NA,NA
 L04AJ,L04AJ10,vilobelimab,NA,NA,NA,NA
 L04AJ,L04AJ11,pozelimab,NA,NA,NA,NA
 L04AK,L04AK01,leflunomide,20,mg,O,NA
 L04AK,L04AK02,teriflunomide,14,mg,O,NA
+L04AL,L04AL01,efgartigimod alfa,NA,NA,NA,NA
+L04AL,L04AL02,rozanolixizumab,NA,NA,NA,NA
+L04AL,L04AL03,nipocalimab,NA,NA,NA,NA
 L04AX,L04AX01,azathioprine,0.15,g,O,NA
 L04AX,L04AX01,azathioprine,0.15,g,P,NA
 L04AX,L04AX02,thalidomide,0.1,g,O,NA
@@ -3785,6 +3859,7 @@ L04AX,L04AX07,dimethyl fumarate,0.48,g,O,NA
 L04AX,L04AX08,darvadstrocel,NA,NA,NA,NA
 L04AX,L04AX09,diroximel fumarate,0.924,g,O,NA
 L04AX,L04AX10,tegomil fumarate,NA,NA,NA,NA
+L04AX,L04AX11,monomethyl fumarate,NA,NA,NA,NA
 M01AA,M01AA01,phenylbutazone,0.3,g,O,NA
 M01AA,M01AA01,phenylbutazone,0.3,g,P,NA
 M01AA,M01AA01,phenylbutazone,0.3,g,R,NA
@@ -4010,6 +4085,7 @@ M04AB,M04AB02,sulfinpyrazone,0.3,g,O,NA
 M04AB,M04AB03,benzbromarone,0.1,g,O,NA
 M04AB,M04AB04,isobromindione,NA,NA,NA,NA
 M04AB,M04AB05,lesinurad,0.2,g,O,NA
+M04AB,M04AB06,dotinurad,NA,NA,NA,NA
 M04AC,M04AC01,colchicine,1,mg,O,NA
 M04AC,M04AC01,colchicine,1,mg,P,NA
 M04AC,M04AC02,cinchophen,1,g,O,NA
@@ -4068,6 +4144,7 @@ M09AX,M09AX12,viltolarsen,NA,NA,NA,NA
 M09AX,M09AX13,casimersen,NA,NA,NA,NA
 M09AX,M09AX14,givinostat,NA,NA,NA,NA
 M09AX,M09AX15,delandistrogene moxeparvovec,NA,NA,NA,NA
+M09AX,M09AX16,apitegromab,NA,NA,NA,NA
 N01AA,N01AA01,diethyl ether,NA,NA,NA,NA
 N01AA,N01AA02,vinyl ether,NA,NA,NA,NA
 N01AB,N01AB01,halothane,NA,NA,NA,NA
@@ -4373,7 +4450,7 @@ N03AX,N03AX23,brivaracetam,0.1,g,O,NA
 N03AX,N03AX23,brivaracetam,0.1,g,P,NA
 N03AX,N03AX24,cannabidiol,0.7,g,O,NA
 N03AX,N03AX25,cenobamate,0.2,g,O,NA
-N03AX,N03AX26,fenfluramine,8,mg,O,NA
+N03AX,N03AX26,fenfluramine,14,mg,O,NA
 N03AX,N03AX27,ganaxolone,NA,NA,NA,NA
 N03AX,N03AX30,beclamide,NA,NA,NA,NA
 N04AA,N04AA01,trihexyphenidyl,10,mg,O,NA
@@ -4535,6 +4612,7 @@ N05AX,N05AX14,iloperidone,18,mg,O,NA
 N05AX,N05AX15,cariprazine,3,mg,O,NA
 N05AX,N05AX16,brexpiprazole,3,mg,O,NA
 N05AX,N05AX17,pimavanserin,NA,NA,NA,NA
+N05AX,N05AX50,xanomeline and trospium,NA,NA,NA,NA
 N05BA,N05BA01,diazepam,10,mg,O,NA
 N05BA,N05BA01,diazepam,10,mg,P,NA
 N05BA,N05BA01,diazepam,10,mg,R,NA
@@ -4633,6 +4711,7 @@ N05CD,N05CD12,doxefazepam,NA,NA,NA,NA
 N05CD,N05CD13,cinolazepam,NA,NA,NA,NA
 N05CD,N05CD14,remimazolam,NA,NA,NA,NA
 N05CD,N05CD15,nimetazepam,NA,NA,NA,NA
+N05CD,N05CD16,dimdazenil,NA,NA,NA,NA
 N05CE,N05CE01,glutethimide,0.25,g,O,NA
 N05CE,N05CE02,methyprylon,0.2,g,O,NA
 N05CE,N05CE03,pyrithyldione,0.2,g,O,NA
@@ -4761,7 +4840,7 @@ N06BA,N06BA10,fenetylline,NA,NA,NA,NA
 N06BA,N06BA11,dexmethylphenidate,15,mg,O,NA
 N06BA,N06BA12,lisdexamfetamine,30,mg,O,NA
 N06BA,N06BA13,armodafinil,0.15,g,O,NA
-N06BA,N06BA14,solriamfetol,NA,NA,NA,NA
+N06BA,N06BA14,solriamfetol,0.1,g,O,NA
 N06BA,N06BA15,dexmethylphenidate and serdexmethylphenidate,NA,NA,NA,NA
 N06BC,N06BC01,caffeine,0.4,g,O,NA
 N06BC,N06BC01,caffeine,0.4,g,P,NA
@@ -4787,6 +4866,7 @@ N06BX,N06BX17,adrafinil,NA,NA,NA,NA
 N06BX,N06BX18,vinpocetine,15,mg,O,NA
 N06BX,N06BX21,temgicoluril,NA,NA,NA,NA
 N06BX,N06BX22,phenibut,NA,NA,NA,NA
+N06BX,N06BX53,piracetam and cinnarizine,NA,NA,NA,NA
 N06CA,N06CA01,amitriptyline and psycholeptics,NA,NA,NA,NA
 N06CA,N06CA02,melitracen and psycholeptics,NA,NA,NA,NA
 N06CA,N06CA03,fluoxetine and psycholeptics,NA,NA,NA,NA
@@ -4796,6 +4876,7 @@ N06DA,N06DA03,rivastigmine,9,mg,O,NA
 N06DA,N06DA03,rivastigmine,9.5,mg,TD,delivered dose
 N06DA,N06DA04,galantamine,16,mg,O,NA
 N06DA,N06DA05,ipidacrine,NA,NA,NA,NA
+N06DA,N06DA06,benzgalantamine,NA,NA,NA,NA
 N06DA,N06DA52,donepezil and memantine,NA,NA,NA,NA
 N06DA,N06DA53,"donepezil, memantine and Ginkgo folium",NA,NA,NA,NA
 N06DX,N06DX01,memantine,20,mg,O,NA
@@ -4803,6 +4884,8 @@ N06DX,N06DX02,Ginkgo folium,0.12,g,O,NA
 N06DX,N06DX03,aducanumab,NA,NA,NA,NA
 N06DX,N06DX04,lecanemab,NA,NA,NA,NA
 N06DX,N06DX05,donanemab,NA,NA,NA,NA
+N06DX,N06DX06,blarcamesine,NA,NA,NA,NA
+N06DX,N06DX07,hydromethylthionine,NA,NA,NA,NA
 N06DX,N06DX30,combinations,NA,NA,NA,NA
 N07AA,N07AA01,neostigmine,60,mg,O,NA
 N07AA,N07AA01,neostigmine,2,mg,P,NA
@@ -4870,6 +4953,8 @@ N07XX,N07XX22,tofersen,NA,NA,NA,NA
 N07XX,N07XX23,troriluzole,NA,NA,NA,NA
 N07XX,N07XX24,trofinetide,NA,NA,NA,NA
 N07XX,N07XX25,omaveloxolone,NA,NA,NA,NA
+N07XX,N07XX26,pridopidine,NA,NA,NA,NA
+N07XX,N07XX27,levacetylleucine,NA,NA,NA,NA
 N07XX,N07XX59,"dextromethorphan, combinations",40,mg,O,Refers to dextromethorphan
 P01AA,P01AA01,broxyquinoline,NA,NA,NA,NA
 P01AA,P01AA02,clioquinol,NA,NA,NA,NA
@@ -4972,6 +5057,7 @@ P02CA,P02CA04,ciclobendazole,NA,NA,NA,NA
 P02CA,P02CA05,flubendazole,0.2,g,O,NA
 P02CA,P02CA06,fenbendazole,NA,NA,NA,NA
 P02CA,P02CA51,"mebendazole, combinations",NA,NA,NA,NA
+P02CA,P02CA53,albendazole and ivermectin,NA,NA,NA,NA
 P02CB,P02CB01,piperazine,3.5,g,O,as hydrate
 P02CB,P02CB02,diethylcarbamazine,0.4,g,O,NA
 P02CC,P02CC01,pyrantel,0.75,g,O,NA
@@ -5203,6 +5289,7 @@ R03BC,R03BC01,cromoglicic acid,80,mg,Inhal.powder,NA
 R03BC,R03BC01,cromoglicic acid,80,mg,Inhal.solution,NA
 R03BC,R03BC03,nedocromil,8,mg,Inhal.aerosol,NA
 R03BX,R03BX01,fenspiride,NA,NA,NA,NA
+R03BX,R03BX02,ensifentrine,NA,NA,NA,NA
 R03CA,R03CA02,ephedrine,50,mg,O,NA
 R03CB,R03CB01,isoprenaline,40,mg,O,NA
 R03CB,R03CB02,methoxyphenamine,0.4,g,O,NA
@@ -5280,6 +5367,7 @@ R03DX,R03DX08,reslizumab,7.1,mg,P,NA
 R03DX,R03DX09,mepolizumab,3.6,mg,P,NA
 R03DX,R03DX10,benralizumab,0.54,mg,P,NA
 R03DX,R03DX11,tezepelumab,7.5,mg,P,NA
+R03DX,R03DX12,depemokimab,NA,NA,NA,NA
 R05CA,R05CA01,tyloxapol,5,mg,Inhal.solution,NA
 R05CA,R05CA02,potassium iodide,1.2,g,O,NA
 R05CA,R05CA03,guaifenesin,0.9,g,O,NA
@@ -5549,6 +5637,7 @@ S01AX,S01AX16,picloxydine,NA,NA,NA,NA
 S01AX,S01AX18,povidone-iodine,NA,NA,NA,NA
 S01AX,S01AX24,polihexanide,NA,NA,NA,NA
 S01AX,S01AX25,lotilaner,NA,NA,NA,NA
+S01AX,S01AX26,cethexonium,NA,NA,NA,NA
 S01BA,S01BA01,dexamethasone,NA,NA,NA,NA
 S01BA,S01BA02,hydrocortisone,NA,NA,NA,NA
 S01BA,S01BA03,cortisone,NA,NA,NA,NA
@@ -5565,6 +5654,7 @@ S01BA,S01BA13,rimexolone,NA,NA,NA,NA
 S01BA,S01BA14,loteprednol,NA,NA,NA,NA
 S01BA,S01BA15,fluocinolone acetonide,NA,NA,NA,NA
 S01BA,S01BA16,difluprednate,NA,NA,NA,NA
+S01BA,S01BA17,clobetasol,NA,NA,NA,NA
 S01BB,S01BB01,hydrocortisone and mydriatics,NA,NA,NA,NA
 S01BB,S01BB02,prednisolone and mydriatics,NA,NA,NA,NA
 S01BB,S01BB03,fluorometholone and mydriatics,NA,NA,NA,NA
@@ -5898,6 +5988,7 @@ V04CE,V04CE01,galactose,NA,NA,NA,NA
 V04CE,V04CE02,sulfobromophthalein,NA,NA,NA,NA
 V04CE,V04CE03,methacetin (13C),NA,NA,NA,NA
 V04CF,V04CF01,tuberculin,NA,NA,NA,NA
+V04CF,V04CF02,"mycobacterium tuberculosis, recombinant antigens",NA,NA,NA,NA
 V04CG,V04CG01,cation exchange resins,NA,NA,NA,NA
 V04CG,V04CG02,betazole,NA,NA,NA,NA
 V04CG,V04CG03,histamine phosphate,NA,NA,NA,NA
@@ -5908,6 +5999,7 @@ V04CH,V04CH01,inulin and other polyfructosans,NA,NA,NA,NA
 V04CH,V04CH02,indigo carmine,NA,NA,NA,NA
 V04CH,V04CH03,phenolsulfonphthalein,NA,NA,NA,NA
 V04CH,V04CH04,alsactide,NA,NA,NA,NA
+V04CH,V04CH05,relmapirazin,NA,NA,NA,NA
 V04CH,V04CH30,aminohippuric acid,NA,NA,NA,NA
 V04CJ,V04CJ01,thyrotropin,NA,NA,NA,NA
 V04CJ,V04CJ02,protirelin,NA,NA,NA,NA
@@ -5927,6 +6019,7 @@ V04CX,V04CX09,patent blue,NA,NA,NA,NA
 V04CX,V04CX10,pafolacianine,NA,NA,NA,NA
 V04CX,V04CX11,lithium chloride,NA,NA,NA,NA
 V04CX,V04CX12,xenon,NA,NA,NA,NA
+V04CX,V04CX13,pegulicianine,NA,NA,NA,NA
 V06DC,V06DC01,glucose,NA,NA,NA,NA
 V06DC,V06DC02,fructose,NA,NA,NA,NA
 V08AA,V08AA01,diatrizoic acid,NA,NA,NA,NA
@@ -5979,6 +6072,7 @@ V08CA,V08CA09,gadobutrol,NA,NA,NA,NA
 V08CA,V08CA10,gadoxetic acid,NA,NA,NA,NA
 V08CA,V08CA11,gadofosveset,NA,NA,NA,NA
 V08CA,V08CA12,gadopiclenol,NA,NA,NA,NA
+V08CA,V08CA13,gadoquatrane,NA,NA,NA,NA
 V08CB,V08CB01,ferumoxsil,NA,NA,NA,NA
 V08CB,V08CB02,ferristene,NA,NA,NA,NA
 V08CB,V08CB03,"iron oxide, nanoparticles",NA,NA,NA,NA
@@ -6053,6 +6147,7 @@ V09GX,V09GX02,indium (111In) imciromab,NA,NA,NA,NA
 V09GX,V09GX03,chromium (51Cr) chromate labelled cells,NA,NA,NA,NA
 V09GX,V09GX04,rubidium (82Rb) chloride,NA,NA,NA,NA
 V09GX,V09GX05,ammonia (13N),NA,NA,NA,NA
+V09GX,V09GX06,flurpiridaz (18F),NA,NA,NA,NA
 V09HA,V09HA01,technetium (99mTc) human immunoglobulin,NA,NA,NA,NA
 V09HA,V09HA02,technetium (99mTc) exametazime labelled cells,NA,NA,NA,NA
 V09HA,V09HA03,technetium (99mTc) antigranulocyte antibody,NA,NA,NA,NA
@@ -6088,10 +6183,11 @@ V09IX,V09IX11,fluoroestradiol (18F),NA,NA,NA,NA
 V09IX,V09IX12,fluciclovine (18F),NA,NA,NA,NA
 V09IX,V09IX13,methionine (11C),NA,NA,NA,NA
 V09IX,V09IX14,gallium (68Ga) gozetotide,NA,NA,NA,NA
-V09IX,V09IX15,copper (64Cu) dotatate,NA,NA,NA,NA
+V09IX,V09IX15,copper (64Cu) oxodotreotide,NA,NA,NA,NA
 V09IX,V09IX16,piflufolastat (18F),NA,NA,NA,NA
 V09IX,V09IX17,PSMA-1007 (18F),NA,NA,NA,NA
 V09IX,V09IX18,flotufolastat (18F),NA,NA,NA,NA
+V09IX,V09IX19,vidoflufolastat (18F),NA,NA,NA,NA
 V09XA,V09XA01,iodine (131I) norcholesterol,NA,NA,NA,NA
 V09XA,V09XA02,iodocholesterol (131I),NA,NA,NA,NA
 V09XA,V09XA03,iodine (131I) human albumin,NA,NA,NA,NA

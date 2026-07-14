@@ -13,11 +13,11 @@ devtools::load_all("c:/Users/tranh/OneDrive/Statistics/atcddd", quiet = TRUE)
 
 # ── Load data ──────────────────────────────────────────────────────
 ddd <- readr::read_csv(
-  system.file("extdata", "WHO_ATC_DDD_2025-08-19.csv", package = "atcddd"),
+  system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv", package = "atcddd"),
   show_col_types = FALSE
 )
 cod <- readr::read_csv(
-  system.file("extdata", "WHO_ATC_codes_2025-08-19.csv", package = "atcddd"),
+  system.file("extdata", "WHO_ATC_codes_2026-07-14.csv", package = "atcddd"),
   show_col_types = FALSE
 )
 

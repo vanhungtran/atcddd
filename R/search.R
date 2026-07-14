@@ -156,9 +156,9 @@ atc_load_db <- function(refresh = FALSE) {
     )))
   }
 
-  codes_path <- system.file("extdata", "WHO_ATC_codes_2025-08-19.csv",
+  codes_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
                             package = "atcddd")
-  ddd_path   <- system.file("extdata", "WHO_ATC_DDD_2025-08-19.csv",
+  ddd_path   <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
                             package = "atcddd")
 
   if (!file.exists(codes_path) || !file.exists(ddd_path)) {

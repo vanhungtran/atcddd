@@ -108,6 +108,7 @@ A02BC08,vonoprazan
 A02BC09,tegoprazan
 A02BC10,fexuprazan
 A02BC11,ilaprazole
+A02BC12,zastaprazan
 A02BC51,"omeprazole, combinations"
 A02BC53,"lansoprazole, combinations"
 A02BC54,"rabeprazole, combinations"
@@ -301,6 +302,7 @@ A05AA02,ursodeoxycholic acid
 A05AA03,cholic acid
 A05AA04,obeticholic acid
 A05AA05,ursodoxicoltaurine
+A05AA06,norucholic acid
 A05AB,Preparations for biliary tract therapy
 A05AB01,nicotinyl methylamide
 A05AX,Other drugs for bile therapy
@@ -311,6 +313,7 @@ A05AX04,maralixibat chloride
 A05AX05,odevixibat
 A05AX06,elafibranor
 A05AX07,seladelpar
+A05AX08,linerixibat
 A05B,"LIVER THERAPY, LIPOTROPICS"
 A05BA,Liver therapy
 A05BA01,arginine glutamate
@@ -322,6 +325,7 @@ A05BA07,tidiacic arginine
 A05BA08,glycyrrhizic acid
 A05BA09,metadoxine
 A05BA10,phospholipids
+A05BA11,resmetirom
 A05C,DRUGS FOR BILE THERAPY AND LIPOTROPICS IN COMBINATION
 A06,DRUGS FOR CONSTIPATION
 A06A,DRUGS FOR CONSTIPATION
@@ -557,6 +561,7 @@ A10AE07,insulin icodec
 A10AE30,combinations
 A10AE54,insulin glargine and lixisenatide
 A10AE56,insulin degludec and liraglutide
+A10AE57,insulin icodec and semaglutide
 A10AF,Insulins and analogues for inhalation
 A10AF01,insulin (human)
 A10B,"BLOOD GLUCOSE LOWERING DRUGS, EXCL. INSULINS"
@@ -611,6 +616,10 @@ A10BD27,"metformin, linagliptin and empagliflozin"
 A10BD28,metformin and teneligliptin
 A10BD29,sitagliptin and dapagliflozin
 A10BD30,gemigliptin and dapagliflozin
+A10BD31,"metformin, sitagliptin and dapagliflozin"
+A10BD32,glimepiride and dapagliflozin
+A10BD33,pioglitazone and dapagliflozin
+A10BD34,metformin and enavogliflozin
 A10BF,Alpha glucosidase inhibitors
 A10BF01,acarbose
 A10BF02,miglitol
@@ -759,6 +768,7 @@ A12CB,Zinc
 A12CB01,zinc sulfate
 A12CB02,zinc gluconate
 A12CB03,zinc protein complex
+A12CB04,zinc orotate
 A12CC,Magnesium
 A12CC01,magnesium chloride
 A12CC02,magnesium sulfate
@@ -837,6 +847,8 @@ A16AB24,pegzilarginase
 A16AB25,olipudase alfa
 A16AB26,eladocagene exuparvovec
 A16AB27,pabinafusp alfa
+A16AB28,verenafusp alfa
+A16AB29,rebisufligene etisparvovec
 A16AX,Various alimentary tract and metabolism products
 A16AX01,thioctic acid
 A16AX02,anethole trithione
@@ -863,6 +875,10 @@ A16AX22,tiomolibdic acid
 A16AX23,leriglitazone
 A16AX24,govorestat
 A16AX25,nedosiran
+A16AX26,glepaglutide
+A16AX27,apraglutide
+A16AX28,sepiapterin
+A16AX29,doxecitine and doxribtimine
 A16AX30,sodium benzoate and sodium phenylacetate
 B01,ANTITHROMBOTIC AGENTS
 B01A,ANTITHROMBOTIC AGENTS
@@ -994,6 +1010,7 @@ B02BD14,susoctocog alfa
 B02BD15,valoctocogene roxaparvovec
 B02BD16,etranacogene dezaparvovec
 B02BD17,fidanacogene elaparvovec
+B02BD18,arvenacogene sanparvovec
 B02BD30,thrombin
 B02BX,Other systemic hemostatics
 B02BX01,etamsylate
@@ -1007,6 +1024,7 @@ B02BX08,avatrombopag
 B02BX09,fostamatinib
 B02BX10,concizumab
 B02BX11,marstacimab
+B02BX12,fitusiran
 B03,ANTIANEMIC PREPARATIONS
 B03A,IRON PREPARATIONS
 B03AA,"Iron bivalent, oral preparations"
@@ -1182,12 +1200,15 @@ B06AC05,lanadelumab
 B06AC06,berotralstat
 B06AC07,garadacimab
 B06AC08,sebetralstat
+B06AC09,donidalorsen
 B06AX,Other hematological agents
 B06AX01,crizanlizumab
 B06AX02,betibeglogene autotemcel
 B06AX03,voxelotor
 B06AX04,mitapivat
 B06AX05,exagamglogene autotemcel
+B06AX06,lovotibeglogene autotemcel
+B06AX07,mozafancogene autotemcel
 C01,CARDIAC THERAPY
 C01A,CARDIAC GLYCOSIDES
 C01AA,Digitalis glycosides
@@ -1425,6 +1446,7 @@ C02KD,Serotonin antagonists
 C02KD01,ketanserin
 C02KN,Other antihypertensives
 C02KN01,aprocitentan
+C02KN02,baxdrostat
 C02KX,Antihypertensives for pulmonary arterial hypertension
 C02KX01,bosentan
 C02KX02,ambrisentan
@@ -1549,6 +1571,7 @@ C03DA02,potassium canrenoate
 C03DA03,canrenone
 C03DA04,eplerenone
 C03DA05,finerenone
+C03DA54,eplerenone and dapagliflozin
 C03DB,Other potassium-sparing agents
 C03DB01,amiloride
 C03DB02,triamterene
@@ -1567,6 +1590,7 @@ C03EA14,butizide and potassium-sparing agents
 C03EB,High-ceiling diuretics and potassium-sparing agents
 C03EB01,furosemide and potassium-sparing agents
 C03EB02,bumetanide and potassium-sparing agents
+C03EB03,torasemide and potassium-sparing agents
 C03X,OTHER DIURETICS
 C03XA,Vasopressin antagonists
 C03XA01,tolvaptan
@@ -1856,6 +1880,7 @@ C09BB07,ramipril and amlodipine
 C09BB10,trandolapril and verapamil
 C09BB12,delapril and manidipine
 C09BB13,benazepril and amlodipine
+C09BB14,zofenopril and amlodipine
 C09BX,"ACE inhibitors, other combinations"
 C09BX01,"perindopril, amlodipine and indapamide"
 C09BX02,perindopril and bisoprolol
@@ -1905,6 +1930,7 @@ C09DX05,valsartan and nebivolol
 C09DX06,"candesartan, amlodipine and hydrochlorothiazide"
 C09DX07,"irbesartan, amlodipine and hydrochlorothiazide"
 C09DX08,"telmisartan, amlodipine and hydrochlorothiazide"
+C09DX09,"candesartan, amlodipine and indapamide"
 C09X,OTHER AGENTS ACTING ON THE RENIN-ANGIOTENSIN SYSTEM
 C09XA,Renin-inhibitors
 C09XA01,remikiren
@@ -1969,6 +1995,7 @@ C10AX15,bempedoic acid
 C10AX16,inclisiran
 C10AX17,evinacumab
 C10AX18,volanesorsen
+C10AX19,lerodalcibep
 C10B,"LIPID MODIFYING AGENTS, COMBINATIONS"
 C10BA,Combinations of various lipid modifying agents
 C10BA01,lovastatin and nicotinic acid
@@ -1984,6 +2011,9 @@ C10BA10,bempedoic acid and ezetimibe
 C10BA11,pravastatin and ezetimibe
 C10BA12,"pravastatin, ezetimibe and fenofibrate"
 C10BA13,pitavastatin and ezetimibe
+C10BA14,pitavastatin and fenofibrate
+C10BA15,"rosuvastatin, ezetimibe and fenofibrate"
+C10BA16,atorvastatin and fenofibrate
 C10BX,Lipid modifying agents in combination with other drugs
 C10BX01,simvastatin and acetylsalicylic acid
 C10BX02,pravastatin and acetylsalicylic acid
@@ -2007,6 +2037,8 @@ C10BX19,"atorvastatin, amlodipine and candesartan"
 C10BX20,rosuvastatin and telmisartan
 C10BX21,rosuvastatin and perindopril
 C10BX22,rosuvastatin and nebivolol
+C10BX23,"rosuvastatin, amlodipine and ramipril"
+C10BX24,"rosuvastatin, amlodipine and telmisartan"
 D01,ANTIFUNGALS FOR DERMATOLOGICAL USE
 D01A,ANTIFUNGALS FOR TOPICAL USE
 D01AA,Antibiotics
@@ -2111,6 +2143,7 @@ D03AX13,Betulae cortex
 D03AX14,"Centella asiatica herba, incl. combinations"
 D03AX15,trafermin
 D03AX16,beremagene geperpavec
+D03AX17,diperoxochloric acid
 D03B,ENZYMES
 D03BA,Proteolytic enzymes
 D03BA01,trypsin
@@ -2217,6 +2250,7 @@ D06BB09,edoxudine
 D06BB10,imiquimod
 D06BB11,docosanol
 D06BB12,sinecatechins
+D06BB13,berdazimer sodium
 D06BB53,"aciclovir, combinations"
 D06BX,Other chemotherapeutics
 D06BX01,metronidazole
@@ -2459,6 +2493,7 @@ D11,OTHER DERMATOLOGICAL PREPARATIONS
 D11A,OTHER DERMATOLOGICAL PREPARATIONS
 D11AA,Antihidrotics
 D11AA01,glycopyrronium
+D11AA02,sofpironium bromide
 D11AC,Medicated shampoos
 D11AC01,cetrimide
 D11AC02,cadmium compounds
@@ -2629,6 +2664,7 @@ G02CX03,Agni casti fructus
 G02CX04,Cimicifugae rhizoma
 G02CX05,bremelanotide
 G02CX06,fezolinetant
+G02CX07,elinzanetant
 G03,SEX HORMONES AND MODULATORS OF THE GENITAL SYSTEM
 G03A,HORMONAL CONTRACEPTIVES FOR SYSTEMIC USE
 G03AA,"Progestogens and estrogens, fixed combinations"
@@ -2690,6 +2726,7 @@ G03CA04,estriol
 G03CA06,chlorotrianisene
 G03CA07,estrone
 G03CA09,promestriene
+G03CA10,estetrol
 G03CA53,"estradiol, combinations"
 G03CA57,conjugated estrogens
 G03CB,"Synthetic estrogens, plain"
@@ -2913,6 +2950,7 @@ H01CB02,octreotide
 H01CB03,lanreotide
 H01CB04,vapreotide
 H01CB05,pasireotide
+H01CB06,paltusotine
 H01CC,Anti-gonadotropin-releasing hormones
 H01CC01,ganirelix
 H01CC02,cetrorelix
@@ -3074,6 +3112,7 @@ J01CF06,nafcillin
 J01CG,Beta-lactamase inhibitors
 J01CG01,sulbactam
 J01CG02,tazobactam
+J01CG30,sulbactam and durlobactam
 J01CR,"Combinations of penicillins, incl. beta-lactamase inhibitors"
 J01CR01,ampicillin and beta-lactamase inhibitor
 J01CR02,amoxicillin and beta-lactamase inhibitor
@@ -3162,6 +3201,7 @@ J01DI02,ceftaroline fosamil
 J01DI03,faropenem
 J01DI04,cefiderocol
 J01DI54,ceftolozane and beta-lactamase inhibitor
+J01DI55,sulopenem and probenecid
 J01E,SULFONAMIDES AND TRIMETHOPRIM
 J01EA,Trimethoprim and derivatives
 J01EA01,trimethoprim
@@ -3218,6 +3258,7 @@ J01FA13,dirithromycin
 J01FA14,flurithromycin
 J01FA15,telithromycin
 J01FA16,solithromycin
+J01FA17,nafithromycin
 J01FF,Lincosamides
 J01FF01,clindamycin
 J01FF02,lincomycin
@@ -3596,6 +3637,8 @@ J06BD06,regdanvimab
 J06BD07,casirivimab and imdevimab
 J06BD08,nirsevimab
 J06BD09,sipavibart
+J06BD10,clesrovimab
+J06BD11,libevitug
 J07,VACCINES
 J07A,BACTERIAL VACCINES
 J07AC,Anthrax vaccines
@@ -3663,6 +3706,7 @@ J07BB02,"influenza, inactivated, split virus or surface antigen"
 J07BB03,"influenza, live attenuated"
 J07BB04,"influenza, virus like particles"
 J07BB05,"influenza, RNA-based vaccine"
+J07BB55,"influenza and covid-19, RNA-based vaccine"
 J07BC,Hepatitis vaccines
 J07BC01,"hepatitis B, purified antigen"
 J07BC02,"hepatitis A, inactivated, whole virus"
@@ -3704,8 +3748,11 @@ J07BN02,"covid-19, viral vector, non-replicating"
 J07BN03,"covid-19, inactivated virus"
 J07BN04,"covid-19, protein subunit"
 J07BN05,"covid-19, virus-like particles"
+J07BP,Chikungunya vaccines
+J07BP01,"chikungunya, live attenuated"
+J07BP02,"chikungunya, virus-like particles"
 J07BX,Other viral vaccines
-J07BX01,smallpox and monkeypox vaccines
+J07BX01,smallpox and mpox vaccines
 J07BX02,ebola vaccines
 J07BX04,dengue virus vaccines
 J07BX05,respiratory syncytial virus vaccines
@@ -3858,10 +3905,12 @@ L01EB08,icotinib
 L01EB09,lazertinib
 L01EB10,mobocertinib
 L01EB11,aumolertinib
+L01EB12,firmonertinib
 L01EC,B-Raf serine-threonine kinase (BRAF) inhibitors
 L01EC01,vemurafenib
 L01EC02,dabrafenib
 L01EC03,encorafenib
+L01EC04,tovorafenib
 L01ED,Anaplastic lymphoma kinase (ALK) inhibitors
 L01ED01,crizotinib
 L01ED02,ceritinib
@@ -3874,6 +3923,7 @@ L01EE02,cobimetinib
 L01EE03,binimetinib
 L01EE04,selumetinib
 L01EE05,mirdametinib
+L01EE06,tunlametinib
 L01EF,Cyclin-dependent kinase (CDK) inhibitors
 L01EF01,palbociclib
 L01EF02,ribociclib
@@ -3887,6 +3937,9 @@ L01EH,Human epidermal growth factor receptor 2 (HER2) tyrosine kinase inhibitors
 L01EH01,lapatinib
 L01EH02,neratinib
 L01EH03,tucatinib
+L01EH04,zongertinib
+L01EH05,mifanertinib
+L01EH06,sevabertinib
 L01EJ,Janus-associated kinase (JAK) inhibitors
 L01EJ01,ruxolitinib
 L01EJ02,fedratinib
@@ -3897,6 +3950,7 @@ L01EK01,axitinib
 L01EK02,cediranib
 L01EK03,tivozanib
 L01EK04,fruquintinib
+L01EK05,rivoceranib
 L01EL,Bruton's tyrosine kinase (BTK) inhibitors
 L01EL01,ibrutinib
 L01EL02,acalabrutinib
@@ -3910,11 +3964,16 @@ L01EM02,copanlisib
 L01EM03,alpelisib
 L01EM04,duvelisib
 L01EM05,parsaclisib
+L01EM06,inavolisib
 L01EN,Fibroblast growth factor receptor (FGFR) tyrosine kinase inhibitors
 L01EN01,erdafitinib
 L01EN02,pemigatinib
 L01EN03,infigratinib
 L01EN04,futibatinib
+L01EP,Cellular-mesenchymal-epithelial transition factor (c-MET) kinase inhibitors
+L01EP01,capmatinib
+L01EP02,tepotinib
+L01EP03,savolitinib
 L01EX,Other protein kinase inhibitors
 L01EX01,sunitinib
 L01EX02,sorafenib
@@ -3931,10 +3990,8 @@ L01EX12,larotrectinib
 L01EX13,gilteritinib
 L01EX14,entrectinib
 L01EX15,pexidartinib
-L01EX17,capmatinib
 L01EX18,avapritinib
 L01EX19,ripretinib
-L01EX21,tepotinib
 L01EX22,selpercatinib
 L01EX23,pralsetinib
 L01EX24,surufatinib
@@ -3942,6 +3999,7 @@ L01EX25,umbralisib
 L01EX26,sitravatinib
 L01EX27,capivasertib
 L01EX28,repotrectinib
+L01EX29,vimseltinib
 L01F,MONOCLONAL ANTIBODIES AND ANTIBODY DRUG CONJUGATES
 L01FA,CD20 (Clusters of Differentiation 20) inhibitors
 L01FA01,rituximab
@@ -3979,6 +4037,9 @@ L01FF10,retifanlimab
 L01FF11,sugemalimab
 L01FF12,serplulimab
 L01FF13,toripalimab
+L01FF14,camrelizumab
+L01FF15,envafolimab
+L01FF16,sasanlimab
 L01FG,VEGF/VEGFR (Vascular Endothelial Growth Factor / -Receptor) inhibitors
 L01FG01,bevacizumab
 L01FG02,ramucirumab
@@ -4018,6 +4079,9 @@ L01FX33,tarlatamab
 L01FX34,odronextamab
 L01FX35,datopotamab deruxtecan
 L01FX36,patritumab deruxtecan
+L01FX37,linvoseltamab
+L01FX38,ifinatamab deruxtecan
+L01FX39,bemarituzumab
 L01FY,Combinations of monoclonal antibodies and antibody drug conjugates
 L01FY01,pertuzumab and trastuzumab
 L01FY02,nivolumab and relatlimab
@@ -4065,6 +4129,7 @@ L01XK03,rucaparib
 L01XK04,talazoparib
 L01XK05,veliparib
 L01XK06,pamiparib
+L01XK07,senaparib
 L01XK52,niraparib and abiraterone
 L01XL,Antineoplastic cell and gene therapy
 L01XL01,sitimagene ceradenovec
@@ -4127,6 +4192,7 @@ L01XX83,para-toluenesulfonamide
 L01XX84,pelabresib
 L01XX85,idroxioleic acid
 L01XX86,calaspargase pegol
+L01XX87,revumenib
 L01XY,Combinations of antineoplastic agents
 L01XY01,cytarabine and daunorubicin
 L01XY04,bifikafusp alfa and onfekafusp alfa
@@ -4155,6 +4221,7 @@ L02BA01,tamoxifen
 L02BA02,toremifene
 L02BA03,fulvestrant
 L02BA04,elacestrant
+L02BA05,camizestrant
 L02BB,Anti-androgens
 L02BB01,flutamide
 L02BB02,nilutamide
@@ -4213,6 +4280,7 @@ L03AB61,"peginterferon alfa-2a, combinations"
 L03AC,Interleukins
 L03AC01,aldesleukin
 L03AC02,oprelvekin
+L03AC03,nogapendekin alfa and inbakicept
 L03AX,Other immunostimulants
 L03AX01,lentinan
 L03AX02,roquinimex
@@ -4236,6 +4304,7 @@ L03AX21,elapegademase
 L03AX22,leniolisib
 L03AX23,motixafortide
 L03AX24,mavorixafor
+L03AX25,thymalfasin
 L04,IMMUNOSUPPRESSANTS
 L04A,IMMUNOSUPPRESSANTS
 L04AA,Selective immunosuppressants
@@ -4251,9 +4320,10 @@ L04AA32,apremilast
 L04AA40,cladribine
 L04AA41,imlifidase
 L04AA48,belumosudil
-L04AA58,efgartigimod alfa
 L04AA60,remibrutinib
-L04AB,Tumor necrosis factor alpha (TNF-α) inhibitors
+L04AA61,nerandomilast
+L04AA62,tolebrutinib
+L04AB,Tumor necrosis factor alpha (TNF-alpha) inhibitors
 L04AB01,etanercept
 L04AB02,infliximab
 L04AB03,afelimomab
@@ -4287,6 +4357,7 @@ L04AC23,olokizumab
 L04AC24,mirikizumab
 L04AC25,levilimab
 L04AC26,goflikicept
+L04AC27,cendakimab
 L04AD,Calcineurin inhibitors
 L04AD01,ciclosporin
 L04AD02,tacrolimus
@@ -4306,6 +4377,7 @@ L04AF05,itacitinib
 L04AF06,peficitinib
 L04AF07,deucravacitinib
 L04AF08,ritlecitinib
+L04AF09,deuruxolitinib
 L04AG,Monoclonal antibodies
 L04AG01,muromonab-CD3
 L04AG02,efalizumab
@@ -4322,8 +4394,9 @@ L04AG12,ofatumumab
 L04AG13,teprotumumab
 L04AG14,ublituximab
 L04AG15,divozilimab
-L04AG16,rozanolixizumab
 L04AG17,seniprutug
+L04AG18,sibeprenlimab
+L04AG19,axatilimab
 L04AH,Mammalian target of rapamycin (mTOR) kinase inhibitors
 L04AH01,sirolimus
 L04AH02,everolimus
@@ -4342,6 +4415,10 @@ L04AJ11,pozelimab
 L04AK,Dihydroorotate dehydrogenase (DHODH) inhibitors
 L04AK01,leflunomide
 L04AK02,teriflunomide
+L04AL,Neonatal fragment crystallizable receptor (FcRn) inhibitors
+L04AL01,efgartigimod alfa
+L04AL02,rozanolixizumab
+L04AL03,nipocalimab
 L04AX,Other immunosuppressants
 L04AX01,azathioprine
 L04AX02,thalidomide
@@ -4353,6 +4430,7 @@ L04AX07,dimethyl fumarate
 L04AX08,darvadstrocel
 L04AX09,diroximel fumarate
 L04AX10,tegomil fumarate
+L04AX11,monomethyl fumarate
 M01,ANTIINFLAMMATORY AND ANTIRHEUMATIC PRODUCTS
 M01A,"ANTIINFLAMMATORY AND ANTIRHEUMATIC PRODUCTS, NON-STEROIDS"
 M01AA,Butylpyrazolidines
@@ -4580,6 +4658,7 @@ M04AB02,sulfinpyrazone
 M04AB03,benzbromarone
 M04AB04,isobromindione
 M04AB05,lesinurad
+M04AB06,dotinurad
 M04AC,Preparations with no effect on uric acid metabolism
 M04AC01,colchicine
 M04AC02,cinchophen
@@ -4647,6 +4726,7 @@ M09AX12,viltolarsen
 M09AX13,casimersen
 M09AX14,givinostat
 M09AX15,delandistrogene moxeparvovec
+M09AX16,apitegromab
 N01,ANESTHETICS
 N01A,"ANESTHETICS, GENERAL"
 N01AA,Ethers
@@ -5087,6 +5167,7 @@ N05AX14,iloperidone
 N05AX15,cariprazine
 N05AX16,brexpiprazole
 N05AX17,pimavanserin
+N05AX50,xanomeline and trospium
 N05B,ANXIOLYTICS
 N05BA,Benzodiazepine derivatives
 N05BA01,diazepam
@@ -5178,6 +5259,7 @@ N05CD12,doxefazepam
 N05CD13,cinolazepam
 N05CD14,remimazolam
 N05CD15,nimetazepam
+N05CD16,dimdazenil
 N05CE,Piperidinedione derivatives
 N05CE01,glutethimide
 N05CE02,methyprylon
@@ -5335,6 +5417,7 @@ N06BX17,adrafinil
 N06BX18,vinpocetine
 N06BX21,temgicoluril
 N06BX22,phenibut
+N06BX53,piracetam and cinnarizine
 N06C,PSYCHOLEPTICS AND PSYCHOANALEPTICS IN COMBINATION
 N06CA,Antidepressants in combination with psycholeptics
 N06CA01,amitriptyline and psycholeptics
@@ -5348,6 +5431,7 @@ N06DA02,donepezil
 N06DA03,rivastigmine
 N06DA04,galantamine
 N06DA05,ipidacrine
+N06DA06,benzgalantamine
 N06DA52,donepezil and memantine
 N06DA53,"donepezil, memantine and Ginkgo folium"
 N06DX,Other anti-dementia drugs
@@ -5356,6 +5440,8 @@ N06DX02,Ginkgo folium
 N06DX03,aducanumab
 N06DX04,lecanemab
 N06DX05,donanemab
+N06DX06,blarcamesine
+N06DX07,hydromethylthionine
 N06DX30,combinations
 N07,OTHER NERVOUS SYSTEM DRUGS
 N07A,PARASYMPATHOMIMETICS
@@ -5425,6 +5511,8 @@ N07XX22,tofersen
 N07XX23,troriluzole
 N07XX24,trofinetide
 N07XX25,omaveloxolone
+N07XX26,pridopidine
+N07XX27,levacetylleucine
 N07XX59,"dextromethorphan, combinations"
 P01,ANTIPROTOZOALS
 P01A,AGENTS AGAINST AMOEBIASIS AND OTHER PROTOZOAL DISEASES
@@ -5546,6 +5634,7 @@ P02CA04,ciclobendazole
 P02CA05,flubendazole
 P02CA06,fenbendazole
 P02CA51,"mebendazole, combinations"
+P02CA53,albendazole and ivermectin
 P02CB,Piperazine and derivatives
 P02CB01,piperazine
 P02CB02,diethylcarbamazine
@@ -5800,6 +5889,7 @@ R03BC01,cromoglicic acid
 R03BC03,nedocromil
 R03BX,"Other drugs for obstructive airway diseases, inhalants"
 R03BX01,fenspiride
+R03BX02,ensifentrine
 R03C,ADRENERGICS FOR SYSTEMIC USE
 R03CA,Alpha- and beta-adrenoreceptor agonists
 R03CA02,ephedrine
@@ -5871,6 +5961,7 @@ R03DX08,reslizumab
 R03DX09,mepolizumab
 R03DX10,benralizumab
 R03DX11,tezepelumab
+R03DX12,depemokimab
 R05,COUGH AND COLD PREPARATIONS
 R05C,"EXPECTORANTS, EXCL. COMBINATIONS WITH COUGH SUPPRESSANTS"
 R05CA,Expectorants
@@ -6146,6 +6237,7 @@ S01AX16,picloxydine
 S01AX18,povidone-iodine
 S01AX24,polihexanide
 S01AX25,lotilaner
+S01AX26,cethexonium
 S01B,ANTIINFLAMMATORY AGENTS
 S01BA,"Corticosteroids, plain"
 S01BA01,dexamethasone
@@ -6164,6 +6256,7 @@ S01BA13,rimexolone
 S01BA14,loteprednol
 S01BA15,fluocinolone acetonide
 S01BA16,difluprednate
+S01BA17,clobetasol
 S01BB,Corticosteroids and mydriatics in combination
 S01BB01,hydrocortisone and mydriatics
 S01BB02,prednisolone and mydriatics
@@ -6565,6 +6658,7 @@ V04CE02,sulfobromophthalein
 V04CE03,methacetin (13C)
 V04CF,Tuberculosis diagnostics
 V04CF01,tuberculin
+V04CF02,"mycobacterium tuberculosis, recombinant antigens"
 V04CG,Tests for gastric secretion
 V04CG01,cation exchange resins
 V04CG02,betazole
@@ -6577,6 +6671,7 @@ V04CH01,inulin and other polyfructosans
 V04CH02,indigo carmine
 V04CH03,phenolsulfonphthalein
 V04CH04,alsactide
+V04CH05,relmapirazin
 V04CH30,aminohippuric acid
 V04CJ,Tests for thyreoidea function
 V04CJ01,thyrotropin
@@ -6601,6 +6696,7 @@ V04CX09,patent blue
 V04CX10,pafolacianine
 V04CX11,lithium chloride
 V04CX12,xenon
+V04CX13,pegulicianine
 V06,GENERAL NUTRIENTS
 V06A,DIET FORMULATIONS FOR TREATMENT OF OBESITY
 V06AA,Low-energy diets
@@ -6691,6 +6787,7 @@ V08CA09,gadobutrol
 V08CA10,gadoxetic acid
 V08CA11,gadofosveset
 V08CA12,gadopiclenol
+V08CA13,gadoquatrane
 V08CB,Superparamagnetic contrast media
 V08CB01,ferumoxsil
 V08CB02,ferristene
@@ -6793,6 +6890,7 @@ V09GX02,indium (111In) imciromab
 V09GX03,chromium (51Cr) chromate labelled cells
 V09GX04,rubidium (82Rb) chloride
 V09GX05,ammonia (13N)
+V09GX06,flurpiridaz (18F)
 V09H,INFLAMMATION AND INFECTION DETECTION
 V09HA,Technetium (99mTc) compounds
 V09HA01,technetium (99mTc) human immunoglobulin
@@ -6836,10 +6934,11 @@ V09IX11,fluoroestradiol (18F)
 V09IX12,fluciclovine (18F)
 V09IX13,methionine (11C)
 V09IX14,gallium (68Ga) gozetotide
-V09IX15,copper (64Cu) dotatate
+V09IX15,copper (64Cu) oxodotreotide
 V09IX16,piflufolastat (18F)
 V09IX17,PSMA-1007 (18F)
 V09IX18,flotufolastat (18F)
+V09IX19,vidoflufolastat (18F)
 V09X,OTHER DIAGNOSTIC RADIOPHARMACEUTICALS
 V09XA,Iodine (131I) compounds
 V09XA01,iodine (131I) norcholesterol
