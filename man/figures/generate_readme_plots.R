@@ -209,7 +209,7 @@ p3 <- ddroutes %>%
   ggplot(aes(x = reorder(route_label, ddd_num), y = ddd_num)) +
   geom_col(aes(fill = route_label), width = 0.7, alpha = 0.92) +
   geom_text(aes(label = paste0(ddd_num, " ", uom)),
-            vjust = -0.35, size = 3.1, fontface = "bold", color = "grey25") +
+            vjust = -0.35, size = 2.4, fontface = "bold", color = "grey30") +
   scale_fill_manual(values = route_palette, guide = "none") +
   facet_wrap(~ drug_label, scales = "free_y", ncol = 4) +
   labs(
@@ -220,10 +220,12 @@ p3 <- ddroutes %>%
   ) +
   theme_readme(11) +
   theme(
-    axis.text.x  = element_text(angle = 35, hjust = 1, size = rel(0.72), color = "grey30"),
-    strip.text   = element_text(face = "bold", size = rel(0.78), color = "grey15",
-                                margin = margin(5, 2, 4, 2)),
-    panel.spacing = unit(0.6, "lines"),
+    axis.text.x  = element_text(angle = 35, hjust = 1, size = rel(0.65), color = "grey30"),
+    axis.text.y  = element_text(size = rel(0.65), color = "grey40"),
+    axis.title.y = element_text(size = rel(0.75)),
+    strip.text   = element_text(face = "bold", size = rel(0.7), color = "grey15",
+                                margin = margin(4, 2, 3, 2)),
+    panel.spacing = unit(0.5, "lines"),
     panel.grid.major.y = element_line(color = "grey90", linewidth = 0.3)
   )
 
