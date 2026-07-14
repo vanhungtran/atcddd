@@ -117,27 +117,23 @@ The WHO ATC classification organises every drug into a 5-level tree, from broad 
 
 ### How many drugs have a Defined Daily Dose?
 
-Not all drugs have DDDs — topicals, ophthalmics, and fixed-dose combinations typically don't. Systemic drugs like anti-infectives and nervous system agents do. The chart below tells the story:
+![DDD Coverage](man/figures/readme-ddd-coverage-v2.png)
 
-![DDD Coverage by Anatomical Group](man/figures/readme-ddd-coverage.png)
+### Which drugs actually have DDDs?
+
+![DDD Waffle](man/figures/readme-ddd-waffle.png)
 
 ### How the ATC tree fans out
 
-From 14 anatomical groups to over 6,000 individual substances — the ATC tree fans out like a pyramid, each level branching into more specific categories:
+![ATC Pyramid](man/figures/readme-atc-pyramid-v2.png)
 
-![ATC Hierarchy Distribution](man/figures/readme-atc-pyramid.png)
+### ATC Level 1 → Level 2: anatomical to therapeutic
 
-### The same drug, different routes
-
-DDDs can be dramatically different depending on whether a drug is given orally, by injection, or rectally. These small multiples show 8 drugs with 3+ route-specific DDDs:
-
-![DDD by Route — Small Multiples](man/figures/readme-ddd-routes.png)
+![ATC L1L2](man/figures/readme-atc-l1l2.png)
 
 ### DDD coverage × route, across all drug classes
 
-This heatmap shows a clear pattern: oral and parenteral routes are well-covered across most systemic groups, while topical routes have sparse coverage across the board:
-
-![DDD Coverage Heatmap](man/figures/readme-ddd-heatmap.png)
+![DDD Heatmap](man/figures/readme-ddd-heatmap-v2.png)
 
 ### The ATC hierarchy as a network
 
