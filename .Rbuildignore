@@ -20,3 +20,8 @@
 ^WHO_ATC_.*\.csv$
 ^create_logo\.R$
 ^run_install\.R$
+^cran-comments\.md$
+^CONTRIBUTING\.md$
+^CODE_OF_CONDUCT\.md$
+^.codegraph$
+^.claude$

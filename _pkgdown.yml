@@ -1,0 +1,85 @@
+url: https://vanhungtran.github.io/atcddd
+template:
+  bootstrap: 5
+  bootswatch: flatly
+  light-switch: true
+
+title: atcddd
+subtitle: WHO ATC/DDD Crawler and Parser
+
+authors:
+  Lucas VHH TRAN:
+    href: https://github.com/vanhungtran
+
+development:
+  mode: auto
+
+reference:
+- title: Drug Name Search & Resolution
+  desc: Find ATC codes from drug names, synonyms, and free text
+  contents:
+  - search_drug
+  - fuzzy_match_drug
+  - resolve_atc
+  - resolve_batch
+  - atc_add_synonym
+  - atc_from_text
+
+- title: DDD Computation
+  desc: Compute Defined Daily Doses from prescription records
+  contents:
+  - compute_ddd
+  - compute_did
+  - ddd_availability
+  - ddd_route_comparison
+
+- title: Offline Hierarchy
+  desc: Navigate the ATC classification tree without internet
+  contents:
+  - atc_children
+  - atc_descendants
+  - atc_level
+  - atc_parent
+  - normalize_atc_code
+
+- title: ATC Code Validation
+  desc: Validate and identify ATC codes
+  contents:
+  - is_valid_atc_code
+  - is_valid_atc
+
+- title: WHO Data Crawling
+  desc: Retrieve live data from the WHO ATC/DDD Index
+  contents:
+  - atc_crawl
+  - get_atc_data
+  - get_atc_hierarchy
+  - atc_roots_default
+
+- title: Data I/O
+  desc: Export and verify your data
+  contents:
+  - atc_write_csv
+  - atc_manifest
+  - atc_write_manifest
+  - atc_load_db
+
+articles:
+- title: Get Started
+  navbar: ~
+  contents:
+  - vignettes
+
+- title: Tutorials
+  desc: Step-by-step guides
+  contents:
+  - atc-hierarchy
+  - ddd-analysis
+  - computing-ddd
+
+home:
+  links:
+  - text: WHO ATC/DDD Index
+    href: https://www.whocc.no/atc_ddd_index/
+  - text: WHO Guidelines
+    href: https://atcddd.fhi.no/filearchive/publications/2025_guidelines__final_web.pdf

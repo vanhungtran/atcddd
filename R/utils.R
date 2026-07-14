@@ -54,15 +54,53 @@ assert_character_vector <- function(x, name = deparse(substitute(x))) {
   invisible(TRUE)
 }
 
-#' @keywords internal
+#' Normalize an ATC code to canonical form
+#'
+#' @description
+#' Trims whitespace and converts to uppercase. This is the canonicalisation
+#' step applied internally before validation, level detection, and parent
+#' derivation.
+#'
+#' @param x Character vector of ATC codes.
+#' @return Character vector of trimmed, uppercase codes.
+#'
+#' @examples
+#' normalize_atc_code(" n02be01 ")
+#' normalize_atc_code(c("n02BE01", "C10aa05"))
+#'
+#' @seealso [is_valid_atc_code()], [atc_level()]
+#' @export
 normalize_atc_code <- function(x) {
   toupper(stringr::str_trim(x))
 }
 
-#' Determine ATC level from code
-#' @keywords internal
-#' @param code character vector of ATC codes
-#' @return integer vector with values 1..5 or NA for invalid/unknown
+#' Determine the ATC hierarchy level of a code
+#'
+#' @description
+#' Returns the hierarchy level (1–5) for each ATC code based on its
+#' character pattern. The five levels of the WHO ATC classification are:
+#'
+#' \itemize{
+#'   \item Level 1 — Anatomical main group (1 letter, e.g. `"N"`)
+#'   \item Level 2 — Therapeutic subgroup (1 letter + 2 digits, e.g. `"N02"`)
+#'   \item Level 3 — Pharmacological subgroup (4 chars, e.g. `"N02B"`)
+#'   \item Level 4 — Chemical subgroup (5 chars, e.g. `"N02BE"`)
+#'   \item Level 5 — Chemical substance (7 chars, e.g. `"N02BE01"`)
+#' }
+#'
+#' @param code Character vector of ATC codes.
+#' @return Integer vector of the same length, with values 1–5, or `NA` for
+#'   codes that do not match any recognised ATC pattern.
+#'
+#' @examples
+#' atc_level("N")          # 1
+#' atc_level("N02")        # 2
+#' atc_level("N02BE01")    # 5
+#' atc_level(c("C", "C10", "C10AA", "C10AA05"))
+#' atc_level("garbage")    # NA
+#'
+#' @seealso [atc_parent()], [is_valid_atc_code()]
+#' @export
 atc_level <- function(code) {
   code <- normalize_atc_code(code)
   lvl <- rep(NA_integer_, length(code))
@@ -74,10 +112,25 @@ atc_level <- function(code) {
   lvl
 }
 
-#' Get parent ATC code
-#' @keywords internal
-#' @param code character vector of ATC codes
-#' @return character vector of parent codes or NA for Level 1/invalid
+#' Get the parent ATC code one level up in the hierarchy
+#'
+#' @description
+#' Given an ATC code, returns the code of its immediate parent in the
+#' five-level hierarchy. Level-1 codes (single letters) have no parent.
+#'
+#' @param code Character vector of ATC codes.
+#' @return Character vector of parent codes. Returns `NA` for Level-1 codes
+#'   and for codes that do not match a recognised ATC pattern.
+#'
+#' @examples
+#' atc_parent("N02BE01")   # "N02BE"
+#' atc_parent("N02BE")     # "N02B"
+#' atc_parent("N02B")      # "N02"
+#' atc_parent("N02")       # "N"
+#' atc_parent("N")         # NA (Level 1 has no parent)
+#'
+#' @seealso [atc_level()], [atc_children()]
+#' @export
 atc_parent <- function(code) {
   code <- normalize_atc_code(code)
   lvl <- atc_level(code)

@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with atcddd: WHO ATC/DDD Crawler"
+title: "Getting Started with atcddd"
 author: "Lucas VHH TRAN"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -11,10 +11,12 @@ vignette: >
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.width = 7,
-  fig.height = 5
+  collapse  = TRUE,
+  comment   = "#>",
+  fig.width  = 7,
+  fig.height = 5,
+  message    = FALSE,
+  warning    = FALSE
 )
 ```
 
@@ -24,471 +26,355 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-The **atcddd** package provides comprehensive tools for working with the World Health Organization's Anatomical Therapeutic Chemical (ATC) Classification System and Defined Daily Dose (DDD) values. This vignette demonstrates the main features and workflows.
+The **atcddd** package provides comprehensive tools for working with the
+World Health Organization's **Anatomical Therapeutic Chemical (ATC) Classification
+System** and **Defined Daily Dose (DDD)** values. Whether you need to crawl
+the latest WHO data, validate ATC codes, navigate the five-level drug hierarchy,
+or compute DDD metrics from prescription records — `atcddd` gives you tidy,
+reproducible workflows in R.
 
 ## What is the ATC Classification System?
 
-The ATC system is a hierarchical classification of drugs developed by the WHO Collaborating Centre for Drug Statistics Methodology. It assigns codes to drugs based on their therapeutic, pharmacological, and chemical properties.
+The ATC system divides drugs into five levels of increasing specificity:
 
-### ATC Hierarchy Levels
+| Level | Name               | Example code | Example name     |
+|-------|--------------------|-------------|------------------|
+| 1     | Anatomical main group  | `N`         | Nervous system   |
+| 2     | Therapeutic subgroup   | `N02`       | Analgesics       |
+| 3     | Pharmacological subgroup | `N02B`    | Other analgesics and antipyretics |
+| 4     | Chemical subgroup      | `N02BE`    | Anilides         |
+| 5     | Chemical substance     | `N02BE01`  | paracetamol      |
 
-The ATC system has 5 levels of increasing specificity:
+## What is the Defined Daily Dose (DDD)?
 
-- **Level 1**: Main anatomical group (e.g., N = Nervous system)
-- **Level 2**: Therapeutic subgroup (e.g., N02 = Analgesics)
-- **Level 3**: Pharmacological subgroup (e.g., N02B = Other analgesics and antipyretics)
-- **Level 4**: Chemical subgroup (e.g., N02BE = Anilides)
-- **Level 5**: Chemical substance (e.g., N02BE01 = Paracetamol)
+The DDD is the assumed average maintenance dose per day for a drug used for its
+main indication in adults. It is a unit of measurement, **not** a recommended dose.
+DDDs enable researchers to compare drug utilisation across populations, regions,
+and time periods — even when drugs come in different strengths and package sizes.
 
-### Main Anatomical Groups
+---
 
-```{r anatomical_groups, echo=FALSE}
-groups <- data.frame(
-  Code = c("A", "B", "C", "D", "G", "H", "J", "L", "M", "N", "P", "R", "S", "V"),
-  Description = c(
-    "Alimentary tract and metabolism",
-    "Blood and blood forming organs",
-    "Cardiovascular system",
-    "Dermatologicals",
-    "Genito-urinary system and sex hormones",
-    "Systemic hormonal preparations",
-    "Antiinfectives for systemic use",
-    "Antineoplastic and immunomodulating agents",
-    "Musculo-skeletal system",
-    "Nervous system",
-    "Antiparasitic products",
-    "Respiratory system",
-    "Sensory organs",
-    "Various"
-  )
-)
-knitr::kable(groups, caption = "ATC Level 1: Main Anatomical Groups")
-``` 
-
-
-
-
-
-
-
-# Basic Crawling
+# Quick Start
 
 ## Loading the Package
 
-```{r load_package, message=FALSE, warning=FALSE}
+```{r load_package}
 library(atcddd)
 library(dplyr)
 library(ggplot2)
 ```
 
-## Crawling ATC/DDD Data
+## The 14 Main Anatomical Groups
 
-The main function `atc_crawl()` retrieves ATC codes and DDD specifications from the WHO website:
+The ATC system starts with 14 single-letter groups. Use `atc_roots_default()`
+to list them:
 
-```{r crawl_example, eval=FALSE}
-# Crawl a specific anatomical group (Dermatologicals)
+```{r roots}
+roots <- atc_roots_default()
+roots
+```
+
+## Validate Any ATC Code
+
+`is_valid_atc_code()` checks whether a string conforms to the official ATC format:
+
+```{r validate}
+# Valid codes at each level
+is_valid_atc_code("N")          # Level 1 — TRUE
+is_valid_atc_code("N02")        # Level 2 — TRUE
+is_valid_atc_code("N02BE01")    # Level 5 — TRUE
+
+# Invalid codes
+is_valid_atc_code("n02be01")    # lowercase — FALSE
+is_valid_atc_code("N02-BE01")   # hyphens  — FALSE
+is_valid_atc_code("N02BE011")   # too long — FALSE
+is_valid_atc_code("ZZZ")        # bad pattern — FALSE
+```
+
+---
+
+# Retrieving ATC Data
+
+## High-Level API (Recommended)
+
+The `get_atc_data()` function provides a clean interface to the WHO database:
+
+```{r api_demo, eval=FALSE}
+# Get full data for aspirin
+aspirin <- get_atc_data("N02BA01")
+aspirin
+
+# Get all analgesics with their sub-classifications
+analgesics <- get_atc_data("N02", include_children = TRUE)
+head(analgesics, 10)
+
+# Get multiple groups at once
+cns_cv <- get_atc_data(c("N", "C"))
+cns_cv
+```
+
+## Low-Level Crawling (Advanced)
+
+For more control, use `atc_crawl()` directly:
+
+```{r crawl_demo, eval=FALSE}
+# Crawl dermatological drugs (ATC group D)
 res <- atc_crawl(
-  roots = "D",        # Start from Dermatologicals
-  rate = 0.5,         # Wait 0.5 seconds between requests
-  progress = TRUE,    # Show progress bar
-  max_codes = 100     # Limit for demonstration
+  roots     = "D",
+  rate      = 0.5,
+  progress  = TRUE,
+  max_codes = 100
 )
-```
 
-```{r crawl_demo, echo=FALSE, message=FALSE}
-# For vignette building, use cached/limited data
-# In practice, users would run the above command
-res <- list(
-  codes = data.frame(
-    atc_code = c("D", "D01", "D01A", "D01AA", "D01AA01", "D01AA02", 
-                 "D01AA03", "D01AA04", "D01AA05", "D01AA06", "D01AA07",
-                 "D01AC", "D01AC01", "D01AC02", "D01AE", "D01AE01", "D01AE02",
-                 "D02", "D02A", "D02AA", "D02AA01", "D02AA02"),
-    atc_name = c("DERMATOLOGICALS", 
-                 "ANTIFUNGALS FOR DERMATOLOGICAL USE",
-                 "ANTIFUNGALS FOR TOPICAL USE",
-                 "Antibiotics",
-                 "nystatin", "natamycin", "hachimycin", "pecilocin",
-                 "mepartricin", "pyrrolnitrin", "griseofulvin",
-                 "Imidazole and triazole derivatives",
-                 "clotrimazole", "miconazole",
-                 "Other antifungals for topical use",
-                 "ciclopirox", "terbinafine",
-                 "EMOLLIENTS AND PROTECTIVES",
-                 "EMOLLIENTS AND PROTECTIVES",
-                 "Softeners and protectives",
-                 "white soft paraffin", "liquid paraffin")
-  ),
-  ddd = data.frame(
-    source_code = rep("D01AA", 7),
-    atc_code = c("D01AA01", "D01AA02", "D01AA03", "D01AA04", 
-                 "D01AA05", "D01AA06", "D01AA07"),
-    atc_name = c("nystatin", "natamycin", "hachimycin", "pecilocin",
-                 "mepartricin", "pyrrolnitrin", "griseofulvin"),
-    ddd = rep(NA, 7),
-    uom = rep(NA, 7),
-    adm_r = rep(NA, 7),
-    note = rep(NA, 7)
-  )
-)
-```
+# The result is a list with two tibbles
+str(res, max.level = 1)
 
-## Understanding the Results
-
-The `atc_crawl()` function returns a list with two components:
-
-### 1. ATC Codes
-
-```{r view_codes}
-# View ATC codes
+# Codes table: atc_code + atc_name
 head(res$codes, 10)
 
-# Summary
-cat(sprintf("Retrieved %d unique ATC codes\n", nrow(res$codes)))
-```
-
-### 2. DDD Data
-
-```{r view_ddd}
-# View DDD specifications
+# DDD table: source_code, atc_code, atc_name, ddd, uom, adm_r, note
 head(res$ddd, 5)
-
-# Summary
-cat(sprintf("Retrieved %d DDD entries\n", nrow(res$ddd)))
 ```
 
-# Exporting Results
+---
 
-## Save to CSV Files
+# Working with the Hierarchy
 
-```{r export_csv, eval=FALSE}
-# Export with date stamp
-paths <- atc_write_csv(res, dir = "output", stamp = TRUE)
+The `get_atc_hierarchy()` function returns the full parent-child tree:
 
-# Files created:
-# - output/WHO_ATC_codes_2025-11-09.csv
-# - output/WHO_ATC_DDD_2025-11-09.csv
+```{r hierarchy_demo, eval=FALSE}
+# Get complete hierarchy under analgesics (N02)
+tree <- get_atc_hierarchy("N02")
+
+tree %>%
+  select(atc_code, atc_name, level, parent_code, has_children) %>%
+  head(10)
 ```
 
-## Generate Checksums for Reproducibility
+Column descriptions:
 
-```{r checksums, eval=FALSE}
-# Create manifest with SHA256 checksums
-atc_write_manifest(paths)
+- **`parent_code`** — the code one level up in the hierarchy (NA for Level 1)
+- **`has_children`** — TRUE if this node has sub-classifications below it
+- **`level`** — hierarchy depth (1-5)
 
-# This creates: output/MANIFEST.csv
-# Contains: file paths, sizes, and SHA256 checksums
-```
-
-# Advanced Usage
-
-## Crawling Multiple Anatomical Groups
-
-```{r multiple_groups, eval=FALSE}
-# Crawl cardiovascular and nervous system drugs
-res_multi <- atc_crawl(
-  roots = c("C", "N"),
-  rate = 0.5,
-  progress = TRUE
-)
-```
-
-## Working with All Main Groups
-
-```{r all_groups, eval=FALSE}
-# Get default root codes (all 14 main groups)
-roots <- atc_roots_default()
-print(roots)
-
-# Full crawl (may take several minutes)
-res_full <- atc_crawl(
-  roots = roots,
-  rate = 0.5,
-  progress = TRUE
-)
-```
+---
 
 # Understanding DDD Data Quality
 
-## Why Do Some Drugs Have NA Values?
+**Not all drugs have DDD values — and this is expected.** The WHO does not assign
+DDDs to several categories of medicines. Understanding *why* prevents false
+conclusions when NA values appear in your data.
 
-**Not all medications have Defined Daily Dose (DDD) values**, and this is expected behavior from the WHO source data.
+```{r ddd_quality_demo, eval=FALSE}
+# Systemic antibiotics — most WILL have DDD values
+abx <- atc_crawl(roots = "J01AA", rate = 0.5, max_codes = 30)
+cat("Systemic antibiotics with DDD:",
+    sum(!is.na(abx$ddd$ddd)), "/", nrow(abx$ddd))
 
-### When DDD Values Are Missing:
-
-1. **Topical/Dermatological medications** (D group)
-   - Dosing depends on body surface area treated
-   - Variable absorption through skin
-   - Example: Antifungal creams, corticosteroid ointments
-
-2. **Fixed-dose combinations**
-   - WHO policy: No DDD for combinations
-   - Example: "combinations of tetracyclines"
-
-3. **Less commonly used drugs**
-   - Not prioritized for DDD assignment
-   - Example: Older antimicrobials
-
-4. **Medications with variable dosing**
-   - Individualized treatment (e.g., chemotherapy)
-   - Complex dosing regimens
-
-### Example: Comparing Systemic vs. Topical Drugs
-
-```{r ddd_comparison, eval=FALSE}
-# Antibiotics (systemic) - SHOULD have DDD values
-antibiotics <- atc_crawl(roots = "J01AA", rate = 0.5, max_codes = 20)
-cat("Antibiotics with DDD:", 
-    sum(!is.na(antibiotics$ddd$ddd)), "/", nrow(antibiotics$ddd), "\n")
-
-# Dermatologicals (topical) - Often NO DDD values  
-derma <- atc_crawl(roots = "D01", rate = 0.5, max_codes = 50)
-cat("Dermatologicals with DDD:", 
-    sum(!is.na(derma$ddd$ddd)), "/", nrow(derma$ddd), "\n")
+# Topical dermatologicals — most WON'T have DDD values
+derm <- atc_crawl(roots = "D01", rate = 0.5, max_codes = 50)
+cat("Topical dermatologicals with DDD:",
+    sum(!is.na(derm$ddd$ddd)), "/", nrow(derm$ddd))
 ```
 
-**This is correct behavior** - your parser is working as intended!
+### Why NA Values Are Correct
 
-# Data Analysis Examples
+| Drug Category | Reason for Missing DDD |
+|---------------|----------------------|
+| **Topicals / dermatologicals** | Variable absorption; dosing depends on body surface area |
+| **Fixed-dose combinations** | WHO policy: no DDD for combinations |
+| **Ophthalmics, otics, nasal preps** | Local application with minimal systemic absorption |
+| **Older / rarely used drugs** | Not prioritized for DDD assignment |
 
-## Analyzing DDD Availability
+---
 
-```{r analyze_ddd, eval=FALSE}
-# Summarize DDD data by administration route
-ddd_summary <- res$ddd %>%
-  group_by(adm_r) %>%
-  summarise(
-    n_drugs = n(),
-    n_with_ddd = sum(!is.na(ddd)),
-    pct_with_ddd = round(100 * n_with_ddd / n_drugs, 1),
-    .groups = "drop"
-  ) %>%
-  arrange(desc(n_drugs))
+# Exporting Results
 
-print(ddd_summary)
+## Save to CSV
+
+```{r export_demo, eval=FALSE}
+res <- atc_crawl(roots = "D", max_codes = 50)
+paths <- atc_write_csv(res, dir = "output", stamp = TRUE)
+# Creates:
+#   output/WHO_ATC_codes_2025-07-14.csv
+#   output/WHO_ATC_DDD_2025-07-14.csv
 ```
 
-## DDD Availability by Anatomical Group
+## Generate Reproducibility Manifests
 
-```{r ddd_by_group, eval=FALSE}
-# Calculate DDD availability for each main anatomical group
-library(stringr)
-
-ddd_by_anatomical <- res$ddd %>%
-  mutate(anatomical_group = str_sub(atc_code, 1, 1)) %>%
-  group_by(anatomical_group) %>%
-  summarise(
-    total_entries = n(),
-    with_ddd = sum(!is.na(ddd)),
-    without_ddd = sum(is.na(ddd)),
-    pct_complete = round(100 * with_ddd / total_entries, 1),
-    .groups = "drop"
-  ) %>%
-  arrange(desc(pct_complete))
-
-print(ddd_by_anatomical)
-
-# Interpretation:
-# - High % (>80%): Systemic drugs (antibiotics, cardiovascular, etc.)
-# - Low % (<20%): Topical/local drugs (dermatologicals, ophthalmics)
+```{r manifest_demo, eval=FALSE}
+# Each manifest includes SHA256 checksums for every file
+atc_write_manifest(paths)
+# Creates: output/MANIFEST.csv
 ```
 
-## Exploring the Hierarchy
+Use manifests to document exactly which version of WHO data your analysis used —
+critical for reproducible pharmacoepidemiology.
 
-```{r hierarchy, eval=FALSE}
-# Find all Level 2 codes within an anatomical group
-level2_codes <- res$codes %>%
-  filter(stringr::str_length(atc_code) == 3) %>%
-  arrange(atc_code)
+---
 
-head(level2_codes, 10)
+# Offline Data Access
+
+The package bundles WHO ATC/DDD snapshot data that can be loaded without
+an internet connection:
+
+```{r offline_data}
+# Paths to bundled CSV data
+codes_path <- system.file("extdata", "WHO_ATC_codes_2025-08-19.csv",
+                          package = "atcddd")
+ddd_path   <- system.file("extdata", "WHO_ATC_DDD_2025-08-19.csv",
+                          package = "atcddd")
+
+# Load into R
+atc_codes <- readr::read_csv(codes_path, show_col_types = FALSE)
+atc_ddd   <- readr::read_csv(ddd_path, show_col_types = FALSE)
+
+# Quick look
+cat(sprintf("ATC codes table: %d rows\n", nrow(atc_codes)))
+cat(sprintf("ATC DDD table:   %d rows\n", nrow(atc_ddd)))
+
+head(atc_codes, 5)
 ```
 
-## Filtering Specific Drug Classes
+## Search Drug Names Offline
 
-```{r filter_drugs, eval=FALSE}
-# Find all oral medications
-oral_drugs <- res$ddd %>%
-  filter(stringr::str_detect(tolower(adm_r), "oral|o")) %>%
-  filter(!is.na(ddd)) %>%
-  select(atc_code, atc_name, ddd, uom, adm_r)
+```{r offline_search}
+# Find all codes containing "paracetamol"
+atc_codes %>%
+  filter(grepl("paracetamol", atc_name, ignore.case = TRUE))
 
-head(oral_drugs, 20)
+# Find all Level 2 therapeutic subgroups
+atc_codes %>%
+  filter(nchar(atc_code) == 3) %>%
+  head(10)
 ```
 
-# Visualization Examples
+---
 
-## Distribution of Codes by Level
+# Analysis Example: DDD Availability by Route
 
-```{r viz_levels, eval=TRUE, fig.width=8, fig.height=5, message=FALSE, warning=FALSE}
-library(ggplot2)
+```{r ddd_analysis}
+# Analyse DDD patterns across administration routes
+atc_ddd %>%
+  filter(!is.na(adm_r) & adm_r != "NA" & adm_r != "") %>%
+  count(adm_r, sort = TRUE) %>%
+  mutate(pct = round(100 * n / sum(n), 1)) %>%
+  head(10)
+```
 
-# Calculate ATC code levels
-code_levels <- res$codes %>%
-  dplyr::mutate(
-    code_length = nchar(atc_code),
-    level = dplyr::case_when(
-      code_length == 1 ~ "Level 1 (Anatomical)",
-      code_length == 3 ~ "Level 2 (Therapeutic)",
-      code_length == 4 ~ "Level 3 (Pharmacological)",
-      code_length == 5 ~ "Level 4 (Chemical)",
-      code_length == 7 ~ "Level 5 (Substance)",
-      TRUE ~ "Other"
+---
+
+# Analysis Example: Hierarchy Distribution
+
+```{r hierarchy_viz, fig.width=8, fig.height=5}
+# Classify codes by level
+atc_codes %>%
+  mutate(
+    code_len = nchar(atc_code),
+    level = case_when(
+      code_len == 1 ~ "Level 1\n(Anatomical)",
+      code_len == 3 ~ "Level 2\n(Therapeutic)",
+      code_len == 4 ~ "Level 3\n(Pharmacological)",
+      code_len == 5 ~ "Level 4\n(Chemical)",
+      code_len == 7 ~ "Level 5\n(Substance)",
+      TRUE         ~ "Other"
     )
   ) %>%
-  dplyr::count(level) %>%
-  dplyr::filter(level != "Other") %>%
-  dplyr::mutate(level = factor(level, levels = c(
-    "Level 1 (Anatomical)", 
-    "Level 2 (Therapeutic)", 
-    "Level 3 (Pharmacological)", 
-    "Level 4 (Chemical)", 
-    "Level 5 (Substance)"
-  )))
-
-# Visualize
-ggplot(code_levels, aes(x = level, y = n, fill = level)) +
+  filter(level != "Other") %>%
+  count(level) %>%
+  mutate(level = factor(level, levels = c(
+    "Level 1\n(Anatomical)", "Level 2\n(Therapeutic)",
+    "Level 3\n(Pharmacological)", "Level 4\n(Chemical)",
+    "Level 5\n(Substance)"
+  ))) %>%
+  ggplot(aes(x = level, y = n, fill = level)) +
   geom_col(width = 0.7, alpha = 0.9) +
-  geom_text(aes(label = n), vjust = -0.5, size = 4) +
+  geom_text(aes(label = scales::comma(n)), vjust = -0.5, size = 3.5) +
   scale_fill_brewer(palette = "Set2") +
   labs(
-    title = "Distribution of ATC Codes by Hierarchy Level",
-    x = "ATC Level",
-    y = "Number of Codes",
-    caption = "Source: WHO ATC/DDD Index (sample data)"
+    title    = "Distribution of ATC Codes by Hierarchy Level",
+    subtitle = paste("Bundled WHO data snapshot:", nrow(atc_codes), "total codes"),
+    x        = NULL,
+    y        = "Number of Codes",
+    caption  = "Source: WHO ATC/DDD Index"
   ) +
   theme_minimal(base_size = 12) +
   theme(
     legend.position = "none",
-    plot.title = element_text(face = "bold", hjust = 0.5),
-    panel.grid.major.x = element_blank(),
-    axis.text.x = element_text(angle = 45, hjust = 1)
+    plot.title      = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle   = element_text(hjust = 0.5, color = "grey40"),
+    panel.grid.major.x = element_blank()
   )
 ```
+
+This pyramid shape is characteristic — one Level 1 root produces many Level 5
+substances, reflecting how drug classes branch into specific chemical entities.
+
+---
 
 # Best Practices
 
 ## Rate Limiting
 
-Always use appropriate rate limiting to respect the WHO server:
+Always use appropriate delays to respect WHO server resources:
 
-```{r best_practices, eval=FALSE}
-# Good: Respectful crawling
-res <- atc_crawl(rate = 0.5)  # 0.5 second delay
+```{r best_rate, eval=FALSE}
+# Conservative: 1 request per second
+atc_crawl(rate = 1.0)
 
-# Better: More conservative for large crawls
-res <- atc_crawl(rate = 1.0)  # 1 second delay
+# Minimum delay for large crawls: 0.5 seconds
+atc_crawl(rate = 0.5)
 ```
 
 ## Caching
 
-The package automatically caches HTTP responses to avoid redundant requests:
+The package caches HTTP responses automatically via **memoise**. Repeated
+requests for the same URL return cached data instantly:
 
-```{r caching_info, eval=FALSE}
-# First run: Downloads data
-res1 <- atc_crawl(roots = "D")
+```{r best_cache, eval=FALSE}
+# First run: fetches from WHO (slow)
+res1 <- atc_crawl(roots = "D", max_codes = 20)
 
-# Second run: Uses cached data (much faster)
-res2 <- atc_crawl(roots = "D")
+# Second run: reads from cache (fast)
+res2 <- atc_crawl(roots = "D", max_codes = 20)
 ```
 
-Cache location: `rappdirs::user_cache_dir("atcddd")`
+Cache location (platform-dependent):
+`rappdirs::user_cache_dir("atcddd")`
 
 ## Reproducibility
 
-Always generate manifests for published analyses:
+For any published analysis, generate a checksum manifest so reviewers can verify
+your data:
 
-```{r reproducibility, eval=FALSE}
-# Complete reproducible workflow
-res <- atc_crawl(roots = c("C", "N"))
-paths <- atc_write_csv(res, dir = "data/2025-11-09", stamp = TRUE)
+```{r best_repro, eval=FALSE}
+res   <- atc_crawl(roots = c("C", "N"))
+paths <- atc_write_csv(res, dir = "data", stamp = TRUE)
 atc_write_manifest(paths)
-
-# Document the manifest in your methods section
-manifest <- readr::read_csv("data/2025-11-09/MANIFEST.csv")
-print(manifest)
 ```
+
+---
 
 # Troubleshooting
 
-## Common Issues
+| Symptom | Likely Cause | Solution |
+|---------|-------------|----------|
+| Many `NA` in DDD column | Expected for topicals, combinations, ophthalmics, otics | See *Understanding DDD Data Quality* above |
+| Slow crawling | Server latency or low `rate` value | Increase `rate` to 0.5–1.0; use `max_codes` for testing |
+| HTTP errors | WHO website down or network issue | Check https://www.whocc.no/atc_ddd_index/ |
+| Out of memory | Full crawl too large | Crawl one group at a time with `max_codes` |
 
-### 1. Many NA Values in DDD Data
+---
 
-**This is expected and correct!** Not all drugs have DDD values:
+# Next Steps
 
-- **Topical/dermatological medications** (D group): Highly variable dosing
-- **Fixed-dose combinations**: WHO policy excludes combinations
-- **Ophthalmics, otic, nasal preparations**: Local application, variable absorption
-- **Some older/rarely used drugs**: Not prioritized for DDD assignment
+- **Navigating the ATC Hierarchy**: `vignette("atc-hierarchy", package = "atcddd")`
+- **Working with Defined Daily Doses**: `vignette("ddd-analysis", package = "atcddd")`
 
-**To verify your data quality:**
-
-```{r verify_ddd, eval=FALSE}
-# Check DDD availability by anatomical group
-res$ddd %>%
-  mutate(group = substr(atc_code, 1, 1)) %>%
-  group_by(group) %>%
-  summarise(
-    total = n(),
-    with_ddd = sum(!is.na(ddd)),
-    pct = round(100 * with_ddd / total, 1)
-  ) %>%
-  arrange(desc(pct))
-
-# Groups with high % (>80%): Systemic drugs working correctly
-# Groups with low % (<20%): Topical/local drugs - also correct!
-```
-
-### 2. Slow Crawling
-
-Increase the `rate` parameter or use `max_codes` for testing.
-
-### 3. Network Errors
-
-Check internet connection and WHO website availability at <https://www.whocc.no/atc_ddd_index/>.
-
-### 4. Memory Issues
-
-Crawl specific groups instead of all at once, or use `max_codes` to limit scope.
-
-## Getting Help
-
-- **Documentation**: `?atc_crawl`, `?atc_write_csv`, etc.
-- **GitHub Issues**: <https://github.com/vanhungtran/atcddd/issues>
-- **Email**: tranhungydhcm@gmail.com
-
-# References
-
-- WHO Collaborating Centre for Drug Statistics Methodology: <https://www.whocc.no/>
-- ATC/DDD Index: <https://www.whocc.no/atc_ddd_index/>
+---
 
 # Session Information
 
 ```{r session_info}
 sessionInfo()
 ```
-
-# Creating a Package Logo
-
-To create or update the package logo, run the following commands in your R console:
-
-```{r logo_creation, eval=FALSE}
-# 1. Install required packages
-install.packages(c("hexSticker", "ggplot2", "dplyr", "showtext"))
-
-# 2. Generate all 5 logo options
-source("create_logo.R")
-
-# 3. Preview and choose favorite
-# Files created: logo_option1.png through logo_option5.png
-
-# 4. Activate chosen logo
-file.copy("man/figures/logo_option4.png", 
-          "man/figures/logo.png", 
-          overwrite = TRUE)
-```
-
-
-
-

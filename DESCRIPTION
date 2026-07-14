@@ -1,24 +1,25 @@
 Package: atcddd
 Title: WHO ATC/DDD Crawler and Parser
-Version: 0.1.0
+Version: 0.2.0
 Authors@R:
     person(given = "Lucas VHH",
            family = "TRAN",
            email = "tranhungydhcm@gmail.com",
            role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Comprehensive tools for crawling and parsing the World Health 
-    Organization's Anatomical Therapeutic Chemical (ATC) Classification System 
-    and Defined Daily Dose (DDD) Index. Provides robust HTTP retrieval with 
-    retries, rate limiting, and filesystem caching; parses hierarchical ATC 
-    codes and DDD specifications into tidy tables; generates SHA256 checksums 
-    for reproducibility; and exports results to CSV format. Ideal for 
-    pharmacoepidemiology, health services research, drug utilization studies, 
+           comment = c(ORCID = "0000-0000-0000-0000"))
+Description: Comprehensive tools for crawling, parsing, and working with the World Health
+    Organization's Anatomical Therapeutic Chemical (ATC) Classification System
+    and Defined Daily Dose (DDD) Index. Provides robust HTTP retrieval with
+    retries, rate limiting, and filesystem caching; parses hierarchical ATC
+    codes and DDD specifications into tidy tables; generates SHA256 checksums
+    for reproducibility; and exports results to CSV format. Includes offline
+    drug name search and resolution (with brand name synonyms and fuzzy matching),
+    ATC hierarchy navigation, and DDD computation from prescription data. Ideal for
+    pharmacoepidemiology, health services research, drug utilization studies,
     and clinical data science workflows.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Depends: R (>= 4.2.0)
 Imports:
     cli (>= 3.6.0),
@@ -40,10 +41,13 @@ Suggests:
     httptest2 (>= 1.1.0),
     knitr (>= 1.42),
     rmarkdown (>= 2.21),
+    scales (>= 1.2.0),
     testthat (>= 3.1.0),
+    viridisLite,
     withr (>= 2.5.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 URL: https://vanhungtran.github.io/atcddd, https://github.com/vanhungtran/atcddd
 BugReports: https://github.com/vanhungtran/atcddd/issues
 Language: en-US
+Config/roxygen2/version: 8.0.0

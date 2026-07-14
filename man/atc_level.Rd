@@ -2,17 +2,37 @@
 % Please edit documentation in R/utils.R
 \name{atc_level}
 \alias{atc_level}
-\title{Determine ATC level from code}
+\title{Determine the ATC hierarchy level of a code}
 \usage{
 atc_level(code)
 }
 \arguments{
-\item{code}{character vector of ATC codes}
+\item{code}{Character vector of ATC codes.}
 }
 \value{
-integer vector with values 1..5 or NA for invalid/unknown
+Integer vector of the same length, with values 1–5, or \code{NA} for
+codes that do not match any recognised ATC pattern.
 }
 \description{
-Determine ATC level from code
+Returns the hierarchy level (1–5) for each ATC code based on its
+character pattern. The five levels of the WHO ATC classification are:
+
+\itemize{
+\item Level 1 — Anatomical main group (1 letter, e.g. \code{"N"})
+\item Level 2 — Therapeutic subgroup (1 letter + 2 digits, e.g. \code{"N02"})
+\item Level 3 — Pharmacological subgroup (4 chars, e.g. \code{"N02B"})
+\item Level 4 — Chemical subgroup (5 chars, e.g. \code{"N02BE"})
+\item Level 5 — Chemical substance (7 chars, e.g. \code{"N02BE01"})
 }
-\keyword{internal}
+}
+\examples{
+atc_level("N")          # 1
+atc_level("N02")        # 2
+atc_level("N02BE01")    # 5
+atc_level(c("C", "C10", "C10AA", "C10AA05"))
+atc_level("garbage")    # NA
+
+}
+\seealso{
+\code{\link[=atc_parent]{atc_parent()}}, \code{\link[=is_valid_atc_code]{is_valid_atc_code()}}
+}

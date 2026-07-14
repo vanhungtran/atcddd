@@ -2,17 +2,29 @@
 % Please edit documentation in R/utils.R
 \name{atc_parent}
 \alias{atc_parent}
-\title{Get parent ATC code}
+\title{Get the parent ATC code one level up in the hierarchy}
 \usage{
 atc_parent(code)
 }
 \arguments{
-\item{code}{character vector of ATC codes}
+\item{code}{Character vector of ATC codes.}
 }
 \value{
-character vector of parent codes or NA for Level 1/invalid
+Character vector of parent codes. Returns \code{NA} for Level-1 codes
+and for codes that do not match a recognised ATC pattern.
 }
 \description{
-Get parent ATC code
+Given an ATC code, returns the code of its immediate parent in the
+five-level hierarchy. Level-1 codes (single letters) have no parent.
 }
-\keyword{internal}
+\examples{
+atc_parent("N02BE01")   # "N02BE"
+atc_parent("N02BE")     # "N02B"
+atc_parent("N02B")      # "N02"
+atc_parent("N02")       # "N"
+atc_parent("N")         # NA (Level 1 has no parent)
+
+}
+\seealso{
+\code{\link[=atc_level]{atc_level()}}, \code{\link[=atc_children]{atc_children()}}
+}

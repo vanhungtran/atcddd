@@ -91,8 +91,11 @@ atc_roots_default <- function() {
 #' Validate ATC Code Format
 #'
 #' @description
-#' Checks if a string is a valid WHO ATC code by enforcing
-#' the official level-specific patterns (uppercase only):
+#' Checks whether one or more strings conform to the official WHO ATC code
+#' format. The function accepts character vectors and validates each element
+#' independently against the five recognised level patterns.
+#'
+#' Valid patterns (all uppercase):
 #' \itemize{
 #'   \item Level 1: `^[A-Z]$`
 #'   \item Level 2: `^[A-Z][0-9]{2}$`
@@ -101,22 +104,24 @@ atc_roots_default <- function() {
 #'   \item Level 5: `^[A-Z][0-9]{2}[A-Z]{2}[0-9]{2}$`
 #' }
 #'
-#' @param x Character; a potential ATC code to validate (scalar)
-#' @return Logical; TRUE if valid format, FALSE otherwise
+#' @param x Character vector of potential ATC codes to validate.
+#' @return Logical vector of the same length; `TRUE` for each element that
+#'   matches a valid ATC pattern, `FALSE` otherwise.
 #'
 #' @examples
-#' is_valid_atc_code("N02BE01")  # TRUE - valid Level 5 code
-#' is_valid_atc_code("C")        # TRUE - valid Level 1 code
-#' is_valid_atc_code("n02be01")  # FALSE - must be uppercase
-#' is_valid_atc_code("N02-BE01") # FALSE - no special characters
+#' is_valid_atc_code("N02BE01")              # TRUE
+#' is_valid_atc_code(c("N02BE01", "C10AA05")) # TRUE TRUE
+#' is_valid_atc_code(c("n02be01", "ZZZ"))     # FALSE FALSE
+#' is_valid_atc_code(NA_character_)           # FALSE
 #'
+#' @seealso [atc_level()], [normalize_atc_code()]
 #' @export
 is_valid_atc_code <- function(x) {
-  if (!is.character(x) || length(x) != 1L || is.na(x)) return(FALSE)
+  if (!is.character(x)) return(rep(FALSE, length(x)))
   grepl(
     "^(?:[A-Z]|[A-Z][0-9]{2}|[A-Z][0-9]{2}[A-Z]|[A-Z][0-9]{2}[A-Z]{2}|[A-Z][0-9]{2}[A-Z]{2}[0-9]{2})$",
     x
-  )
+  ) & !is.na(x)
 }
 
 #' @rdname is_valid_atc_code

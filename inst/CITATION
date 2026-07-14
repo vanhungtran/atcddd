@@ -1,0 +1,40 @@
+## Title: WHO ATC/DDD Crawler and Parser
+## Version: 0.2.0
+## Date: 2025-11-09
+## Author: Lucas VHH TRAN
+## Maintainer: Lucas VHH TRAN <tranhungydhcm@gmail.com>
+
+## Description:
+## Comprehensive tools for crawling, parsing, and working with the WHO
+## Anatomical Therapeutic Chemical (ATC) Classification System and Defined
+## Daily Dose (DDD) Index. Provides robust HTTP retrieval with retries,
+## rate limiting, and filesystem caching; parses hierarchical ATC codes and
+## DDD specifications into tidy tables; offers offline drug name search,
+## fuzzy matching, and DDD computation from prescription data.
+
+## CITATION file for the atcddd package
+
+citHeader("To cite atcddd in publications, please use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "atcddd: WHO ATC/DDD Crawler and Parser",
+  author   = personList(
+    as.person("Lucas VHH TRAN")
+  ),
+  year     = "2025",
+  url      = "https://github.com/vanhungtran/atcddd",
+  note     = sprintf("R package version %s",
+    utils::packageDescription("atcddd", fields = "Version")),
+  textVersion = paste(
+    "TRAN, Lucas VHH.",
+    "atcddd: WHO ATC/DDD Crawler and Parser.",
+    "R package version",
+    utils::packageDescription("atcddd", fields = "Version"),
+    "https://github.com/vanhungtran/atcddd"
+  )
+)
+
+citFooter("The WHO ATC/DDD data is copyright of the WHO Collaborating Centre
+for Drug Statistics Methodology. If using the WHO data, please also cite:
+https://www.whocc.no/use_of_atc_ddd/")

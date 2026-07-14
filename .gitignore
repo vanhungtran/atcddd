@@ -29,3 +29,14 @@ vignettes/*.Rmd
 .Rdata
 .httr-oauth
 .quarto
+
+# Build artifacts — do not commit
+.codegraph/
+codegraph.json
+*.codegraph.md
+CODEGRAPH.md
+.claude/codegraph/
+
+# GitHub Pages build output
+docs/
+_gh-pages/

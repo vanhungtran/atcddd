@@ -10,14 +10,18 @@ is_valid_atc_code(x)
 is_valid_atc(x)
 }
 \arguments{
-\item{x}{Character; a potential ATC code to validate (scalar)}
+\item{x}{Character vector of potential ATC codes to validate.}
 }
 \value{
-Logical; TRUE if valid format, FALSE otherwise
+Logical vector of the same length; \code{TRUE} for each element that
+matches a valid ATC pattern, \code{FALSE} otherwise.
 }
 \description{
-Checks if a string is a valid WHO ATC code by enforcing
-the official level-specific patterns (uppercase only):
+Checks whether one or more strings conform to the official WHO ATC code
+format. The function accepts character vectors and validates each element
+independently against the five recognised level patterns.
+
+Valid patterns (all uppercase):
 \itemize{
 \item Level 1: \verb{^[A-Z]$}
 \item Level 2: \verb{^[A-Z][0-9]\{2\}$}
@@ -27,9 +31,12 @@ the official level-specific patterns (uppercase only):
 }
 }
 \examples{
-is_valid_atc_code("N02BE01")  # TRUE - valid Level 5 code
-is_valid_atc_code("C")        # TRUE - valid Level 1 code
-is_valid_atc_code("n02be01")  # FALSE - must be uppercase
-is_valid_atc_code("N02-BE01") # FALSE - no special characters
+is_valid_atc_code("N02BE01")              # TRUE
+is_valid_atc_code(c("N02BE01", "C10AA05")) # TRUE TRUE
+is_valid_atc_code(c("n02be01", "ZZZ"))     # FALSE FALSE
+is_valid_atc_code(NA_character_)           # FALSE
 
+}
+\seealso{
+\code{\link[=atc_level]{atc_level()}}, \code{\link[=normalize_atc_code]{normalize_atc_code()}}
 }
