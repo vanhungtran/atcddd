@@ -40,3 +40,11 @@ CODEGRAPH.md
 # GitHub Pages build output
 docs/
 _gh-pages/
+
+# Zenodo — local archiving materials
+zenodo/
+.zenodo.json
+CITATION.cff
+
+# Local generation scripts (not pushed)
+atc_network.R
