@@ -2,6 +2,10 @@
 
 ### *Work with ATC (Anatomical Therapeutic Chemical) Codes in R*
 
+<div align="center">
+  <img src="man/figures/logo.png" width="200" alt="atcddd logo"/>
+</div>
+
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R-CMD-check](https://github.com/vanhungtran/atcddd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vanhungtran/atcddd/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
