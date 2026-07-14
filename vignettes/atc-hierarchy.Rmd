@@ -1,0 +1,380 @@
+---
+title: "Navigating the ATC Hierarchy"
+author: "Lucas VHH TRAN"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Navigating the ATC Hierarchy}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse  = TRUE,
+  comment   = "#>",
+  fig.width  = 8,
+  fig.height = 5,
+  message    = FALSE,
+  warning    = FALSE
+)
+```
+
+# Introduction
+
+The ATC hierarchy is a five-level tree that classifies every drug from broad
+anatomical group down to individual chemical substance. Navigating this tree
+is essential for pharmacoepidemiology — you need to answer questions like:
+
+- *"Which drugs belong to the beta-blocker class?"*
+- *"What are the children of the statin subclass?"*
+- *"How many Level 5 substances are in the nervous system group?"*
+
+This vignette shows you how to traverse, filter, and visualise the hierarchy
+using `atcddd`.
+
+```{r load_package}
+library(atcddd)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+```
+
+---
+
+# Loading the Offline Database
+
+We start with the bundled WHO snapshot so everything works offline:
+
+```{r load_data}
+codes_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
+                          package = "atcddd")
+ddd_path   <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
+                          package = "atcddd")
+
+atc_codes <- readr::read_csv(codes_path, show_col_types = FALSE)
+atc_ddd   <- readr::read_csv(ddd_path, show_col_types = FALSE)
+
+# Add level and parent columns using exported functions
+atc_codes <- atc_codes %>%
+  mutate(
+    level       = atc_level(atc_code),
+    parent_code = atc_parent(atc_code)
+  )
+
+cat(sprintf("Loaded %d codes across 5 levels", nrow(atc_codes)))
+```
+
+---
+
+# Understanding ATC Levels
+
+The five levels form a strict tree:
+
+```
+Level 1:  C                   (1 char)      Cardiovascular system
+Level 2:  C10                 (3 chars)     Lipid modifying agents
+Level 3:  C10A                (4 chars)     Lipid modifying agents, plain
+Level 4:  C10AA               (5 chars)     HMG CoA reductase inhibitors
+Level 5:  C10AA01             (7 chars)     simvastatin
+```
+
+## Code Distribution by Level
+
+```{r level_distribution}
+atc_codes %>%
+  count(level) %>%
+  mutate(
+    pct   = round(100 * n / sum(n), 1),
+    label = case_when(
+      level == 1 ~ "Anatomical main group",
+      level == 2 ~ "Therapeutic subgroup",
+      level == 3 ~ "Pharmacological subgroup",
+      level == 4 ~ "Chemical subgroup",
+      level == 5 ~ "Chemical substance"
+    )
+  ) %>%
+  arrange(level) %>%
+  select(label, n, pct)
+```
+
+Level 5 (individual substances) dominates — each anatomical group fans out
+into hundreds of specific drugs.
+
+---
+
+# Finding Drugs by Therapeutic Class
+
+## All Statins (HMG CoA Reductase Inhibitors, C10AA)
+
+The most direct way to find a drug class is by its Level 4 code:
+
+```{r find_statins}
+atc_codes %>%
+  filter(grepl("^C10AA", atc_code)) %>%
+  select(atc_code, atc_name, level)
+```
+
+## All Beta-Blocking Agents (C07)
+
+```{r find_beta_blockers}
+# Get all codes under C07
+beta_blockers <- atc_codes %>%
+  filter(grepl("^C07", atc_code))
+
+# Show only Level 4 subgroups (chemical classes)
+beta_blockers %>%
+  filter(level == 4) %>%
+  select(atc_code, atc_name)
+```
+
+## All Level 5 Substances Under a Parent
+
+The new `atc_descendants()` function returns every code below a given parent:
+
+```{r substances_under_c10aa}
+# Every descendant under the statin chemical class (C10AA)
+atc_descendants("C10AA", atc_codes)
+```
+
+You can also limit the depth with `max_level`:
+
+```{r descendants_limited}
+# Under cardiovascular (C) but only down to Level 3
+atc_descendants("C", atc_codes, max_level = 3)
+```
+
+---
+
+# Parent-Child Relationships
+
+The exported functions `atc_level()` and `atc_parent()` let you reconstruct
+the tree:
+
+```{r parent_child}
+# Every code and its direct parent
+atc_codes %>%
+  filter(level >= 2) %>%
+  select(atc_code, atc_name, level, parent_code) %>%
+  head(10)
+```
+
+## Find All Children of a Specific Code
+
+```{r children_of}
+# Use the exported atc_children() function
+atc_children("C10AA", atc_codes)
+```
+
+## Find the Full Ancestry of a Drug
+
+```{r ancestry}
+trace_ancestry <- function(code) {
+  parts <- list()
+  current <- code
+  while (!is.na(current) && current != "") {
+    row <- atc_codes %>% filter(atc_code == current)
+    if (nrow(row) == 0) break
+    parts[[length(parts) + 1]] <- row
+    current <- atc_parent(current)
+  }
+  bind_rows(rev(parts)) %>%
+    select(atc_code, atc_name, level)
+}
+
+# Trace paracetamol from Level 1 down
+trace_ancestry("N02BE01")
+```
+
+This ancestry trace is valuable for:
+- **Study inclusion criteria** — "all analgesics except opioids"
+- **Pharmacovigilance** — signal detection within a therapeutic class
+- **Drug utilisation** — aggregating consumption by class
+
+---
+
+# Working with the Live API
+
+For up-to-date data, use `get_atc_hierarchy()`:
+
+```{r live_api, eval=FALSE}
+# Get the complete nervous-system hierarchy (live)
+ns_tree <- get_atc_hierarchy("N", max_levels = 5)
+
+# This returns the same enriched structure
+ns_tree %>%
+  select(atc_code, atc_name, level, parent_code, has_children) %>%
+  head(10)
+```
+
+`get_atc_hierarchy()` adds a `has_children` column — `TRUE` if the code has
+any sub-classifications, which is useful for building interactive tree widgets.
+
+---
+
+# Comparing Therapeutic Classes
+
+## How Many Drugs in Each Group?
+
+```{r group_sizes}
+# Count Level 5 substances per Level 1 anatomical group
+atc_codes %>%
+  filter(level == 5) %>%
+  mutate(anatomical_group = substr(atc_code, 1, 1)) %>%
+  count(anatomical_group, sort = TRUE) %>%
+  rename(n_substances = n)
+```
+
+Groups J (antiinfectives), N (nervous system), and A (alimentary tract) are the
+largest — reflecting decades of drug development in those therapeutic areas.
+
+---
+
+# Visualising the Hierarchy
+
+## Treemap of ATC Level 1 Groups
+
+```{r treemap, fig.width=10, fig.height=6}
+atc_codes %>%
+  filter(level == 5) %>%
+  mutate(group = substr(atc_code, 1, 1)) %>%
+  count(group, sort = TRUE) %>%
+  mutate(
+    group_label = case_when(
+      group == "A" ~ "A: Alimentary tract",
+      group == "B" ~ "B: Blood",
+      group == "C" ~ "C: Cardiovascular",
+      group == "D" ~ "D: Dermatologicals",
+      group == "G" ~ "G: Genito-urinary",
+      group == "H" ~ "H: Systemic hormonal",
+      group == "J" ~ "J: Antiinfectives",
+      group == "L" ~ "L: Antineoplastic",
+      group == "M" ~ "M: Musculo-skeletal",
+      group == "N" ~ "N: Nervous system",
+      group == "P" ~ "P: Antiparasitic",
+      group == "R" ~ "R: Respiratory",
+      group == "S" ~ "S: Sensory organs",
+      group == "V" ~ "V: Various",
+      TRUE        ~ group
+    )
+  ) %>%
+  ggplot(aes(x = reorder(group_label, n), y = n, fill = n)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = n), hjust = -0.2, size = 3.5) +
+  scale_fill_viridis_c(option = "plasma", guide = "none") +
+  coord_flip() +
+  labs(
+    title    = "Level 5 Drug Substances per Anatomical Group",
+    subtitle = "WHO ATC/DDD Index",
+    x        = NULL,
+    y        = "Number of Unique Chemical Substances"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title    = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5, color = "grey40")
+  )
+```
+
+## Hierarchy Depth Within a Branch
+
+```{r branch_depth, fig.width=8, fig.height=5}
+# Count codes at each level within Nervous System (N)
+atc_codes %>%
+  filter(grepl("^N", atc_code)) %>%
+  count(level) %>%
+  mutate(level_label = case_when(
+    level == 1 ~ "1: Anatomical",
+    level == 2 ~ "2: Therapeutic",
+    level == 3 ~ "3: Pharmacological",
+    level == 4 ~ "4: Chemical",
+    level == 5 ~ "5: Substance"
+  )) %>%
+  ggplot(aes(x = factor(level), y = n, fill = factor(level))) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = n), vjust = -0.5, size = 4) +
+  scale_fill_brewer(palette = "Blues", guide = "none") +
+  scale_x_discrete(labels = c(
+    "1:\nAnatomical", "2:\nTherapeutic", "3:\nPharmacological",
+    "4:\nChemical", "5:\nSubstance"
+  )) +
+  labs(
+    title    = "Codes by Level Within Nervous System (N)",
+    subtitle = "Exponential growth from group to individual substances",
+    x        = "ATC Level",
+    y        = "Number of Codes"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title    = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5, color = "grey40")
+  )
+```
+
+---
+
+# Practical Recipes
+
+## Recipe 1: Find Every Drug in a Therapeutic Subgroup
+
+```{r recipe1, eval=FALSE}
+# All Level 5 drugs under proton-pump inhibitors (A02BC)
+atc_crawl(roots = "A02BC")$codes %>%
+  filter(nchar(atc_code) == 7) %>%
+  select(atc_code, atc_name)
+```
+
+## Recipe 2: Build a Complete Class-to-Drug Map
+
+```{r recipe2}
+# Map: every Level 4 chemical class → all Level 5 substances in it
+class_to_drug <- atc_codes %>%
+  filter(level == 5) %>%
+  mutate(chemical_class = substr(atc_code, 1, 5)) %>%
+  select(chemical_class, substance_code = atc_code, substance_name = atc_name)
+
+# Which chemical classes contain "fluoroquinolone"?
+atc_codes %>%
+  filter(level == 4, grepl("fluoroquinolone", atc_name, ignore.case = TRUE)) %>%
+  inner_join(class_to_drug, by = c("atc_code" = "chemical_class")) %>%
+  select(chemical_class = atc_code, class_name = atc_name,
+         substance_code, substance_name)
+```
+
+## Recipe 3: Check If a Drug Belongs to a Class
+
+```{r recipe3}
+drug_in_class <- function(code, class_prefix) {
+  grepl(paste0("^", class_prefix), code)
+}
+
+# Is atorvastatin a cardiovascular drug?
+drug_in_class("C10AA05", "C")  # TRUE
+
+# Is it an antiinfective?
+drug_in_class("C10AA05", "J")  # FALSE
+```
+
+---
+
+# Key Takeaways
+
+1. **Every ATC code is a node in a strict 5-level tree** — parent-child
+   relationships are deterministic from the code structure.
+
+2. **Use `get_atc_hierarchy()` for live data** and `atc_level()` / `atc_parent()`
+   for offline computation on cached data.
+
+3. **Level 4 (chemical class) is the sweet spot** for pharmacoepidemiology —
+   it groups drugs by mechanism, which is clinically meaningful.
+
+4. **Level 5 (substance) is where DDD values live** — DDDs are assigned to
+   individual substances, not to classes.
+
+---
+
+# Session Information
+
+```{r session_info}
+sessionInfo()
+```
