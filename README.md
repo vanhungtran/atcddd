@@ -156,15 +156,15 @@ Every ATC code is a node in a beautiful bipartite tree — from 14 anatomical ro
 | ![Full igraph](man/figures/atc-network-full.png) | ![Nervous igraph](man/figures/atc-network-nervous.png) |
 | 445 connections across all 14 anatomical groups | 787 connections in the nervous system branch |
 
-| 🫀 CV Top Level (ggraph) | 🎵 Chord Diagram (circlize) |
+| 🫀 CV Top Level | 🎵 ATC Level 1 → Level 2 |
 |:---:|:---:|
-| ![CV ggraph](man/figures/atc-network-ggraph.png) | ![ATC Chord](man/figures/atc-network-chord.png) |
-| L1→L2, publication-quality ggrepel labels | ATC Level 1 → Level 2, circular layout |
+| ![CV L1L2](man/figures/atc-network-ggraph-v2.png) | ![ATC Chord](man/figures/atc-network-chord-v2.png) |
+| L1→L2: 14 groups → therapeutic subgroups | Each anatomical group connects to multiple subgroups |
 
 | 🔥 Drug × Gene Heatmap | 🫧 Gene × Drug-Class Dot Matrix |
 |:---:|:---:|
-| ![ATC Heatmap](man/figures/atc-network-heatmap.png) | ![ATC Dot Matrix](man/figures/atc-network-dotmatrix.png) |
-| Interaction matrix of 200 therapeutic–chemical connections | Bubble plot: each dot encodes a parent–child connection |
+| ![ATC Heatmap](man/figures/atc-network-heatmap-v2.png) | ![ATC Dot Matrix](man/figures/atc-network-dotmatrix-v2.png) |
+| Therapeutic × pharmacological interaction matrix | Each dot = a parent–child ATC connection |
 
 These networks show how 14 anatomical roots branch into therapeutic subgroups, chemical classes, and 6,982 individual substances — all from a single table of parent–child relationships.
 
