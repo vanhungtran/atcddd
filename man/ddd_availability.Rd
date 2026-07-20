@@ -9,7 +9,7 @@ ddd_availability(data = NULL)
 \arguments{
 \item{data}{Optional pre-loaded DDD data frame (from
 \code{\link{atc_load_db}} or a custom source). If \code{NULL}, the
-bundled database is loaded automatically.}
+cached database is loaded automatically.}
 }
 \value{
 A \link[tibble]{tibble} with columns:

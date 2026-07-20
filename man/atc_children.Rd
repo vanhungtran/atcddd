@@ -10,7 +10,7 @@ atc_children(code, data)
 \item{code}{Character scalar; the ATC parent code.}
 
 \item{data}{Data frame containing at least an \code{atc_code} column
-(e.g. from the bundled WHO CSV or the output of \code{\link[=atc_crawl]{atc_crawl()}}).}
+(e.g. from the output of \code{\link[=atc_crawl]{atc_crawl()}} or the cached CSVs).}
 }
 \value{
 Character vector of child ATC codes, or \code{character(0)} if
@@ -19,7 +19,7 @@ the code is a leaf or not found.
 \description{
 Returns all ATC codes that are immediate children of the given parent
 code. This works offline using any data frame of ATC codes (such as the
-bundled WHO snapshot) — no internet connection is required.
+cached WHO data) — no internet connection is required.
 
 The parent-child relationship follows the natural ATC hierarchy:
 \itemize{
@@ -30,16 +30,17 @@ The parent-child relationship follows the natural ATC hierarchy:
 }
 }
 \examples{
-# Use the bundled WHO snapshot
-data_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-                          package = "atcddd")
-codes <- readr::read_csv(data_path, show_col_types = FALSE)
+\donttest{
+# First download the WHO data, then load it
+atc_download(roots = "N")
+db <- atc_load_db()
 
-# Direct children of statins (C10AA)
-atc_children("C10AA", codes)
+# Direct children of analgesics (N02)
+atc_children("N02", db$codes)
 
 # Direct children of the nervous system group
-atc_children("N", codes)
+atc_children("N", db$codes)
+}
 
 }
 \seealso{

@@ -13,7 +13,7 @@
 <br>
 
 > 🧬 A complete R toolkit for the WHO Anatomical Therapeutic Chemical (ATC) classification system and Defined Daily Doses (DDD).  
-> **Offline drug name resolution · Brand synonyms · Fuzzy matching · DDD computation · Hierarchy navigation · Clinical text extraction**
+> **Download once · Search offline · Brand synonyms · Fuzzy matching · DDD computation · Hierarchy navigation · Clinical text extraction**
 
 ---
 
@@ -23,12 +23,17 @@ Imagine you're a pharmacoepidemiologist with a list of drug names — aspirin, l
 
 ```r
 library(atcddd)
+
+# Step 1: Download the WHO ATC/DDD Index (one-time setup)
+atc_download()
+
+# Step 2: Resolve drug names — instantly, offline
 resolve_atc("aspirin", source = "local")
 ```
 
-And get back: `N02BA01 · acetylsalicylic acid · DDD: 3 g (Oral)` — instantly, offline.
+And get back: `N02BA01 · acetylsalicylic acid · DDD: 3 g (Oral)` — offline, after a single download.
 
-**atcddd** bundles the complete WHO ATC/DDD index (6,982 codes, 6,218 DDD entries) so you can search, resolve, compute, and explore without ever needing an internet connection. It also knows brand names (lipitor → atorvastatin), handles typos (acetominophen → paracetamol), and can compute DDDs from raw prescription data.
+**atcddd** is a crawler, parser, and search toolkit. Download the current WHO ATC/DDD Index (6,982 codes, 6,218 DDD entries) once with `atc_download()`, then search, resolve, compute, and explore without ever needing an internet connection again. It also knows brand names (lipitor → atorvastatin), handles typos (acetominophen → paracetamol), and can compute DDDs from raw prescription data.
 
 ---
 
@@ -37,6 +42,9 @@ And get back: `N02BA01 · acetylsalicylic acid · DDD: 3 g (Oral)` — instantly
 ```r
 remotes::install_github("vanhungtran/atcddd")
 library(atcddd)
+
+# Download the WHO ATC/DDD Index (required one-time step)
+atc_download()
 ```
 
 ---
@@ -109,7 +117,7 @@ The WHO ATC classification organises every drug into a 5-level tree, from broad 
 | 4 · Chemical | `N02BE` | N02BE | Anilides |
 | 5 · Substance | `N02BE01` | N02BE01 | Paracetamol |
 
-**6,982 codes · 6,218 DDD entries** — bundled with the package, crawled fresh from WHO in July 2026.
+**6,982 codes · 6,218 DDD entries** — downloaded on demand with `atc_download()`, cached locally for offline use. Data are crawled from WHO and are current as of your last download.
 
 ---
 
@@ -270,7 +278,7 @@ atc_roots_default()
 ```r
 atc_write_csv(res, dir = "data")         # Export to CSV
 atc_write_manifest(paths)                # SHA256 checksums
-atc_load_db()                            # Load bundled data into memory
+atc_load_db()                            # Load cached data into memory
 ```
 
 </details>
@@ -288,7 +296,7 @@ atc_load_db()                            # Load bundled data into memory
 | **Free-text extraction** | ✅ | ⚠️ limited |
 | **DDD computation** with unit conversion | ✅ | ❌ |
 | **Hierarchy tools** | ✅ | ❌ |
-| **Bundled data** | 6,982 codes | ~620 drugs |
+| **ATC/DDD coverage** | 6,982 codes (downloaded) | ~620 drugs |
 
 ---
 
@@ -331,9 +339,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT
 
 ## 📜 License
 
-**MIT** © 2025 Lucas VHH TRAN. See [LICENSE.md](LICENSE.md).
+**Package source code:** MIT © 2025 Lucas VHH TRAN. See [LICENSE.md](LICENSE.md).
 
-**Data**: WHO ATC/DDD Index © WHO Collaborating Centre for Drug Statistics Methodology. Freely available for non-commercial research. https://atcddd.fhi.no/
+**ATC/DDD data:** © WHO Collaborating Centre for Drug Statistics Methodology. Available from <https://atcddd.fhi.no/> subject to the provider's terms of use. **The data are not distributed with this package.** Users must explicitly retrieve the data via `atc_download()`. Downloaded data retain the original copyright and terms of the WHO Collaborating Centre. See <https://www.whocc.no/use_of_atc_ddd/> for details.
 
 ---
 

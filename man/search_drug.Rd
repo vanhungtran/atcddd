@@ -11,7 +11,7 @@ search_drug(query, data = NULL, max_results = 20L)
 Not case-sensitive. Examples: \code{"aspirin"}, \code{"paracetamol"}, \code{"statin"}.}
 
 \item{data}{Optional data frame to search (from \code{\link[=atc_load_db]{atc_load_db()}} or a
-custom source). If \code{NULL}, the bundled database is loaded automatically.}
+custom source). If \code{NULL}, the cached database is loaded automatically.}
 
 \item{max_results}{Integer; maximum number of results to return.
 Default is 20.}
@@ -21,11 +21,11 @@ A tibble of matching ATC codes and names, sorted by match quality
 (best matches first). Returns a 0-row tibble if no matches are found.
 }
 \description{
-Searches the bundled WHO ATC database for drugs matching a query string.
+Searches the cached WHO ATC database for drugs matching a query string.
 Performs a multi-stage search: exact match → prefix match → substring
 match → word-boundary match. Results are ranked by match quality.
 
-This function works \strong{fully offline} against the bundled data — no
+This function works \strong{fully offline} against the cached data — no
 internet connection is needed once the database is loaded.
 }
 \section{Match Types}{

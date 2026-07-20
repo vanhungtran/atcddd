@@ -220,19 +220,22 @@ critical for reproducible pharmacoepidemiology.
 
 # Offline Data Access
 
-The package bundles WHO ATC/DDD snapshot data that can be loaded without
-an internet connection:
+Download the WHO ATC/DDD Index once, then load from cache for offline use:
 
 ```{r offline_data}
-# Paths to bundled CSV data
-codes_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-                          package = "atcddd")
-ddd_path   <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
-                          package = "atcddd")
+library(atcddd)
 
-# Load into R
-atc_codes <- readr::read_csv(codes_path, show_col_types = FALSE)
-atc_ddd   <- readr::read_csv(ddd_path, show_col_types = FALSE)
+# Download data if not already cached
+tryCatch(
+  atc_load_db(),
+  error = function(e) {
+    message("Downloading WHO ATC/DDD Index (one-time setup)...")
+    atc_download()
+  }
+)
+db <- atc_load_db()
+atc_codes <- db$codes
+atc_ddd   <- db$ddd
 
 # Quick look
 cat(sprintf("ATC codes table: %d rows\n", nrow(atc_codes)))

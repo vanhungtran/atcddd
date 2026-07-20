@@ -53,16 +53,23 @@ library(tidyr)
 
 # Loading the Offline Database
 
-We start with the bundled WHO snapshot so everything works offline:
+First, download the WHO ATC/DDD Index to your local cache (one-time setup),
+then load it into memory:
 
 ```{r load_data}
-codes_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-                          package = "atcddd")
-ddd_path   <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
-                          package = "atcddd")
+library(atcddd)
 
-atc_codes <- readr::read_csv(codes_path, show_col_types = FALSE)
-atc_ddd   <- readr::read_csv(ddd_path, show_col_types = FALSE)
+# Download data if not already cached
+tryCatch(
+  atc_load_db(),
+  error = function(e) {
+    message("Downloading WHO ATC/DDD Index (one-time setup)...")
+    atc_download()
+  }
+)
+db <- atc_load_db()
+atc_codes <- db$codes
+atc_ddd   <- db$ddd
 
 # Add level and parent columns using exported functions
 atc_codes <- atc_codes %>%

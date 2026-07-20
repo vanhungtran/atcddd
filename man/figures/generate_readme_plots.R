@@ -11,15 +11,24 @@ library(scales)
 library(viridisLite)
 devtools::load_all("c:/Users/tranh/OneDrive/Statistics/atcddd", quiet = TRUE)
 
-# ── Load data ──────────────────────────────────────────────────────
-ddd <- readr::read_csv(
-  system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv", package = "atcddd"),
-  show_col_types = FALSE
-)
-cod <- readr::read_csv(
-  system.file("extdata", "WHO_ATC_codes_2026-07-14.csv", package = "atcddd"),
-  show_col_types = FALSE
-)
+# ── Load data from user cache ───────────────────────────────────────
+# This script generates README plots from cached WHO ATC/DDD data.
+# The atcddd package does not distribute WHO data; run atc_download()
+# first to retrieve the index, or place the CSV files in the cache dir.
+cache_dir <- rappdirs::user_cache_dir("atcddd")
+codes_csv <- file.path(cache_dir, "WHO_ATC_codes.csv")
+ddd_csv   <- file.path(cache_dir, "WHO_ATC_DDD.csv")
+
+if (!file.exists(codes_csv) || !file.exists(ddd_csv)) {
+  # Try loading from local inst/extdata/ (development use only)
+  codes_csv <- "inst/extdata/WHO_ATC_codes_2026-07-14.csv"
+  ddd_csv   <- "inst/extdata/WHO_ATC_DDD_2026-07-14.csv"
+}
+
+stopifnot(file.exists(codes_csv), file.exists(ddd_csv))
+
+ddd <- readr::read_csv(ddd_csv, show_col_types = FALSE)
+cod <- readr::read_csv(codes_csv, show_col_types = FALSE)
 
 # ── Rich colour palettes ───────────────────────────────────────────
 # Inspired by Japanese colour harmony principles (saturated, balanced)

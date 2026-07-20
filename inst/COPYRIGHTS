@@ -1,0 +1,35 @@
+# Copyright and Licensing Information for the atcddd Package
+
+## Package Source Code (R/, src/, vignettes/, tests/)
+
+Copyright (c) 2025 Lucas VHH TRAN
+
+The source code of this package is licensed under the MIT License.
+See the LICENSE file for the full license text.
+
+## ATC/DDD Data
+
+The Anatomical Therapeutic Chemical (ATC) classification system and Defined
+Daily Dose (DDD) Index are copyright of the WHO Collaborating Centre for Drug
+Statistics Methodology (Oslo, Norway).
+
+The ATC/DDD data are freely available from the WHO Collaborating Centre's
+website for non-commercial research and educational purposes. The data are
+NOT distributed with this package. Users must explicitly retrieve the data
+using the package's `atc_crawl()` function or download them directly from
+the official source.
+
+**Data source:** ATC/DDD Index, © WHO Collaborating Centre for Drug
+Statistics Methodology. Available from <https://atcddd.fhi.no/> subject to
+the provider's terms of use. The data are not distributed with this package.
+
+Use of the ATC/DDD data is governed by the terms of use published by the
+WHO Collaborating Centre at:
+<https://www.whocc.no/use_of_atc_ddd/>
+
+## Test Fixtures
+
+Synthetic ATC codes and DDD values in `inst/extdata/synthetic_codes.csv`
+and `inst/extdata/synthetic_ddd.csv` are hand-crafted test fixtures created
+by the package authors. They do not contain real WHO data and are covered
+by the package's MIT License.

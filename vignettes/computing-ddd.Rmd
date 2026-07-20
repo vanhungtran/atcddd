@@ -63,24 +63,30 @@ library(dplyr)
 
 # Setup and Data Loading
 
-The package bundles a WHO ATC/DDD snapshot that works completely offline.
-We load it to inspect the reference data before computing.
+Download the WHO ATC/DDD Index to your local cache (one-time setup), then
+load it into memory. Subsequent sessions load from cache without internet:
 
 ```{r load_data}
-codes_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-                          package = "atcddd")
-ddd_path   <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
-                          package = "atcddd")
+library(atcddd)
 
-atc_codes <- readr::read_csv(codes_path, show_col_types = FALSE)
-atc_ddd   <- readr::read_csv(ddd_path, show_col_types = FALSE)
+# Download data if not already cached
+tryCatch(
+  atc_load_db(),
+  error = function(e) {
+    message("Downloading WHO ATC/DDD Index (one-time setup)...")
+    atc_download()
+  }
+)
+db <- atc_load_db()
+atc_codes <- db$codes
+atc_ddd   <- db$ddd
 
-cat(sprintf("Bundled data: %d ATC codes, %d DDD entries",
+cat(sprintf("Cached data: %d ATC codes, %d DDD entries",
             nrow(atc_codes), nrow(atc_ddd)))
 ```
 
-> ⚠️ All code in this vignette evaluates offline — no internet connection
-> is required.
+> Once downloaded, data persist in your local cache. All subsequent analysis
+> works offline.
 
 ---
 
@@ -331,7 +337,7 @@ workflow is:
 ## Step 1: Resolve Drug Names to ATC Codes
 
 Use `resolve_batch()` to convert a list of drug names into ATC codes,
-working entirely offline against the bundled database.
+working entirely offline against the cached database.
 
 ```{r pipeline_resolve}
 drug_names <- c("aspirin", "atorvastatin", "metformin", "atenolol")

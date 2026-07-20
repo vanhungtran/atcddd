@@ -48,3 +48,12 @@ CITATION.cff
 
 # Local generation scripts (not pushed)
 atc_network.R
+bold_plots.R
+fancy_plots.R
+create_logo.R
+_benchmark/
+
+# Claude Code local artifacts (not pushed)
+.claude/
+.codebase-memory/
+docs/superpowers/

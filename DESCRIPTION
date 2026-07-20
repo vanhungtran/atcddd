@@ -7,16 +7,19 @@ Authors@R:
            email = "tranhungydhcm@gmail.com",
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0000-0000-0000"))
-Description: Comprehensive tools for crawling, parsing, and working with the World Health
+Description: Tools for retrieving, parsing, searching, and computing with the World Health
     Organization's Anatomical Therapeutic Chemical (ATC) Classification System
-    and Defined Daily Dose (DDD) Index. Provides robust HTTP retrieval with
-    retries, rate limiting, and filesystem caching; parses hierarchical ATC
-    codes and DDD specifications into tidy tables; generates SHA256 checksums
-    for reproducibility; and exports results to CSV format. Includes offline
-    drug name search and resolution (with brand name synonyms and fuzzy matching),
-    ATC hierarchy navigation, and DDD computation from prescription data. Ideal for
-    pharmacoepidemiology, health services research, drug utilization studies,
-    and clinical data science workflows.
+    and Defined Daily Dose (DDD) Index. Users explicitly download the current
+    index from the WHO Collaborating Centre via atc_download(); data are cached
+    locally for offline use. Provides robust HTTP retrieval with retries, rate
+    limiting, and filesystem caching; parses hierarchical ATC codes and DDD
+    specifications into tidy tables; generates SHA256 checksums for
+    reproducibility; and exports results to CSV format. Includes drug name
+    search and resolution (with brand name synonyms and fuzzy matching),
+    free-text clinical note extraction, ATC hierarchy navigation, and DDD
+    computation from prescription data. The package does not distribute WHO
+    data. Ideal for pharmacoepidemiology, health services research, drug
+    utilization studies, and clinical data science workflows.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -51,3 +54,4 @@ URL: https://vanhungtran.github.io/atcddd, https://github.com/vanhungtran/atcddd
 BugReports: https://github.com/vanhungtran/atcddd/issues
 Language: en-US
 Config/roxygen2/version: 8.0.0
+RoxygenNote: 7.3.3

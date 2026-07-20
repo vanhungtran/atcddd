@@ -11,7 +11,7 @@ ddd_route_comparison(atc_code, data = NULL)
 \code{"N02BE01"} for paracetamol).}
 
 \item{data}{Optional pre-loaded DDD data frame. If \code{NULL}, the
-bundled database is loaded automatically.}
+cached database is loaded automatically.}
 }
 \value{
 A \link[tibble]{tibble} with columns:

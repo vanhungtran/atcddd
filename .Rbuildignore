@@ -18,6 +18,7 @@
 ^README\.Rmd$
 ^Rplots\.pdf$
 ^WHO_ATC_.*\.csv$
+^inst/extdata/WHO_ATC_.*\.csv$
 ^create_logo\.R$
 ^run_install\.R$
 ^cran-comments\.md$

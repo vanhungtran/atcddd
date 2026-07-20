@@ -48,7 +48,8 @@ Propose enhancements via GitHub Issues:
 ### Testing
 
 - All new functionality must include testthat tests
-- Tests must not require network access (use bundled data)
+- Tests must not require network access (use synthetic test fixtures from
+  `inst/extdata/synthetic_codes.csv` and `inst/extdata/synthetic_ddd.csv`)
 - Run `devtools::test()` before submitting
 
 ### Documentation

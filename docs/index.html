@@ -206,39 +206,42 @@ atcddd
 <div class="section level3">
 <h3 id="how-many-drugs-have-a-defined-daily-dose">How many drugs have a Defined Daily Dose?<a class="anchor" aria-label="anchor" href="#how-many-drugs-have-a-defined-daily-dose"></a>
 </h3>
-<p>Not all drugs have DDDs — topicals, ophthalmics, and fixed-dose combinations typically don’t. Systemic drugs like anti-infectives and nervous system agents do. The chart below tells the story:</p>
 <div class="float">
-<img src="reference/figures/readme-ddd-coverage.png" alt="DDD Coverage by Anatomical Group"><div class="figcaption">DDD Coverage by Anatomical Group</div>
+<img src="reference/figures/readme-ddd-coverage-v2.png" alt="DDD Coverage"><div class="figcaption">DDD Coverage</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="which-drugs-actually-have-ddds">Which drugs actually have DDDs?<a class="anchor" aria-label="anchor" href="#which-drugs-actually-have-ddds"></a>
+</h3>
+<div class="float">
+<img src="reference/figures/readme-ddd-waffle.png" alt="DDD Waffle"><div class="figcaption">DDD Waffle</div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="how-the-atc-tree-fans-out">How the ATC tree fans out<a class="anchor" aria-label="anchor" href="#how-the-atc-tree-fans-out"></a>
 </h3>
-<p>From 14 anatomical groups to over 6,000 individual substances — the ATC tree fans out like a pyramid, each level branching into more specific categories:</p>
 <div class="float">
-<img src="reference/figures/readme-atc-pyramid.png" alt="ATC Hierarchy Distribution"><div class="figcaption">ATC Hierarchy Distribution</div>
+<img src="reference/figures/readme-atc-pyramid-v2.png" alt="ATC Pyramid"><div class="figcaption">ATC Pyramid</div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="the-same-drug-different-routes">The same drug, different routes<a class="anchor" aria-label="anchor" href="#the-same-drug-different-routes"></a>
+<h3 id="atc-level-1--level-2-anatomical-to-therapeutic">ATC Level 1 → Level 2: anatomical to therapeutic<a class="anchor" aria-label="anchor" href="#atc-level-1--level-2-anatomical-to-therapeutic"></a>
 </h3>
-<p>DDDs can be dramatically different depending on whether a drug is given orally, by injection, or rectally. These small multiples show 8 drugs with 3+ route-specific DDDs:</p>
 <div class="float">
-<img src="reference/figures/readme-ddd-routes.png" alt="DDD by Route — Small Multiples"><div class="figcaption">DDD by Route — Small Multiples</div>
+<img src="reference/figures/readme-atc-l1l2.png" alt="ATC L1L2"><div class="figcaption">ATC L1L2</div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="ddd-coverage--route-across-all-drug-classes">DDD coverage × route, across all drug classes<a class="anchor" aria-label="anchor" href="#ddd-coverage--route-across-all-drug-classes"></a>
 </h3>
-<p>This heatmap shows a clear pattern: oral and parenteral routes are well-covered across most systemic groups, while topical routes have sparse coverage across the board:</p>
 <div class="float">
-<img src="reference/figures/readme-ddd-heatmap.png" alt="DDD Coverage Heatmap"><div class="figcaption">DDD Coverage Heatmap</div>
+<img src="reference/figures/readme-ddd-heatmap-v2.png" alt="DDD Heatmap"><div class="figcaption">DDD Heatmap</div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="the-atc-hierarchy-as-a-network">The ATC hierarchy as a network<a class="anchor" aria-label="anchor" href="#the-atc-hierarchy-as-a-network"></a>
 </h3>
-<p>Every ATC code is a node in a beautiful bipartite tree. These visualisations — built with the <strong>Repurp</strong> package — show the hierarchy in different styles.</p>
+<p>Every ATC code is a node in a beautiful bipartite tree — from 14 anatomical roots branching into thousands of substances. These visualisations show the hierarchy from multiple angles:</p>
 <p><br></p>
 <table class="table">
 <colgroup>
@@ -246,37 +249,57 @@ atcddd
 <col width="50%">
 </colgroup>
 <thead><tr>
-<th align="center">Cardiovascular System</th>
-<th align="center">All ATC Groups (L1–L4)</th>
+<th align="center">🧬 Hierarchy Fan-out</th>
+<th align="center">📊 Level 1 → Level 2 Distribution</th>
 </tr></thead>
 <tbody>
 <tr>
+<td align="center"><img src="reference/figures/readme-atc-fanout.png" alt="ATC Fanout"></td>
+<td align="center"><img src="reference/figures/readme-atc-treemap.png" alt="ATC Treemap"></td>
+</tr>
+<tr>
+<td align="center">All 5 levels: Anatomical → Substance</td>
+<td align="center">14 groups branch into therapeutic subgroups</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th align="center">💊 Substances per Group</th>
+<th align="center">🔬 Cardiovascular System (igraph)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center"><img src="reference/figures/readme-atc-substances.png" alt="ATC Substances"></td>
 <td align="center"><img src="reference/figures/atc-network-igraph.png" alt="CV igraph"></td>
+</tr>
+<tr>
+<td align="center">Level-5 chemical substances by anatomical group</td>
+<td align="center">830 connections, Fruchterman-Reingold layout</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th align="center">🌐 All ATC Groups (L1–L4)</th>
+<th align="center">🧠 Nervous System (igraph)</th>
+</tr></thead>
+<tbody>
+<tr>
 <td align="center"><img src="reference/figures/atc-network-full.png" alt="Full igraph"></td>
-</tr>
-<tr>
-<td align="center">830 connections, igraph + Fruchterman-Reingold</td>
-<td align="center">445 connections across all 14 anatomical groups</td>
-</tr>
-</tbody>
-</table>
-<table class="table">
-<colgroup>
-<col width="50%">
-<col width="50%">
-</colgroup>
-<thead><tr>
-<th align="center">Nervous System (igraph)</th>
-<th align="center">CV Top Level (ggraph)</th>
-</tr></thead>
-<tbody>
-<tr>
 <td align="center"><img src="reference/figures/atc-network-nervous.png" alt="Nervous igraph"></td>
-<td align="center"><img src="reference/figures/atc-network-ggraph.png" alt="CV ggraph"></td>
 </tr>
 <tr>
+<td align="center">445 connections across all 14 anatomical groups</td>
 <td align="center">787 connections in the nervous system branch</td>
-<td align="center">L1→L2 with publication-quality ggrepel labels</td>
 </tr>
 </tbody>
 </table>
@@ -286,35 +309,41 @@ atcddd
 <col width="50%">
 </colgroup>
 <thead><tr>
-<th align="center">Chord Diagram (circlize)</th>
-<th align="center">Drug × Gene Heatmap</th>
+<th align="center">🫀 CV Top Level</th>
+<th align="center">🎵 ATC Level 1 → Level 2</th>
 </tr></thead>
 <tbody>
 <tr>
-<td align="center"><img src="reference/figures/atc-network-chord.svg" alt="ATC Chord"></td>
-<td align="center"><img src="reference/figures/atc-network-heatmap.png" alt="ATC Heatmap"></td>
+<td align="center"><img src="reference/figures/atc-network-ggraph-v2.png" alt="CV L1L2"></td>
+<td align="center"><img src="reference/figures/atc-network-chord-v2.png" alt="ATC Chord"></td>
 </tr>
 <tr>
-<td align="center">ATC Level 1 → Level 2, circular layout with coloured sectors</td>
-<td align="center">Interaction matrix of 200 therapeutic–chemical connections</td>
+<td align="center">L1→L2: 14 groups → therapeutic subgroups</td>
+<td align="center">Each anatomical group connects to multiple subgroups</td>
 </tr>
 </tbody>
 </table>
 <table class="table">
-<colgroup><col width="100%"></colgroup>
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
 <thead><tr>
-<th align="center">Gene × Drug-Class Dot Matrix</th>
+<th align="center">🔥 Drug × Gene Heatmap</th>
+<th align="center">🫧 Gene × Drug-Class Dot Matrix</th>
 </tr></thead>
 <tbody>
 <tr>
-<td align="center"><img src="reference/figures/atc-network-dotmatrix.png" alt="ATC Dot Matrix"></td>
+<td align="center"><img src="reference/figures/atc-network-heatmap-v2.png" alt="ATC Heatmap"></td>
+<td align="center"><img src="reference/figures/atc-network-dotmatrix-v2.png" alt="ATC Dot Matrix"></td>
 </tr>
 <tr>
-<td align="center">Bubble plot: each dot encodes a parent–child connection, sized by density</td>
+<td align="center">Therapeutic × pharmacological interaction matrix</td>
+<td align="center">Each dot = a parent–child ATC connection</td>
 </tr>
 </tbody>
 </table>
-<p>These networks show how 14 anatomical roots branch into therapeutic subgroups, chemical classes, and thousands of individual drugs — from a single table of parent–child relationships.</p>
+<p>These networks show how 14 anatomical roots branch into therapeutic subgroups, chemical classes, and 6,982 individual substances — all from a single table of parent–child relationships.</p>
 <hr>
 </div>
 </div>

@@ -12,7 +12,7 @@
 #' @description
 #' Returns all ATC codes that are immediate children of the given parent
 #' code. This works offline using any data frame of ATC codes (such as the
-#' bundled WHO snapshot) — no internet connection is required.
+#' cached WHO data) — no internet connection is required.
 #'
 #' The parent-child relationship follows the natural ATC hierarchy:
 #' \itemize{
@@ -24,21 +24,22 @@
 #'
 #' @param code Character scalar; the ATC parent code.
 #' @param data Data frame containing at least an `atc_code` column
-#'   (e.g. from the bundled WHO CSV or the output of [atc_crawl()]).
+#'   (e.g. from the output of [atc_crawl()] or the cached CSVs).
 #' @return Character vector of child ATC codes, or `character(0)` if
 #'   the code is a leaf or not found.
 #'
 #' @examples
-#' # Use the bundled WHO snapshot
-#' data_path <- system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-#'                           package = "atcddd")
-#' codes <- readr::read_csv(data_path, show_col_types = FALSE)
+#' \donttest{
+#' # First download the WHO data, then load it
+#' atc_download(roots = "N")
+#' db <- atc_load_db()
 #'
-#' # Direct children of statins (C10AA)
-#' atc_children("C10AA", codes)
+#' # Direct children of analgesics (N02)
+#' atc_children("N02", db$codes)
 #'
 #' # Direct children of the nervous system group
-#' atc_children("N", codes)
+#' atc_children("N", db$codes)
+#' }
 #'
 #' @seealso [atc_descendants()], [atc_parent()], [atc_level()]
 #' @export
@@ -84,17 +85,15 @@ atc_children <- function(code, data) {
 #'
 #' @examples
 #' \donttest{
-#' codes <- readr::read_csv(
-#'   system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-#'               package = "atcddd"),
-#'   show_col_types = FALSE
-#' )
+#' # First download the WHO data, then load it
+#' atc_download(roots = c("C", "N"))
+#' db <- atc_load_db()
 #'
-#' # All substances under the statin chemical class
-#' atc_descendants("C10AA", codes)
+#' # All codes under the cardiovascular group
+#' atc_descendants("C", db$codes)
 #'
-#' # All codes under the cardiovascular group, stopping at Level 4
-#' atc_descendants("C", codes, max_level = 4)
+#' # All codes under the nervous system group, stopping at Level 4
+#' atc_descendants("N", db$codes, max_level = 4)
 #' }
 #'
 #' @seealso [atc_children()], [atc_parent()]

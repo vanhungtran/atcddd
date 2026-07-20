@@ -1,0 +1,7 @@
+source_code,atc_code,atc_name,ddd,uom,adm_r,note
+X01AA,X01AA01,testolone,1.0,g,O,
+X01AA,X01AA01,testolone,0.5,g,P,
+X01AA,X01AA02,fictimab,10,mg,O,
+X01AB,X01AB01,placebomab,20,mg,O,
+X02AA,X02AA01,examplavir,200,mg,O,
+X02AA,X02AA02,trialzumab,50,mg,O,

@@ -2,33 +2,52 @@
 % Please edit documentation in R/search.R
 \name{atc_load_db}
 \alias{atc_load_db}
-\title{Load the bundled WHO ATC database into memory}
+\title{Load Cached WHO ATC/DDD Data into Memory}
 \usage{
 atc_load_db(refresh = FALSE)
 }
 \arguments{
-\item{refresh}{Logical; if \code{TRUE}, reloads the database even if already
-cached. Default is \code{FALSE}.}
+\item{refresh}{Logical; if \code{TRUE}, reloads the database from
+the cache directory even if already in memory. Default is \code{FALSE}.}
 }
 \value{
 Invisibly returns a list with \code{codes} and \code{ddd} tibbles.
 }
 \description{
-Loads the bundled WHO ATC/DDD CSV files into an in-memory cache, making
-subsequent \code{\link[=search_drug]{search_drug()}}, \code{\link[=fuzzy_match_drug]{fuzzy_match_drug()}}, and \code{\link[=resolve_atc]{resolve_atc()}}
-calls fast and offline-capable.
+Loads locally cached WHO ATC/DDD data into memory, making subsequent
+\code{\link[=search_drug]{search_drug()}}, \code{\link[=fuzzy_match_drug]{fuzzy_match_drug()}}, and \code{\link[=resolve_atc]{resolve_atc()}} calls fast
+and offline-capable.
 
-Call this once at the start of your session (or let search functions
-call it automatically on first use). Set \code{refresh = TRUE} to force
-a reload.
+\strong{The atcddd package does not ship with WHO data.} You must first
+download it using \code{\link[=atc_download]{atc_download()}}, which retrieves the current
+ATC/DDD Index from the WHO Collaborating Centre and stores it in
+your local user-cache directory. Once downloaded, the data persist
+across R sessions.
+
+Call \code{atc_load_db()} at the start of your session (or let
+search functions call it automatically on first use).
 }
+\section{Data Copyright}{
+
+\strong{Data source:} ATC/DDD Index, © WHO Collaborating Centre for Drug
+Statistics Methodology. Available from \url{https://atcddd.fhi.no/}
+subject to the provider's terms of use. The data are not distributed
+with this package. See \url{https://www.whocc.no/use_of_atc_ddd/}.
+}
+
 \examples{
+\dontrun{
+# First time: download the data
+atc_download()
+
+# Subsequent sessions: load from cache
 atc_load_db()
 
-# Force reload
-atc_load_db(refresh = TRUE)
+search_drug("aspirin")
+}
 
 }
 \seealso{
+\code{\link[=atc_download]{atc_download()}} to fetch the data from WHO,
 \code{\link[=search_drug]{search_drug()}}, \code{\link[=fuzzy_match_drug]{fuzzy_match_drug()}}, \code{\link[=resolve_atc]{resolve_atc()}}
 }

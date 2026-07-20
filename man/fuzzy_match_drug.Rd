@@ -9,7 +9,7 @@ fuzzy_match_drug(query, data = NULL, max_distance = 3L, max_results = 10L)
 \arguments{
 \item{query}{Character scalar; the drug name to match.}
 
-\item{data}{Optional data frame to search. If \code{NULL}, loads the bundled database.}
+\item{data}{Optional data frame to search. If \code{NULL}, loads the cached database.}
 
 \item{max_distance}{Integer; maximum allowed Levenshtein distance.
 Lower values are stricter. Default is 3.}
@@ -24,7 +24,7 @@ Levenshtein distance to each match.
 \description{
 Finds ATC codes for drug names that may be misspelled, abbreviated, or
 use non-standard formatting. Uses Levenshtein (edit) distance via
-\code{utils::adist()} to find close matches in the bundled WHO database.
+\code{utils::adist()} to find close matches in the cached WHO database.
 
 This is useful when:
 \itemize{

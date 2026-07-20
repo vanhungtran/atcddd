@@ -26,17 +26,15 @@ codes.
 }
 \examples{
 \donttest{
-codes <- readr::read_csv(
-  system.file("extdata", "WHO_ATC_codes_2026-07-14.csv",
-              package = "atcddd"),
-  show_col_types = FALSE
-)
+# First download the WHO data, then load it
+atc_download(roots = c("C", "N"))
+db <- atc_load_db()
 
-# All substances under the statin chemical class
-atc_descendants("C10AA", codes)
+# All codes under the cardiovascular group
+atc_descendants("C", db$codes)
 
-# All codes under the cardiovascular group, stopping at Level 4
-atc_descendants("C", codes, max_level = 4)
+# All codes under the nervous system group, stopping at Level 4
+atc_descendants("N", db$codes, max_level = 4)
 }
 
 }

@@ -6,7 +6,7 @@
 \usage{
 resolve_atc(
   query,
-  source = c("hybrid", "local", "live"),
+  source = c("hybrid", "local", "live", "rxnorm"),
   data = NULL,
   fuzzy = TRUE,
   rate_limit = 0.5
@@ -18,13 +18,13 @@ Case-insensitive. Examples: \code{"aspirin"}, \code{"atorvastatin"}.}
 
 \item{source}{Character; resolution strategy:
 \itemize{
-\item \code{"local"} — bundled database only (offline, fast)
+\item \code{"local"} — cached database only (offline, fast)
 \item \code{"live"} — WHO website only (always up-to-date, requires internet)
 \item \code{"hybrid"} — try local first, fall back to live (default)
 }}
 
 \item{data}{Optional data frame for local search. If \code{NULL}, auto-loads
-the bundled database.}
+the cached database.}
 
 \item{fuzzy}{Logical; if \code{TRUE} and the exact lookup fails, fall back
 to fuzzy matching before trying live resolution. Default is \code{TRUE}.}
@@ -45,7 +45,7 @@ Returns a 0-row tibble if the drug cannot be resolved.
 }
 \description{
 The primary drug-name resolution function. Tries to find the ATC code
-for a given drug name by searching the bundled local database first,
+for a given drug name by searching the cached local database first,
 then optionally falling back to a live WHO crawl if the drug is not
 found locally.
 

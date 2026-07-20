@@ -9,11 +9,11 @@
 
 # ---- Internal helpers ----
 
-#' Load the bundled WHO DDD data into memory
+#' Load cached WHO DDD data into memory
 #'
 #' @param data Optional pre-loaded DDD data frame. If \code{NULL}, loads
-#'   from the in-memory cache (via \code{\link{atc_load_db}}) or the bundled
-#'   CSV file.
+#'   from the in-memory cache (populated by \code{\link{atc_load_db}} or
+#'   \code{\link{atc_download}}) or directly from the user-cache CSV.
 #' @return A tibble of DDD definitions with a \code{ddd_numeric} column.
 #' @keywords internal
 .load_ddd_data <- function(data = NULL) {
@@ -26,19 +26,20 @@
     return(data)
   }
 
-  # Try in-memory cache first
+  # Try in-memory cache first (populated by atc_load_db)
   if (!is.null(.atc_search_env$ddd)) {
     return(.atc_search_env$ddd)
   }
 
-  # Fall back to loading the bundled CSV
-  ddd_path <- system.file("extdata", "WHO_ATC_DDD_2026-07-14.csv",
-                           package = "atcddd")
+  # Try loading from user-cache CSVs
+  ddd_path <- file.path(atc_cache_dir(), "WHO_ATC_DDD.csv")
 
   if (!file.exists(ddd_path)) {
-    cli::cli_abort(paste(
-      "Bundled WHO DDD data not found at {.path {ddd_path}}.",
-      "Reinstall the package or run {.fun atc_load_db} first."
+    cli::cli_abort(c(
+      "x" = "No cached ATC/DDD data found at {.path {ddd_path}}.",
+      "i" = "The {.pkg atcddd} package does not ship with WHO data.",
+      "i" = "Run {.fun atc_download} first to retrieve the current",
+      "    WHO ATC/DDD Index to your local cache."
     ))
   }
 
@@ -468,7 +469,7 @@ compute_did <- function(ddd_data, population, days) {
 #'
 #' @param data Optional pre-loaded DDD data frame (from
 #'   \code{\link{atc_load_db}} or a custom source). If \code{NULL}, the
-#'   bundled database is loaded automatically.
+#'   cached database is loaded automatically.
 #'
 #' @return A \link[tibble]{tibble} with columns:
 #'   \describe{
@@ -549,7 +550,7 @@ ddd_availability <- function(data = NULL) {
 #' @param atc_code A single ATC code (character string, e.g.
 #'   \code{"N02BE01"} for paracetamol).
 #' @param data Optional pre-loaded DDD data frame. If \code{NULL}, the
-#'   bundled database is loaded automatically.
+#'   cached database is loaded automatically.
 #'
 #' @return A \link[tibble]{tibble} with columns:
 #'   \describe{

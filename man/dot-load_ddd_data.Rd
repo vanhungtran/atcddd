@@ -2,19 +2,19 @@
 % Please edit documentation in R/compute.R
 \name{.load_ddd_data}
 \alias{.load_ddd_data}
-\title{Load the bundled WHO DDD data into memory}
+\title{Load cached WHO DDD data into memory}
 \usage{
 .load_ddd_data(data = NULL)
 }
 \arguments{
 \item{data}{Optional pre-loaded DDD data frame. If \code{NULL}, loads
-from the in-memory cache (via \code{\link{atc_load_db}}) or the bundled
-CSV file.}
+from the in-memory cache (populated by \code{\link{atc_load_db}} or
+\code{\link{atc_download}}) or directly from the user-cache CSV.}
 }
 \value{
 A tibble of DDD definitions with a \code{ddd_numeric} column.
 }
 \description{
-Load the bundled WHO DDD data into memory
+Load cached WHO DDD data into memory
 }
 \keyword{internal}

@@ -35,6 +35,9 @@ citEntry(
   )
 )
 
-citFooter("The WHO ATC/DDD data is copyright of the WHO Collaborating Centre
-for Drug Statistics Methodology. If using the WHO data, please also cite:
-https://www.whocc.no/use_of_atc_ddd/")
+citFooter(paste(
+  "Data source: ATC/DDD Index, (c) WHO Collaborating Centre for Drug",
+  "Statistics Methodology. Available from https://atcddd.fhi.no/ subject",
+  "to the provider's terms of use. The data are not distributed with this",
+  "package. See https://www.whocc.no/use_of_atc_ddd/ for citation guidance."
+))

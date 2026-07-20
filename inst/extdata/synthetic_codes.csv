@@ -1,0 +1,14 @@
+atc_code,atc_name
+X,SYNTHETIC TEST DRUGS — NOT WHO DATA
+X01,TEST THERAPEUTIC GROUP
+X01A,TEST PHARMACOLOGICAL SUBGROUP
+X01AA,Test chemical subgroup
+X01AA01,testolone
+X01AA02,fictimab
+X01AB,Other test subgroup
+X01AB01,placebomab
+X02,ANOTHER TEST GROUP
+X02A,TEST SUBGROUP
+X02AA,Test chemical class
+X02AA01,examplavir
+X02AA02,trialzumab

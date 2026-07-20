@@ -16,7 +16,7 @@ there are several functions that go from drug *name* → ATC code:
 
 - **`resolve_atc("aspirin")`** — the main one. Give it a drug name, get
   back the ATC code, official WHO name, and DDD information. It works
-  fully offline against the bundled WHO database, so it’s instant and
+  fully offline against the cached WHO database, so it’s instant and
   needs no internet. It also knows common brand names (e.g., “lipitor” →
   atorvastatin, “tylenol” → paracetamol).
 

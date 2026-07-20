@@ -34,7 +34,13 @@ pharmaceutical substances. Key capabilities:
 
 ### Data licensing note
 
-The bundled WHO data files are freely available for non-commercial use from
-the WHO Collaborating Centre for Drug Statistics Methodology
-(https://atcddd.fhi.no/). They are redistributed under the same terms.
-A CITATION file with attribution is included.
+This package does **not** distribute WHO ATC/DDD data. Users retrieve the
+data themselves via `atc_download()`, which downloads from the WHO
+Collaborating Centre for Drug Statistics Methodology
+(https://atcddd.fhi.no/) and caches it locally. Downloaded data retain the
+original WHO copyright and terms of use.
+
+**Data source:** ATC/DDD Index, © WHO Collaborating Centre for Drug
+Statistics Methodology. Available from <https://atcddd.fhi.no/> subject to
+the provider's terms of use. The data are not distributed with this package.
+See `inst/COPYRIGHTS` for details.
